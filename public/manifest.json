@@ -1,0 +1,17 @@
+{
+  "name": "موسوعة المحاسبة",
+  "short_name": "المحاسبة",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0b1120",
+  "theme_color": "#10b981",
+  "description": "موسوعة المحاسبة الشاملة والمصطلحات والقيود اليومية",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+.templates-hero {
+  background: linear-gradient(135deg, #0B172A 0%, #115E59 100%);
+  padding: 4rem 0;
+  border-bottom: 4px solid var(--primary-accent);
+}
+
+.templates-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.templates-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Filter Sidebar */
+.filter-widget {
+  padding: 1.5rem;
+  position: sticky;
+  top: 100px;
+}
+

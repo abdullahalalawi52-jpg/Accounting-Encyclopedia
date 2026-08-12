@@ -1,0 +1,55 @@
+.search-results-page {
+  padding: 4rem 0;
+  min-height: 80vh;
+}
+
+.search-query-highlight {
+  color: var(--primary-accent);
+}
+
+.results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.result-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.result-card:hover {
+  border-color: var(--primary-accent);
+  background: rgba(16, 185, 129, 0.05);
+  transform: translateX(-5px); /* since it's RTL */
+}
+
+.result-card h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.result-type-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,96 @@
+.calculators-page {
+  padding: 6rem 0 4rem 0;
+  min-height: 80vh;
+}
+
+.calc-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.calc-tab {
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.calc-tab:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.calc-tab.active {
+  background: var(--primary-accent);
+  color: white;
+  border-color: var(--primary-accent);
+}
+
+.calc-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.calc-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-accent);
+}
+
+.calc-input-group {
+  margin-bottom: 1.5rem;
+}
+
+.calc-input-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.calc-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.calc-input:focus {
+  outline: none;
+  border-color: var(--primary-accent);
+}
+
+.calc-result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid var(--primary-accent);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.calc-result h3 {
+  color: var(--primary-accent);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.calc-result .amount {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
