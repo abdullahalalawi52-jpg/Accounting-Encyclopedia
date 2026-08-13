@@ -34,8 +34,8 @@ export function useNewsAPI() {
     };
 
     const fetchNews = async () => {
-      if (API_KEY === 'YOUR_API_KEY_HERE') {
-        console.warn('API Key is missing. Using local fallback data.');
+      if (API_KEY === 'YOUR_API_KEY_HERE' || API_KEY === '1f3a616196d4a6ae4e4404b87777eeae') {
+        console.warn('API Key is missing or rate-limited. Using local fallback data.');
         return fetchFallback();
       }
 
