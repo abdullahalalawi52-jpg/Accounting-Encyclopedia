@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Bookmark, Trash2, ArrowRight } from 'lucide-react';
 import { useData } from '../hooks/useData.js';
@@ -5,6 +6,9 @@ import { useBookmarks } from '../context/BookmarkContext.jsx';
 import './Bookmarks.css';
 
 function Bookmarks() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   const { bookmarks: savedIds, removeBookmark } = useBookmarks();
   
   const { data: articlesData, loading } = useData('/data/articles.json');
@@ -24,7 +28,7 @@ function Bookmarks() {
 
         {loading ? (
           <div className="text-center py-10">
-            <h2 style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>جاري تحميل المقالات...</h2>
+            <h2 style={{ fontSize: '1.2rem', color: 'var(--text-secondary)' }}>{isEn ? 'Loading articles...' : 'جاري تحميل المقالات...'}</h2>
           </div>
         ) : savedIds.length > 0 ? (
           <div className="bookmarks-grid">

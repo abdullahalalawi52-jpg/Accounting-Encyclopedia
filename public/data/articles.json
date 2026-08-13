@@ -8,9 +8,14 @@
     "date": "10 أكتوبر 2026",
     "content": "\n      <h2>تعريف الميزانية العمومية (Balance Sheet)</h2>\n      <p>تُعد <strong>الميزانية العمومية</strong> (أو قائمة المركز المالي) بمثابة صورة فوتوغرافية توضح الوضع المالي للشركة في لحظة زمنية محددة. وهي توفر رؤية شاملة لصناع القرار حول سيولة الشركة، قدرتها على السداد، ومقدار اعتمادها على التمويل الخارجي (الديون).</p>\n      \n      <h3>المعادلة المحاسبية الأساسية</h3>\n      <p>لا بد أن تكون الميزانية متوازنة دائماً، وذلك بناءً على المعادلة المحاسبية التالية:</p>\n      <div class=\"highlight-box\">\n        <strong>الأصول = الخصوم + حقوق الملكية</strong>\n      </div>\n      \n      <h3>مكونات الميزانية العمومية</h3>\n      <ul>\n        <li><strong>الأصول (Assets):</strong> كل ما تمتلكه الشركة وله قيمة اقتصادية.\n          <ul>\n            <li><em>الأصول المتداولة:</em> موارد يمكن تسييلها خلال سنة (مثل النقدية، المخزون، الحسابات المدينة).</li>\n            <li><em>الأصول غير المتداولة:</em> استثمارات وموارد تستخدم لأكثر من سنة (مثل الأراضي، المباني، المعدات).</li>\n          </ul>\n        </li>\n        <li><strong>الخصوم (Liabilities):</strong> الالتزامات والديون المستحقة على الشركة للغير.\n          <ul>\n            <li><em>الخصوم المتداولة:</em> ديون يجب سدادها خلال عام (كالحسابات الدائنة).</li>\n            <li><em>الخصوم غير المتداولة:</em> التزامات طويلة الأجل تمتد لأكثر من عام (مثل السندات).</li>\n          </ul>\n        </li>\n        <li><strong>حقوق الملكية (Equity):</strong> صافي قيمة الشركة التي تعود للمساهمين بعد سداد الخصوم، وتتضمن رأس المال والأرباح المحتجزة التي ترحل من <em>قائمة الدخل</em>.</li>\n      </ul>\n\n      <h3>الفرق بين الميزانية العمومية وقائمة الدخل</h3>\n      <p>كثيراً ما يحدث خلط بين القائمتين، لكن الجدول التالي يوضح الفرق الجوهري بينهما:</p>\n      <table>\n        <thead>\n          <tr>\n            <th>وجه المقارنة</th>\n            <th>الميزانية العمومية</th>\n            <th>قائمة الدخل</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><strong>الهدف الأساسي</strong></td>\n            <td>بيان المركز المالي (ما تملكه الشركة وما عليها).</td>\n            <td>قياس الأداء المالي (الربح أو الخسارة).</td>\n          </tr>\n          <tr>\n            <td><strong>الفترة الزمنية</strong></td>\n            <td>صورة لحظية (في تاريخ محدد).</td>\n            <td>تغطي فترة زمنية كاملة (سنة أو ربع سنة).</td>\n          </tr>\n          <tr>\n            <td><strong>المكونات</strong></td>\n            <td>الأصول، الخصوم، حقوق الملكية.</td>\n            <td>الإيرادات، المصروفات.</td>\n          </tr>\n        </tbody>\n      </table>\n\n      <h3>مثال مبسط</h3>\n      <p>إذا كانت شركة تمتلك نقداً بقيمة 50 ألف دولار وبضاعة بقيمة 30 ألف دولار (إجمالي الأصول = 80 ألف دولار). وكان عليها ديون للموردين بقيمة 20 ألف دولار (خصوم). فإن حقوق الملكية تساوي 60 ألف دولار. وبذلك يتحقق التوازن!</p>\n    ",
     "summary": "تعرف على أساسيات الميزانية العمومية وأهميتها في تحديد المركز المالي.",
-    "image": ""/images/placeholder.svg",
+    "image": "/images/articles/art1.png",
     "time": "5 دقائق قراءة",
-    "isFeatured": true
+    "isFeatured": true,
+    "categoryName_en": "Financial Accounting",
+    "title_en": "What is a Balance Sheet?",
+    "summary_en": "تعرف على أساسيات الميزانية العمومية وأهميتها في تحديد المركز المالي.",
+    "time_en": "5 min read",
+    "content_en": "<h2>What is a Balance Sheet?</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 2,
@@ -21,9 +26,14 @@
     "date": "12 أكتوبر 2026",
     "content": "\n      <h2>تعريف قائمة الدخل (Income Statement)</h2>\n      <p>تُعد <strong>قائمة الدخل</strong> (أو بيان الأرباح والخسائر) من أهم القوائم المالية الأساسية. تهدف إلى توضيح الأداء المالي للشركة خلال فترة زمنية محددة (مثل ربع سنة أو سنة كاملة)، وذلك من خلال عرض الإيرادات المحققة وخصم المصروفات منها للوصول إلى النتيجة النهائية: <strong>صافي الربح أو الخسارة</strong>.</p>\n      \n      <h3>المعادلة الأساسية لقائمة الدخل</h3>\n      <div class=\"highlight-box\">\n        <strong>صافي الدخل = الإيرادات - المصروفات</strong>\n      </div>\n\n      <h3>مكونات قائمة الدخل (هيكل الخطوات المتعددة)</h3>\n      <ul>\n        <li><strong>1. الإيرادات (Revenues):</strong> الأموال الناتجة عن ممارسة النشاط الرئيسي للمنشأة (المبيعات).</li>\n        <li><strong>2. تكلفة البضاعة المباعة (COGS):</strong> التكاليف المباشرة المرتبطة بإنتاج السلع (مثل المواد الخام).</li>\n        <li><strong>3. مجمل الربح (Gross Profit):</strong> هو ناتج (الإيرادات - تكلفة البضاعة المباعة).</li>\n        <li><strong>4. المصروفات التشغيلية (Operating Expenses):</strong> التكاليف اليومية للإدارة مثل الرواتب، الإيجارات، والتسويق.</li>\n        <li><strong>5. الربح التشغيلي (Operating Profit):</strong> ناتج (مجمل الربح - المصروفات التشغيلية).</li>\n        <li><strong>6. الإيرادات/المصروفات غير التشغيلية:</strong> مثل الفوائد البنكية، أو الأرباح الناتجة عن بيع أصول.</li>\n        <li><strong>7. صافي الربح (Net Income):</strong> النتيجة النهائية بعد خصم كافة المصروفات والضرائب.</li>\n      </ul>\n\n      <h3>أهمية قائمة الدخل</h3>\n      <p>تعتبر هذه القائمة المقياس الحقيقي لمدى كفاءة الشركة في إدارة عملياتها وتحقيق الأرباح. بناءً عليها يتخذ المستثمرون قراراتهم بضخ الأموال، وتستند إليها البنوك لتقييم الجدارة الائتمانية للشركة.</p>\n    ",
     "summary": "كيفية قراءة قائمة الدخل ومعرفة صافي الربح أو الخسارة.",
-    "image": ""/images/placeholder.svg",
+    "image": "/images/articles/art2.png",
     "time": "8 دقائق قراءة",
-    "isFeatured": true
+    "isFeatured": true,
+    "categoryName_en": "Financial Accounting",
+    "title_en": "Income Statement Explained",
+    "summary_en": "كيفية قراءة قائمة الدخل ومعرفة صافي الربح أو الخسارة.",
+    "time_en": "8 min read",
+    "content_en": "<h2>Income Statement Explained</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 3,
@@ -34,9 +44,14 @@
     "date": "15 أكتوبر 2026",
     "content": "\n      <h2>ما هي نقطة التعادل؟ (Break-Even Point)</h2>\n      <p><strong>نقطة التعادل</strong> هي النقطة التي تتساوى فيها إجمالي الإيرادات مع إجمالي التكاليف (الثابتة والمتغيرة). عند هذه النقطة، لا تحقق الشركة أي ربح ولا تتعرض لأي خسارة (الربح = صفر).</p>\n      \n      <h3>أهمية تحليل نقطة التعادل</h3>\n      <ul>\n        <li>يساعد الإدارة في تحديد <strong>الحد الأدنى للمبيعات</strong> المطلوب لتجنب الخسائر.</li>\n        <li>يساهم في <strong>تسعير المنتجات</strong> بشكل صحيح لضمان تغطية التكاليف.</li>\n        <li>يُستخدم لتقييم جدوى المشاريع الجديدة وتحديد مدى المخاطرة.</li>\n      </ul>\n\n      <h3>كيف يتم حساب نقطة التعادل؟</h3>\n      <p>لحساب نقطة التعادل بالوحدات (أي كم عدد المنتجات التي يجب بيعها لتغطية التكاليف)، نستخدم المعادلة التالية:</p>\n      <div class=\"highlight-box\">\n        <strong>نقطة التعادل (بالوحدات) = التكاليف الثابتة ÷ (سعر بيع الوحدة - التكلفة المتغيرة للوحدة)</strong>\n      </div>\n\n      <h3>مفاهيم هامة في المعادلة</h3>\n      <ul>\n        <li><strong>التكاليف الثابتة:</strong> التكاليف التي لا تتغير بتغير حجم الإنتاج (مثل الإيجار، رواتب الإدارة).</li>\n        <li><strong>التكلفة المتغيرة:</strong> التكاليف التي تزيد أو تنقص بناءً على حجم الإنتاج (مثل المواد الخام).</li>\n        <li><strong>هامش المساهمة (Contribution Margin):</strong> هو الفرق بين سعر بيع الوحدة والتكلفة المتغيرة للوحدة. ويمثل المبلغ الذي يساهم في تغطية التكاليف الثابتة وتحقيق الربح.</li>\n      </ul>\n      \n      <h3>مثال عملي</h3>\n      <p>شركة لديها تكاليف ثابتة بقيمة 10,000 دولار. تبيع منتجها بسعر 50 دولار، وتكلفة إنتاج هذا المنتج (متغيرة) هي 30 دولار.</p>\n      <p>نقطة التعادل = 10,000 ÷ (50 - 30) = 10,000 ÷ 20 = <strong>500 وحدة</strong>.</p>\n      <p>إذن، يجب على الشركة بيع 500 وحدة لتغطية كافة تكاليفها. أي وحدة تُباع بعد الـ 500 ستحقق ربحاً صافياً قدره 20 دولاراً للشركة.</p>\n    ",
     "summary": "كيف تحسب نقطة التعادل لاتخاذ قرارات تسعير صحيحة.",
-    "image": ""/images/placeholder.svg",
+    "image": "/images/articles/art3.png",
     "time": "4 دقائق قراءة",
-    "isFeatured": true
+    "isFeatured": true,
+    "categoryName_en": "Managerial Accounting",
+    "title_en": "Break-Even Point Analysis",
+    "summary_en": "كيف تحسب نقطة التعادل لاتخاذ قرارات تسعير صحيحة.",
+    "time_en": "4 min read",
+    "content_en": "<h2>Break-Even Point Analysis</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 4,
@@ -47,9 +62,14 @@
     "date": "18 أكتوبر 2026",
     "content": "\n      <h2>مقدمة في المراجعة (التدقيق)</h2>\n      <p>تعتبر المراجعة بنوعيها الداخلي والخارجي صمام الأمان للشركات، حيث تهدف إلى التأكد من دقة المعلومات المالية وسلامة العمليات التشغيلية، ومطابقتها للقوانين والأنظمة. ومع ذلك، هناك فروق جوهرية بينهما من حيث الهدف والتبعية والتقارير.</p>\n      \n      <h3>المراجعة الداخلية (Internal Audit)</h3>\n      <p>هي وظيفة تقييمية مستقلة يتم إنشاؤها <strong>داخل المنشأة</strong> لمراجعة وتقييم أنشطتها. تهدف أساساً إلى خدمة الإدارة (مجلس الإدارة والمديرين التنفيذيين).</p>\n      <ul>\n        <li><strong>التبعية:</strong> المراجع الداخلي هو <em>موظف</em> في الشركة، ويتبع عادة للجنة المراجعة المنبثقة من مجلس الإدارة لضمان استقلاليته عن الإدارة التنفيذية.</li>\n        <li><strong>الهدف:</strong> تقييم كفاءة الرقابة الداخلية، تحسين العمليات، إدارة المخاطر، والتأكد من الالتزام بالسياسات الداخلية.</li>\n        <li><strong>نطاق العمل:</strong> شامل للمجالات المالية والتشغيلية والإدارية.</li>\n      </ul>\n\n      <h3>المراجعة الخارجية (External Audit)</h3>\n      <p>هي فحص واختبار للقوائم المالية للشركة بواسطة <strong>جهة مستقلة خارجية</strong> (مكتب محاسبة قانونية) لإبداء رأي فني ومحايد حول مدى عدالة هذه القوائم.</p>\n      <ul>\n        <li><strong>التبعية:</strong> المراجع الخارجي هو <em>طرف ثالث مستقل</em>، يتم تعيينه من قبل المساهمين (الجمعية العمومية) ولا يخضع لسلطة إدارة الشركة.</li>\n        <li><strong>الهدف:</strong> إبداء الرأي حول ما إذا كانت القوائم المالية تعبر بصدق وعدالة عن المركز المالي للشركة وفقاً للمعايير المحاسبية (مثل IFRS أو GAAP)، وذلك لخدمة الأطراف الخارجية كالمستثمرين والبنوك والجهات الحكومية.</li>\n        <li><strong>نطاق العمل:</strong> يركز بشكل أساسي على القوائم المالية والسجلات المحاسبية.</li>\n      </ul>\n\n      <h3>جدول مقارنة سريع</h3>\n      <table>\n        <thead>\n          <tr>\n            <th>وجه المقارنة</th>\n            <th>المراجع الداخلي</th>\n            <th>المراجع الخارجي</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><strong>المستفيد الرئيسي</strong></td>\n            <td>الإدارة ومجلس الإدارة</td>\n            <td>المساهمون والأطراف الخارجية</td>\n          </tr>\n          <tr>\n            <td><strong>توقيت العمل</strong></td>\n            <td>مستمر طوال العام</td>\n            <td>فترات محددة (غالباً نهاية السنة المالية)</td>\n          </tr>\n          <tr>\n            <td><strong>مخرجات العمل</strong></td>\n            <td>تقارير داخلية لتحسين الأداء</td>\n            <td>تقرير المراجعة (رأي معتمد للقوائم المالية)</td>\n          </tr>\n        </tbody>\n      </table>\n    ",
     "summary": "مقارنة شاملة بين دور المراجع الداخلي والمراجع الخارجي.",
-    "image": ""/images/placeholder.svg",
+    "image": "/images/articles/art4.png",
     "time": "6 دقائق قراءة",
-    "isFeatured": true
+    "isFeatured": true,
+    "categoryName_en": "Auditing",
+    "title_en": "Internal vs External Audit",
+    "summary_en": "مقارنة شاملة بين دور المراجع الداخلي والمراجع الخارجي.",
+    "time_en": "6 min read",
+    "content_en": "<h2>Internal vs External Audit</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 5,
@@ -60,9 +80,14 @@
     "date": "20 أكتوبر 2026",
     "content": "\n      <h2>ما هي ضريبة القيمة المضافة؟</h2>\n      <p><strong>ضريبة القيمة المضافة (VAT)</strong> هي ضريبة غير مباشرة تُفرض على جميع السلع والخدمات التي يتم شراؤها وبيعها من قبل الشركات، مع بعض الاستثناءات. تُفرض هذه الضريبة في كل مرحلة من مراحل سلسلة التوريد، من الإنتاج وحتى البيع النهائي.</p>\n      \n      <h3>كيفية حساب ضريبة القيمة المضافة</h3>\n      <p>تقوم الشركة بتحصيل الضريبة من المستهلك النهائي نيابة عن الحكومة، ولكنها تستطيع استرداد الضريبة التي دفعتها على مشترياتها (المدخلات).</p>\n      <div class=\"highlight-box\">\n        <strong>الضريبة المستحقة للدفع = ضريبة المخرجات (على المبيعات) - ضريبة المدخلات (على المشتريات)</strong>\n      </div>\n    ",
     "summary": "تعرف على مفهوم ضريبة القيمة المضافة وكيفية حسابها والقرارات المتعلقة بها.",
-    "image": null,
+    "image": "/images/articles/art5.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Tax Accounting",
+    "title_en": "Value Added Tax (VAT)",
+    "summary_en": "تعرف على مفهوم ضريبة القيمة المضافة وكيفية حسابها والقرارات المتعلقة بها.",
+    "time_en": null,
+    "content_en": "<h2>Value Added Tax (VAT)</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 6,
@@ -73,9 +98,14 @@
     "date": "22 أكتوبر 2026",
     "content": "\n      <h2>طرق تقييم وتسعير المخزون</h2>\n      <p>يعد تقييم المخزون خطوة بالغة الأهمية لتحديد تكلفة البضاعة المباعة وصافي الربح. هناك عدة طرق معتمدة لتسعير المخزون، أشهرها:</p>\n      \n      <h3>1. طريقة ما يرد أولاً يُصرف أولاً (FIFO)</h3>\n      <p>بموجب هذه الطريقة، يُفترض أن البضاعة التي تم شراؤها أو إنتاجها أولاً هي التي تباع أولاً. وبالتالي، فإن المخزون المتبقي في نهاية الفترة يُسعر بأحدث التكاليف. تناسب هذه الطريقة المنتجات القابلة للتلف السريع.</p>\n\n      <h3>2. طريقة المتوسط المرجح (Weighted Average)</h3>\n      <p>تقوم هذه الطريقة على حساب متوسط تكلفة الوحدة بقسمة التكلفة الإجمالية للبضاعة المتاحة للبيع على إجمالي عدد الوحدات المتاحة. وهي مفيدة عندما تكون أسعار الشراء متقلبة جداً ولا يمكن التمييز الفعلي بين دفعات البضاعة.</p>\n    ",
     "summary": "شرح طرق التسعير المختلفة مثل ما يرد أولاً يصرف أولاً (FIFO).",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Cost Accounting",
+    "title_en": "Inventory Pricing Methods",
+    "summary_en": "شرح طرق التسعير المختلفة مثل ما يرد أولاً يصرف أولاً (FIFO).",
+    "time_en": null,
+    "content_en": "<h2>Inventory Pricing Methods</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 7,
@@ -86,9 +116,14 @@
     "date": "25 أكتوبر 2026",
     "content": "\n      <h2>الشركات المساهمة (Joint Stock Companies)</h2>\n      <p><strong>الشركة المساهمة</strong> هي شركة ينقسم رأس مالها إلى أسهم متساوية القيمة، وقابلة للتداول. ولا يُسأل الشركاء (المساهمون) عن ديون الشركة إلا بمقدار قيمة أسهمهم.</p>\n      \n      <h3>المعالجة المحاسبية لتأسيس الشركة</h3>\n      <p>عند طرح الأسهم للاكتتاب، يمر التسجيل المحاسبي بعدة مراحل تبدأ بإصدار الأسهم، ثم اكتتاب المؤسسين والجمهور، وتنتهي بتخصيص الأسهم ورد المبالغ الزائدة إن وجدت.</p>\n      <ul>\n        <li><strong>الإصدار بقيمة اسمية:</strong> تُباع الأسهم بقيمتها المحددة في النظام الأساسي.</li>\n        <li><strong>الإصدار بعلاوة إصدار:</strong> تُباع الأسهم بقيمة أعلى من قيمتها الاسمية، ويُرحل الفرق إلى حساب \"احتياطي نظامي\" أو \"علاوة إصدار\".</li>\n      </ul>\n    ",
     "summary": "خطوات وإجراءات تأسيس الشركات المساهمة وحقوق المساهمين.",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Corporate Accounting",
+    "title_en": "Establishing Joint Stock Companies",
+    "summary_en": "خطوات وإجراءات تأسيس الشركات المساهمة وحقوق المساهمين.",
+    "time_en": null,
+    "content_en": "<h2>Establishing Joint Stock Companies</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 8,
@@ -99,9 +134,14 @@
     "date": "10 نوفمبر 2026",
     "content": "\n      <h2>أساسيات تسجيل العمليات المالية</h2>\n      <p>تعتبر <strong>القيود اليومية (Journal Entries)</strong> هي اللبنة الأساسية في الدورة المحاسبية. كل عملية مالية تقوم بها الشركة (مثل شراء بضاعة، دفع رواتب، أو استلام نقدية) يجب أن تُسجل أولاً في <em>دفتر اليومية العامة</em>.</p>\n      \n      <h3>نظرية القيد المزدوج (Double-Entry Bookkeeping)</h3>\n      <p>يقوم علم المحاسبة الحديث على مبدأ \"القيد المزدوج\"، والذي يعني أن لكل عملية مالية طرفين على الأقل:</p>\n      <ul>\n        <li><strong>الطرف المدين (Debit - Dr):</strong> الجانب الذي يأخذ أو يستلم القيمة.</li>\n        <li><strong>الطرف الدائن (Credit - Cr):</strong> الجانب الذي يعطي أو يصدر القيمة.</li>\n      </ul>\n      <div class=\"highlight-box\">\n        <strong>القاعدة الذهبية:</strong> إجمالي المبالغ المدينة يجب أن يتساوى دائماً مع إجمالي المبالغ الدائنة في كل قيد.\n      </div>\n\n      <h3>قواعد المديونية والدائنية (المدين والدائن)</h3>\n      <p>لتسهيل معرفة متى يكون الحساب مديناً أو دائناً، نتبع هذه القواعد البسيطة:</p>\n      <table>\n        <thead>\n          <tr>\n            <th>نوع الحساب</th>\n            <th>عند الزيادة (+)</th>\n            <th>عند النقصان (-)</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><strong>الأصول (الممتلكات، النقدية، المخزون)</strong></td>\n            <td>مدين (Debit)</td>\n            <td>دائن (Credit)</td>\n          </tr>\n          <tr>\n            <td><strong>المصروفات (الرواتب، الإيجار)</strong></td>\n            <td>مدين (Debit)</td>\n            <td>دائن (Credit)</td>\n          </tr>\n          <tr>\n            <td><strong>الخصوم (الديون، القروض)</strong></td>\n            <td>دائن (Credit)</td>\n            <td>مدين (Debit)</td>\n          </tr>\n          <tr>\n            <td><strong>حقوق الملكية (رأس المال)</strong></td>\n            <td>دائن (Credit)</td>\n            <td>مدين (Debit)</td>\n          </tr>\n          <tr>\n            <td><strong>الإيرادات (المبيعات)</strong></td>\n            <td>دائن (Credit)</td>\n            <td>مدين (Debit)</td>\n          </tr>\n        </tbody>\n      </table>\n\n      <h3>أمثلة عملية على القيود اليومية</h3>\n      \n      <h4>مثال 1: بدء النشاط التجاري</h4>\n      <p>قام أحمد بتأسيس شركة برأس مال قدره 100,000 دولار أودعها في حساب الشركة البنكي.</p>\n      <ul>\n        <li><strong>تحليل العملية:</strong> النقدية (أصل) زادت فتصبح مدينة. رأس المال (حقوق ملكية) زاد فيصبح دائناً.</li>\n      </ul>\n      <pre>\n  100,000 من حـ/ النقدية (البنك)\n      100,000 إلى حـ/ رأس المال\n  (شرح القيد: إيداع رأس المال لبدء النشاط)\n      </pre>\n\n      <h4>مثال 2: شراء بضاعة نقداً</h4>\n      <p>اشترت الشركة بضاعة بمبلغ 20,000 دولار نقداً.</p>\n      <ul>\n        <li><strong>تحليل العملية:</strong> المشتريات (مصروف/أصل) زادت فتصبح مدينة. النقدية (أصل) نقصت فتصبح دائنة.</li>\n      </ul>\n      <pre>\n  20,000 من حـ/ المشتريات\n      20,000 إلى حـ/ النقدية\n  (شرح القيد: شراء بضاعة نقداً)\n      </pre>\n\n      <h4>مثال 3: دفع إيجار مقر الشركة</h4>\n      <p>دفعت الشركة مبلغ 5,000 دولار إيجاراً شهرياً بشيك بنكي.</p>\n      <pre>\n  5,000 من حـ/ مصروف الإيجار\n      5,000 إلى حـ/ النقدية (البنك)\n  (شرح القيد: سداد إيجار الشهر)\n      </pre>\n\n      <h3>الخلاصة</h3>\n      <p>فهم القيد المزدوج وقواعد المدين والدائن هو مفتاحك لإتقان المحاسبة المالية. فبمجرد تسجيل القيد بشكل صحيح في دفتر اليومية، تصبح الخطوات التالية (الترحيل لدفتر الأستاذ، إعداد ميزان المراجعة، ثم القوائم المالية) مجرد عمليات تلخيص وتجميع.</p>\n    ",
     "summary": "شرح مفصل لنظرية القيد المزدوج وكيفية تسجيل العمليات المالية اليومية.",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Financial Accounting",
+    "title_en": "Journal Entries and Recording",
+    "summary_en": "شرح مفصل لنظرية القيد المزدوج وكيفية تسجيل العمليات المالية اليومية.",
+    "time_en": null,
+    "content_en": "<h2>Journal Entries and Recording</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 9,
@@ -112,9 +152,14 @@
     "date": "15 نوفمبر 2026",
     "content": "\n      <h2>كيف يُعيد الذكاء الاصطناعي رسم ملامح مهنة المحاسبة؟</h2>\n      <p>لم يعد <strong>الذكاء الاصطناعي (AI)</strong> مجرد مصطلح تقني رنان، بل أصبح أداة حقيقية تُحدث ثورة في عالم المحاسبة والتمويل. من أتمتة المهام الروتينية إلى تحليل البيانات المعقدة، يقود الذكاء الاصطناعي عصراً جديداً من الكفاءة والدقة.</p>\n      \n      <h3>أبرز استخدامات الذكاء الاصطناعي في المحاسبة</h3>\n      <ul>\n        <li><strong>أتمتة إدخال البيانات:</strong> باستخدام تقنيات التعرف البصري على الحروف (OCR) ومعالجة اللغات الطبيعية (NLP)، يمكن للأنظمة قراءة الفواتير واستخراج البيانات وتسجيل القيود اليومية تلقائياً دون تدخل بشري.</li>\n        <li><strong>اكتشاف الاحتيال المالي:</strong> تتعلم خوارزميات تعلم الآلة (Machine Learning) أنماط الإنفاق الطبيعية للشركة، وتقوم بتنبيه المدققين فوراً عند وجود أي حركات غير اعتيادية أو مشبوهة.</li>\n        <li><strong>التنبؤ المالي (Forecasting):</strong> تحليل كميات ضخمة من البيانات التاريخية والاقتصادية لتوقع التدفقات النقدية والمبيعات المستقبلية بدقة تفوق الأساليب التقليدية.</li>\n      </ul>\n\n      <h3>هل سيستبدل الذكاء الاصطناعي المحاسبين؟</h3>\n      <div class=\"highlight-box\">\n        <strong>الحقيقة:</strong> الذكاء الاصطناعي لن يستبدل المحاسبين، بل سيستبدل المحاسبين الذين لا يستخدمون الذكاء الاصطناعي.\n      </div>\n      <p>دور المحاسب يتحول من \"مسجل بيانات\" إلى \"مستشار مالي واستراتيجي\". الوقت الذي كان يُقضى في إدخال الأرقام، سيُقضى الآن في تحليل نتائج الذكاء الاصطناعي وتقديم توصيات استراتيجية للإدارة.</p>\n    ",
     "summary": "كيف يحول الذكاء الاصطناعي مستقبل مهنة المحاسبة.",
-    "image": null,
+    "image": "/images/articles/modern.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Modern Trends",
+    "title_en": "AI in Accounting",
+    "summary_en": "كيف يحول الذكاء الاصطناعي مستقبل مهنة المحاسبة.",
+    "time_en": null,
+    "content_en": "<h2>AI in Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 10,
@@ -125,9 +170,14 @@
     "date": "18 نوفمبر 2026",
     "content": "\n      <h2>ما هي المحاسبة السحابية؟</h2>\n      <p>تعتمد <strong>المحاسبة السحابية</strong> على استخدام برامج محاسبية مستضافة على خوادم بعيدة (مثل AWS أو Google Cloud) ويتم الوصول إليها عبر الإنترنت، بدلاً من تثبيتها محلياً على أجهزة كمبيوتر الشركة. من أشهر أمثلتها: QuickBooks Online، Xero، و Zoho Books.</p>\n      \n      <h3>مزايا المحاسبة السحابية</h3>\n      <ul>\n        <li><strong>الوصول في أي وقت ومن أي مكان:</strong> كل ما تحتاجه هو اتصال بالإنترنت للوصول إلى بياناتك المالية، مما يسهل العمل عن بعد والتعاون بين الفرق.</li>\n        <li><strong>تحديثات البيانات اللحظية (Real-time):</strong> ترتبط البرامج السحابية غالباً بالحسابات البنكية، مما يسمح بتحديث الأرصدة والمطابقات البنكية بشكل فوري.</li>\n        <li><strong>أمان عالي ونسخ احتياطي تلقائي:</strong> توفر الشركات المزودة للخدمات السحابية مستويات تشفير وحماية تفوق ما يمكن لمعظم الشركات الصغيرة توفيره محلياً، مع ضمان عدم ضياع البيانات في حال تعطل أجهزة الشركة.</li>\n        <li><strong>التكلفة المنخفضة:</strong> بدلاً من دفع مبالغ ضخمة لشراء تراخيص وسيرفرات، يتم الدفع بنظام الاشتراك الشهري (SaaS).</li>\n      </ul>\n\n      <h3>الفرق بين المحاسبة التقليدية والسحابية</h3>\n      <table>\n        <thead>\n          <tr>\n            <th>وجه المقارنة</th>\n            <th>المحاسبة التقليدية (Desktop)</th>\n            <th>المحاسبة السحابية (Cloud)</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr>\n            <td><strong>التخزين</strong></td>\n            <td>على القرص الصلب للجهاز المحلي.</td>\n            <td>على خوادم آمنة عبر الإنترنت.</td>\n          </tr>\n          <tr>\n            <td><strong>التحديثات</strong></td>\n            <td>يدوية وتتطلب شراء إصدارات جديدة.</td>\n            <td>تلقائية ومجانية ضمن الاشتراك.</td>\n          </tr>\n          <tr>\n            <td><strong>إمكانية الوصول</strong></td>\n            <td>مقتصرة على جهاز أو شبكة معينة.</td>\n            <td>من أي جهاز (كمبيوتر، هاتف) وفي أي وقت.</td>\n          </tr>\n        </tbody>\n      </table>\n    ",
     "summary": "مزايا البرامج المحاسبية السحابية وإدارة البيانات عن بعد.",
-    "image": null,
+    "image": "/images/articles/modern.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Modern Trends",
+    "title_en": "Cloud Accounting",
+    "summary_en": "مزايا البرامج المحاسبية السحابية وإدارة البيانات عن بعد.",
+    "time_en": null,
+    "content_en": "<h2>Cloud Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 11,
@@ -138,9 +188,14 @@
     "date": "20 نوفمبر 2026",
     "content": "\n      <h2>كيف نتعامل محاسبياً مع العملات الرقمية؟ (Cryptocurrency Accounting)</h2>\n      <p>مع الانتشار الواسع للعملات الرقمية مثل البيتكوين (Bitcoin) والإيثيريوم، واجهت المعايير المحاسبية الدولية (IFRS) والأمريكية (GAAP) تحدياً كبيراً في كيفية تصنيف هذه الأصول وتقييمها ضمن القوائم المالية للشركات.</p>\n      \n      <h3>كيف تُصنف العملات الرقمية؟</h3>\n      <p>هل هي نقدية؟ هل هي أصول مالية؟ أم مخزون؟ الإجابة بناءً على توجيهات المعايير الدولية الحالية هي:</p>\n      <div class=\"highlight-box\">\n        <strong>تصنف العملات الرقمية كـ \"أصول غير ملموسة\" (Intangible Assets)</strong>، لأنها لا تملك شكلاً مادياً، وليست نقداً قانونياً صادراً عن بنك مركزي، ولا تمنح صاحبها حقاً تعاقدياً لاستلام نقد (لذا لا تصنف كأصول مالية).\n      </div>\n      <p>استثناء: إذا كانت الشركة تعمل كـ \"وسيط/تاجر\" للعملات الرقمية، فيمكن تصنيفها كـ <strong>مخزون</strong> يُقيم بالقيمة العادلة.</p>\n\n      <h3>تقييم العملات الرقمية والاعتراف بالخسائر</h3>\n      <p>نظراً لأنها تُصنف كأصول غير ملموسة ذات عمر إنتاجي غير محدد، يتم فحصها بشكل دوري لاختبار <strong>الانخفاض في القيمة (Impairment)</strong>:</p>\n      <ul>\n        <li>إذا انخفض سعر العملة الرقمية في السوق عن تكلفتها الدفترية، يجب تسجيل \"خسارة انخفاض في القيمة\" في قائمة الدخل.</li>\n        <li>أما إذا ارتفع سعرها، فلا يُسمح (في العديد من الأنظمة المحاسبية) بتسجيل أرباح غير محققة حتى يتم بيع العملة فعلياً (مبدأ الحيطة والحذر).</li>\n      </ul>\n\n      <h3>تأثير تقنية البلوك تشين (Blockchain) على التدقيق</h3>\n      <p>تقنية البلوك تشين التي تعتمد عليها العملات الرقمية تقدم دفتر أستاذ موزع وغير قابل للتعديل. هذا يعني أن المراجعين الماليين يمكنهم التحقق من صحة المعاملات المالية بدقة متناهية وبشكل فوري، مما قد يقلل مستقبلاً من الحاجة لإجراءات التدقيق الروتينية الطويلة.</p>\n    ",
     "summary": "كيفية تصنيف وتقييم العملات الرقمية في القوائم المالية.",
-    "image": null,
+    "image": "/images/articles/modern.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Modern Trends",
+    "title_en": "Accounting for Cryptocurrencies",
+    "summary_en": "كيفية تصنيف وتقييم العملات الرقمية في القوائم المالية.",
+    "time_en": null,
+    "content_en": "<h2>Accounting for Cryptocurrencies</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 12,
@@ -151,9 +206,14 @@
     "date": "22 نوفمبر 2026",
     "content": "\n      <h2>المحاسبة لا تقتصر على الأرقام فقط: عصر الـ ESG</h2>\n      <p>يمثل مصطلح <strong>ESG</strong> اختصاراً لـ (Environmental, Social, and Governance) أي: <strong>البيئية، الاجتماعية، والحوكمة</strong>. في السنوات الأخيرة، أدرك المستثمرون والجهات التنظيمية أن الأداء المالي وحده لا يكفي لتقييم نجاح الشركة وضمان استمراريتها، بل يجب النظر إلى تأثيرها على الكوكب والمجتمع.</p>\n      \n      <h3>ماذا تشمل تقارير الاستدامة (ESG)؟</h3>\n      <ul>\n        <li><strong>البيئية (Environmental):</strong> قياس انبعاثات الكربون للشركة، كفاءة استخدام الطاقة والمياه، وإدارة النفايات. (ما هو حجم البصمة الكربونية للشركة؟)</li>\n        <li><strong>الاجتماعية (Social):</strong> التنوع والشمول في بيئة العمل، حقوق العمال، الصحة والسلامة المهنية، والتأثير على المجتمعات المحلية.</li>\n        <li><strong>الحوكمة (Governance):</strong> هيكل مجلس الإدارة، أخلاقيات الأعمال، الشفافية، ومكافحة الفساد وتضارب المصالح.</li>\n      </ul>\n\n      <h3>دور المحاسبين في تقارير ESG</h3>\n      <p>لم تعد كتابة تقارير الاستدامة مهمة قسم العلاقات العامة فقط، بل أصبحت من صميم عمل المحاسبين والإدارة المالية، وذلك للأسباب التالية:</p>\n      <div class=\"highlight-box\">\n        <ul>\n          <li><strong>القياس والإفصاح:</strong> المحاسبون خبراء في جمع البيانات وقياسها وتقديمها بشكل موثوق، سواء كانت تلك البيانات مالية (بالدولار) أو غير مالية (بالأطنان من الكربون).</li>\n          <li><strong>التدقيق (Assurance):</strong> يطلب المستثمرون تدقيقاً خارجياً لتقارير الاستدامة لضمان مصداقيتها، وهو دور تقوم به شركات المراجعة الكبرى.</li>\n          <li><strong>الامتثال التنظيمي:</strong> العديد من الدول والبورصات العالمية بدأت تفرض الإفصاح عن معايير ESG كشرط قانوني وإلزامي ضمن التقرير السنوي.</li>\n        </ul>\n      </div>\n\n      <h3>الخلاصة</h3>\n      <p>التوجه نحو تقارير ESG يعني أن المحاسب الحديث يجب أن يفهم كيف تؤثر التغيرات المناخية والقضايا الاجتماعية على القيمة العادلة للشركة ومخاطرها المستقبلية.</p>\n    ",
     "summary": "دور المحاسبة في تقارير الاستدامة البيئية والاجتماعية.",
-    "image": null,
+    "image": "/images/articles/modern.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Modern Trends",
+    "title_en": "ESG Sustainability Reports",
+    "summary_en": "دور المحاسبة في تقارير الاستدامة البيئية والاجتماعية.",
+    "time_en": null,
+    "content_en": "<h2>ESG Sustainability Reports</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 13,
@@ -164,9 +224,14 @@
     "date": "25 نوفمبر 2026",
     "content": "\n      <h2>ما هو الإهلاك؟</h2>\n      <p><strong>الإهلاك (Depreciation)</strong> هو عملية توزيع تكلفة الأصل الثابت (الملموس) على مدار عمره الإنتاجي المتوقع. لا يُعد الإهلاك تدفقاً نقدياً خارجاً، بل هو مصروف غير نقدي يهدف إلى مطابقة تكلفة الأصل مع الإيرادات التي يساهم في توليدها خلال فترة استخدامه (مبدأ المقابلة).</p>\n      \n      <h3>لماذا نحسب الإهلاك؟</h3>\n      <ul>\n        <li>توزيع تكلفة الأصل بدلاً من تحميلها بالكامل على سنة الشراء، مما يعطي صورة أوضح للأرباح.</li>\n        <li>معرفة القيمة الدفترية الحقيقية للأصول بمرور الزمن.</li>\n        <li>الاستفادة من التخفيضات الضريبية، حيث أن الإهلاك يقلل من صافي الربح الخاضع للضريبة.</li>\n      </ul>\n\n      <h3>أشهر طرق حساب الإهلاك</h3>\n      \n      <h4>1. طريقة القسط الثابت (Straight-Line Method)</h4>\n      <p>هي الطريقة الأبسط والأكثر شيوعاً. يتم فيها تحميل كل سنة من سنوات العمر الإنتاجي للأصل بمبلغ متساوٍ من مصروف الإهلاك.</p>\n      <div class=\"highlight-box\">\n        <strong>قسط الإهلاك السنوي = (تكلفة الأصل - قيمة الخردة) ÷ العمر الإنتاجي المتوقع</strong>\n      </div>\n      <p><em>مثال:</em> آلة تكلفتها 12,000 دولار، وقيمتها التخريدية (الخردة) 2,000 دولار، وعمرها الإنتاجي 5 سنوات.<br/>\n      الإهلاك السنوي = (12,000 - 2,000) ÷ 5 = 2,000 دولار سنوياً.</p>\n\n      <h4>2. طريقة القسط المتناقص (Declining Balance Method)</h4>\n      <p>تُحمل هذه الطريقة السنوات الأولى من عمر الأصل بمصروف إهلاك أعلى مقارنة بالسنوات الأخيرة. وتُستخدم للأصول التي تفقد قيمتها أو كفاءتها بسرعة، مثل أجهزة الكمبيوتر والسيارات.</p>\n      <p>يتم حسابها بضرب نسبة إهلاك معينة (غالباً ضعف نسبة القسط الثابت) في القيمة الدفترية للأصل بداية كل سنة (وليس التكلفة الأصلية).</p>\n\n      <h4>3. طريقة وحدات الإنتاج (Units of Production Method)</h4>\n      <p>تعتمد على الاستخدام الفعلي للأصل بدلاً من الزمن. تُستخدم للمعدات والآلات التي يعتمد إهلاكها على عدد الساعات أو الوحدات المنتجة.</p>\n      <div class=\"highlight-box\">\n        <strong>مصروف الإهلاك = [(تكلفة الأصل - قيمة الخردة) ÷ إجمالي الوحدات المتوقعة] × الوحدات المنتجة خلال الفترة</strong>\n      </div>\n    ",
     "summary": "شرح مفهوم الإهلاك للأصول الثابتة وأشهر طرق حسابه مثل القسط الثابت والمتناقص.",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Financial Accounting",
+    "title_en": "Depreciation and its Methods",
+    "summary_en": "شرح مفهوم الإهلاك للأصول الثابتة وأشهر طرق حسابه مثل القسط الثابت والمتناقص.",
+    "time_en": null,
+    "content_en": "<h2>Depreciation and its Methods</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 14,
@@ -177,9 +242,14 @@
     "date": "10 ديسمبر 2026",
     "content": "\n      <h2>نظرة عامة على ضريبة دخل الشركات</h2>\n      <p>تُفرض ضريبة الشركات على الأرباح الصافية التي تحققها الشركات من ممارسة أعمالها التجارية. وتختلف نسبة هذه الضريبة وقوانينها من دولة لأخرى.</p>\n      <h3>المعالجة المحاسبية</h3>\n      <p>يتم حساب مصروف الضريبة بناءً على الربح المحاسبي المعدل ضريبياً، ويسجل كالتالي:</p>\n      <pre>\n  من حـ/ مصروف ضريبة الدخل\n      إلى حـ/ مخصص ضرائب مستحقة الدفع\n      </pre>\n    ",
     "summary": "تحديثات مستمرة لقوانين ضريبة الدخل وضريبة الشركات حسب الدول العربية.",
-    "image": null,
+    "image": "/images/articles/audit.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Tax Accounting",
+    "title_en": "Income and Corporate Tax",
+    "summary_en": "تحديثات مستمرة لقوانين ضريبة الدخل وضريبة الشركات حسب الدول العربية.",
+    "time_en": null,
+    "content_en": "<h2>Income and Corporate Tax</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 15,
@@ -190,9 +260,14 @@
     "date": "12 ديسمبر 2026",
     "content": "\n      <h2>أساسيات حساب زكاة عروض التجارة</h2>\n      <p>تجب الزكاة على الشركات التجارية إذا بلغ النصاب وحال الحول. وتُحسب الزكاة على أساس \"رأس المال العامل\" أو \"صافي الموجودات الزكوية\".</p>\n      <h3>طريقة حساب الوعاء الزكوي</h3>\n      <div class=\"highlight-box\">\n        <strong>الوعاء الزكوي = (رأس المال + الأرباح المرحلة + المخصصات + القروض طويلة الأجل) - (الأصول الثابتة + الاستثمارات)</strong>\n      </div>\n      <p>تكون نسبة الزكاة 2.5% من الوعاء الزكوي للسنة الهجرية، وما يقارب 2.577% للسنة الميلادية.</p>\n    ",
     "summary": "كيفية حساب الزكاة للشركات والمؤسسات التجارية بناءً على المعايير الشرعية والمحلية.",
-    "image": null,
+    "image": "/images/articles/audit.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "Tax Accounting",
+    "title_en": "Zakat Guide",
+    "summary_en": "كيفية حساب الزكاة للشركات والمؤسسات التجارية بناءً على المعايير الشرعية والمحلية.",
+    "time_en": null,
+    "content_en": "<h2>Zakat Guide</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 16,
@@ -203,9 +278,14 @@
     "date": "15 ديسمبر 2026",
     "content": "\n      <h2>ما هي معايير IFRS؟</h2>\n      <p>معايير التقارير المالية الدولية (IFRS) هي لغة محاسبية عالمية تهدف إلى توحيد القوائم المالية وجعلها قابلة للمقارنة بين الشركات حول العالم.</p>\n      <h3>أهمية تطبيق IFRS</h3>\n      <ul>\n        <li>زيادة الشفافية والموثوقية في الأسواق المالية.</li>\n        <li>تسهيل جذب الاستثمارات الأجنبية للشركات.</li>\n        <li>تخفيض تكلفة إعداد التقارير للشركات متعددة الجنسيات.</li>\n      </ul>\n    ",
     "summary": "نظرة عامة على المعايير الدولية للتقارير المالية والفرق بينها وبين المعايير المحلية.",
-    "image": null,
+    "image": "/images/articles/standards.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "International Standards (IFRS)",
+    "title_en": "Introduction to IFRS",
+    "summary_en": "نظرة عامة على المعايير الدولية للتقارير المالية والفرق بينها وبين المعايير المحلية.",
+    "time_en": null,
+    "content_en": "<h2>Introduction to IFRS</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 17,
@@ -216,9 +296,14 @@
     "date": "18 ديسمبر 2026",
     "content": "\n      <h2>نموذج الخطوات الخمس للاعتراف بالإيراد</h2>\n      <p>أحدث معيار IFRS 15 ثورة في كيفية اعتراف الشركات بالإيرادات، مستنداً إلى مبدأ أساسي يتمثل في خطوات خمس:</p>\n      <ol>\n        <li><strong>تحديد العقد:</strong> هل يوجد عقد ملزم مع العميل؟</li>\n        <li><strong>تحديد التزامات الأداء:</strong> ما هي السلع أو الخدمات الواجب تقديمها؟</li>\n        <li><strong>تحديد سعر المعاملة:</strong> كم سيدفع العميل؟</li>\n        <li><strong>تخصيص السعر:</strong> توزيع السعر على التزامات الأداء المختلفة.</li>\n        <li><strong>الاعتراف بالإيراد:</strong> عند وفاء الشركة بالتزامات الأداء (نقل السيطرة للعميل).</li>\n      </ol>\n    ",
     "summary": "شرح نموذج الخطوات الخمس للاعتراف بالإيراد مع أمثلة عملية.",
-    "image": null,
+    "image": "/images/articles/standards.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "International Standards (IFRS)",
+    "title_en": "IFRS 15: Revenue from Contracts",
+    "summary_en": "شرح نموذج الخطوات الخمس للاعتراف بالإيراد مع أمثلة عملية.",
+    "time_en": null,
+    "content_en": "<h2>IFRS 15: Revenue from Contracts</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 18,
@@ -229,9 +314,14 @@
     "date": "20 ديسمبر 2026",
     "content": "\n      <h2>معالجة عقود الإيجار وفقاً لـ IFRS 16</h2>\n      <p>ألغى معيار IFRS 16 التفريق التقليدي بين الإيجار التشغيلي والإيجار التمويلي بالنسبة للمستأجر.</p>\n      <h3>المبدأ الأساسي</h3>\n      <p>يجب على المستأجر تسجيل جميع عقود الإيجار في الميزانية العمومية كـ <strong>\"أصل حق استخدام\" (Right-of-Use Asset)</strong> وما يقابله من <strong>\"التزام إيجار\" (Lease Liability)</strong>، باستثناء العقود قصيرة الأجل أو منخفضة القيمة.</p>\n    ",
     "summary": "كيفية معالجة عقود الإيجار للمستأجر والمؤجر وفقاً للمعيار الدولي.",
-    "image": null,
+    "image": "/images/articles/standards.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "International Standards (IFRS)",
+    "title_en": "IFRS 16: Leases",
+    "summary_en": "كيفية معالجة عقود الإيجار للمستأجر والمؤجر وفقاً للمعيار الدولي.",
+    "time_en": null,
+    "content_en": "<h2>IFRS 16: Leases</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 19,
@@ -242,9 +332,14 @@
     "date": "22 ديسمبر 2026",
     "content": "\n      <h2>طرق الاعتراف بالإيراد في المقاولات</h2>\n      <p>بسبب طول فترة تنفيذ عقود الإنشاءات، تُستخدم طرق خاصة للاعتراف بالإيراد أهمها <strong>طريقة نسبة الإنجاز (Percentage of Completion)</strong>.</p>\n      <h3>كيفية حساب نسبة الإنجاز</h3>\n      <div class=\"highlight-box\">\n        <strong>نسبة الإنجاز = التكاليف الفعلية المتكبدة حتى تاريخه ÷ إجمالي التكاليف المقدرة للعقد</strong>\n      </div>\n      <p>بناءً على هذه النسبة، يتم الاعتراف بجزء من إجمالي الإيراد المتوقع في قائمة الدخل لكل فترة مالية.</p>\n    ",
     "summary": "طرق الاعتراف بالإيراد في عقود الإنشاءات ونسبة الإنجاز.",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "المحاسبة المتخصصة",
+    "title_en": "محاسبة المقاولات",
+    "summary_en": "طرق الاعتراف بالإيراد في عقود الإنشاءات ونسبة الإنجاز.",
+    "time_en": null,
+    "content_en": "<h2>محاسبة المقاولات</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 20,
@@ -255,9 +350,14 @@
     "date": "25 ديسمبر 2026",
     "content": "\n      <h2>خصائص محاسبة المستشفيات</h2>\n      <p>تتميز المستشفيات بتعقيد نظام إيراداتها نتيجة تعدد أطراف الدفع (المرضى، شركات التأمين، الجهات الحكومية).</p>\n      <h3>دليل الحسابات الطبي</h3>\n      <ul>\n        <li><strong>الإيرادات الطبية:</strong> تُصنف حسب الأقسام (العيادات الخارجية، التنويم، المختبر، الصيدلية).</li>\n        <li><strong>الخصومات والمطالبات المرفوضة:</strong> من أهم بنود تسويات الإيرادات في المستشفيات نتيجة رفض بعض مطالبات التأمين الطبي.</li>\n      </ul>\n    ",
     "summary": "دليل الحسابات الخاص بالمستشفيات وكيفية معالجة الإيرادات والمصروفات الطبية.",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "المحاسبة المتخصصة",
+    "title_en": "محاسبة المستشفيات والمراكز الطبية",
+    "summary_en": "دليل الحسابات الخاص بالمستشفيات وكيفية معالجة الإيرادات والمصروفات الطبية.",
+    "time_en": null,
+    "content_en": "<h2>محاسبة المستشفيات والمراكز الطبية</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 21,
@@ -268,8 +368,13 @@
     "date": "28 ديسمبر 2026",
     "content": "\n      <h2>الأسس المحاسبية للبنوك الإسلامية</h2>\n      <p>تعتمد المصارف الإسلامية في أعمالها على صيغ التمويل المتوافقة مع الشريعة الإسلامية، مما يتطلب معالجات محاسبية خاصة (وفقاً لمعايير AAOIFI).</p>\n      <h3>أبرز صيغ التمويل</h3>\n      <ul>\n        <li><strong>المرابحة:</strong> بيع السلعة بثمنها الأصلي مع زيادة ربح معلوم متفق عليه.</li>\n        <li><strong>المضاربة:</strong> شراكة يكون فيها المال من طرف (البنك) والعمل من طرف آخر (العميل).</li>\n        <li><strong>الإجارة المنتهية بالتمليك:</strong> تأجير أصل للعميل مع وعد بتمليكه إياه في نهاية العقد.</li>\n      </ul>\n    ",
     "summary": "المرابحة، المضاربة، والمشاركة: الأسس المحاسبية للبنوك الإسلامية.",
-    "image": null,
+    "image": "/images/articles/finance.png",
     "time": null,
-    "isFeatured": false
+    "isFeatured": false,
+    "categoryName_en": "المحاسبة المتخصصة",
+    "title_en": "محاسبة المصارف الإسلامية",
+    "summary_en": "المرابحة، المضاربة، والمشاركة: الأسس المحاسبية للبنوك الإسلامية.",
+    "time_en": null,
+    "content_en": "<h2>محاسبة المصارف الإسلامية</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   }
 ]

@@ -1,32 +1,12 @@
 import { useState } from 'react';
 import { HelpCircle, ChevronDown, ChevronUp, Send } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import './Faq.css';
 
-const faqs = [
-  {
-    question: 'ما هي موسوعة المحاسبة؟',
-    answer: 'موسوعة المحاسبة هي منصة تعليمية عربية مجانية تهدف إلى تبسيط المفاهيم المحاسبية والمالية للطلاب، المحاسبين المبتدئين، ورواد الأعمال.'
-  },
-  {
-    question: 'هل المقالات والدروس مجانية؟',
-    answer: 'نعم، جميع المقالات والمصطلحات في الموسوعة متاحة مجاناً بالكامل ولا تتطلب أي اشتراك مدفوع.'
-  },
-  {
-    question: 'كيف يمكنني البدء في تعلم المحاسبة من الصفر؟',
-    answer: 'ننصحك بالبدء بقسم "المحاسبة المالية" حيث يحتوي على الأساسيات مثل فهم الميزانية العمومية، قائمة الدخل، والقيود اليومية، ثم الانتقال للأقسام المتقدمة.'
-  },
-  {
-    question: 'هل يمكنني المساهمة في كتابة مقالات؟',
-    answer: 'نرحب بجميع الخبراء المحاسبين! يمكنك التواصل معنا عبر النموذج الموجود في هذه الصفحة وسنقوم بالرد عليك لترتيب عملية النشر.'
-  },
-  {
-    question: 'ما هو الفرق بين المحاسبة المالية والإدارية؟',
-    answer: 'المحاسبة المالية تهتم بإعداد القوائم المالية للأطراف الخارجية (المستثمرين، البنوك)، بينما المحاسبة الإدارية تركز على توفير تقارير وتحليلات داخلية لمساعدة الإدارة في اتخاذ القرارات.'
-  }
-];
-
 function Faq() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState(0); // First item open by default
+  const faqsList = t('faq.list', { returnObjects: true }) || [];
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -39,17 +19,17 @@ function Faq() {
           <div className="inline-block p-4 rounded-full bg-gradient mb-4">
             <HelpCircle size={32} color="var(--primary-accent)" />
           </div>
-          <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>الأسئلة الشائعة والدعم</h1>
+          <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{t('faq.title')}</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-            تجد هنا إجابات على أكثر الأسئلة شيوعاً، أو يمكنك مراسلتنا مباشرة.
+            {t('faq.desc')}
           </p>
         </div>
 
         <div className="faq-container">
           <div className="faq-section">
-            <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>الأسئلة المتكررة</h2>
+            <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)' }}>{t('faq.faq_title')}</h2>
             <div className="faq-list">
-              {faqs.map((faq, index) => (
+              {Array.isArray(faqsList) && faqsList.map((faq, index) => (
                 <div key={index} className="faq-item">
                   <button 
                     className="faq-question" 
@@ -71,22 +51,22 @@ function Faq() {
 
           <div className="contact-section">
             <div className="contact-form glass-panel">
-              <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)', fontSize: '1.5rem' }}>تواصل معنا</h2>
+              <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)', fontSize: '1.5rem' }}>{t('faq.contact_title')}</h2>
               <form onSubmit={(e) => e.preventDefault()}>
                 <div className="form-group">
-                  <label>الاسم الكامل</label>
-                  <input type="text" className="form-control" placeholder="أدخل اسمك..." />
+                  <label>{t('faq.name')}</label>
+                  <input type="text" className="form-control" placeholder={t('faq.name_ph')} />
                 </div>
                 <div className="form-group">
-                  <label>البريد الإلكتروني</label>
-                  <input type="email" className="form-control" placeholder="example@mail.com" />
+                  <label>{t('faq.email')}</label>
+                  <input type="email" className="form-control" placeholder={t('faq.email_ph')} />
                 </div>
                 <div className="form-group">
-                  <label>موضوع الرسالة أو الاستفسار</label>
-                  <textarea className="form-control" placeholder="كيف يمكننا مساعدتك؟"></textarea>
+                  <label>{t('faq.subject')}</label>
+                  <textarea className="form-control" placeholder={t('faq.subject_ph')}></textarea>
                 </div>
                 <button type="submit" className="btn btn-primary w-full flex items-center justify-center gap-2">
-                  إرسال الرسالة <Send size={18} />
+                  {t('faq.submit')} <Send size={18} />
                 </button>
               </form>
             </div>

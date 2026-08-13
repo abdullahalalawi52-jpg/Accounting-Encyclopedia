@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // ضع مفتاح API الخاص بك هنا (مؤقت للاختبار، ويفضل وضعه في ملف .env في بيئة العمل الحقيقية)
 const API_KEY = '1f3a616196d4a6ae4e4404b87777eeae'; 
 
 export function useNewsAPI() {
+  const { i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,8 +16,9 @@ export function useNewsAPI() {
     setLoading(true);
 
     const fallbackUrl = '/data/articles.json';
-    // البحث عن أخبار الاقتصاد، المحاسبة، والمالية باللغة العربية
-    const newsApiUrl = `https://gnews.io/api/v4/search?q=اقتصاد OR محاسبة OR مالية&lang=ar&max=10&apikey=${API_KEY}`;
+    const query = isEn ? 'economy OR accounting OR finance' : 'اقتصاد OR محاسبة OR مالية';
+    const langCode = isEn ? 'en' : 'ar';
+    const newsApiUrl = `https://gnews.io/api/v4/search?q=${query}&lang=${langCode}&max=10&apikey=${API_KEY}`;
 
     const fetchFallback = async () => {
       try {
@@ -59,14 +63,14 @@ export function useNewsAPI() {
           return {
             id: `news-${index}`,
             title: article.title,
-            categoryName: 'أخبار وتحديثات',
+            categoryName: isEn ? 'News & Updates' : 'أخبار وتحديثات',
             categoryId: 'news',
-            author: article.source.name || 'مصدر إخباري',
+            author: article.source.name || (isEn ? 'News Source' : 'مصدر إخباري'),
             date: formattedDate,
             content: article.content,
             summary: article.description,
             image: article.image,
-            time: 'قراءة سريعة',
+            time: isEn ? 'Quick Read' : 'قراءة سريعة',
             isFeatured: index < 4,
             url: article.url // لحفظ الرابط الأصلي
           };
@@ -87,7 +91,7 @@ export function useNewsAPI() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isEn]);
 
   return { data, loading, error };
 }

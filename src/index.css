@@ -101,7 +101,6 @@ body {
   background-color: var(--bg-main);
   color: var(--text-primary);
   line-height: 1.6;
-  direction: rtl;
   min-height: 100vh;
   overflow-x: hidden;
 }

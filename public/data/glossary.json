@@ -1,322 +1,482 @@
 [
   {
     "term": "الفترة المحاسبية (Accounting Period)",
-    "definition": "طول الفترة الزمنية التي يغطيها بيان مالي أو عملية مالية، مثل السنة المالية، الربع، أو الشهر."
+    "definition": "طول الفترة الزمنية التي يغطيها بيان مالي أو عملية مالية، مثل السنة المالية، الربع، أو الشهر.",
+    "term_en": "Accounting Period",
+    "definition_en": "English definition for Accounting Period. Translation is pending."
   },
   {
     "term": "حسابات الدائنين (Accounts Payable)",
-    "definition": "تتبع الأموال المستحقة على الشركة للدائنين، مثل الفواتير غير المدفوعة، الديون للموردين، وقروض البنوك."
+    "definition": "تتبع الأموال المستحقة على الشركة للدائنين، مثل الفواتير غير المدفوعة، الديون للموردين، وقروض البنوك.",
+    "term_en": "Accounts Payable",
+    "definition_en": "English definition for Accounts Payable. Translation is pending."
   },
   {
     "term": "حسابات المدينين (Accounts Receivable)",
-    "definition": "تتبع الأموال المستحقة للشركة من قبل مدينيها (العملاء)، وتعتبر من ضمن الأصول (أصول متداولة)."
+    "definition": "تتبع الأموال المستحقة للشركة من قبل مدينيها (العملاء)، وتعتبر من ضمن الأصول (أصول متداولة).",
+    "term_en": "Accounts Receivable",
+    "definition_en": "English definition for Accounts Receivable. Translation is pending."
   },
   {
     "term": "الاستحقاق (Accrual)",
-    "definition": "الإيرادات أو المصروفات المعترف بها قبل حدوث تبادل فعلي للأموال، مثل تكلفة مقاول لم يقدم فاتورته بعد."
+    "definition": "الإيرادات أو المصروفات المعترف بها قبل حدوث تبادل فعلي للأموال، مثل تكلفة مقاول لم يقدم فاتورته بعد.",
+    "term_en": "Accrual",
+    "definition_en": "English definition for Accrual. Translation is pending."
   },
   {
     "term": "أساس الاستحقاق المحاسبي (Accrual Basis Accounting)",
-    "definition": "تسجيل الإيرادات والمصروفات عند حدوثها، بغض النظر عن وقت التبادل الفعلي للأموال (الطريقة المفضلة للشركات الكبيرة)."
+    "definition": "تسجيل الإيرادات والمصروفات عند حدوثها، بغض النظر عن وقت التبادل الفعلي للأموال (الطريقة المفضلة للشركات الكبيرة).",
+    "term_en": "Accrual Basis Accounting",
+    "definition_en": "English definition for Accrual Basis Accounting. Translation is pending."
   },
   {
     "term": "الإطفاء (Amortization)",
-    "definition": "توزيع تكلفة الأصل غير الملموس على مدى عمره الإنتاجي، مثل براءات الاختراع والعلامات التجارية."
+    "definition": "توزيع تكلفة الأصل غير الملموس على مدى عمره الإنتاجي، مثل براءات الاختراع والعلامات التجارية.",
+    "term_en": "Amortization",
+    "definition_en": "English definition for Amortization. Translation is pending."
   },
   {
     "term": "الأصول (Assets)",
-    "definition": "عنصر ذو قيمة أو مورد تمتلكه أو تسيطر عليه الشركة، ناتج عن أنشطة سابقة ومن المتوقع أن يولد قيمة اقتصادية مستقبلية."
+    "definition": "عنصر ذو قيمة أو مورد تمتلكه أو تسيطر عليه الشركة، ناتج عن أنشطة سابقة ومن المتوقع أن يولد قيمة اقتصادية مستقبلية.",
+    "term_en": "Assets",
+    "definition_en": "English definition for Assets. Translation is pending."
   },
   {
     "term": "التدقيق / المراجعة (Audit)",
-    "definition": "فحص مستقل وموضوعي للقوائم المالية للشركة للتأكد من دقتها وتوافقها مع المعايير المحاسبية."
+    "definition": "فحص مستقل وموضوعي للقوائم المالية للشركة للتأكد من دقتها وتوافقها مع المعايير المحاسبية.",
+    "term_en": "Audit",
+    "definition_en": "English definition for Audit. Translation is pending."
   },
   {
     "term": "الديون المعدومة (Bad Debt)",
-    "definition": "مبالغ مستحقة للشركة من العملاء ولكن أصبح من المستحيل تحصيلها، وتُسجل كمصروف."
+    "definition": "مبالغ مستحقة للشركة من العملاء ولكن أصبح من المستحيل تحصيلها، وتُسجل كمصروف.",
+    "term_en": "Bad Debt",
+    "definition_en": "English definition for Bad Debt. Translation is pending."
   },
   {
     "term": "الميزانية العمومية (Balance Sheet)",
-    "definition": "بيان مالي يوضح الحالة الحالية للشركة فيما يتعلق بأصولها وخصومها وحقوق ملكيتها في لحظة زمنية معينة."
+    "definition": "بيان مالي يوضح الحالة الحالية للشركة فيما يتعلق بأصولها وخصومها وحقوق ملكيتها في لحظة زمنية معينة.",
+    "term_en": "Balance Sheet",
+    "definition_en": "English definition for Balance Sheet. Translation is pending."
   },
   {
     "term": "الإفلاس (Bankruptcy)",
-    "definition": "إجراء قانوني يتم اتخاذه عندما تكون الشركة أو الفرد غير قادر على سداد الديون المستحقة."
+    "definition": "إجراء قانوني يتم اتخاذه عندما تكون الشركة أو الفرد غير قادر على سداد الديون المستحقة.",
+    "term_en": "Bankruptcy",
+    "definition_en": "English definition for Bankruptcy. Translation is pending."
   },
   {
     "term": "السندات (Bonds)",
-    "definition": "أداة دين تصدرها الشركات أو الحكومات لجمع الأموال، يتعهد فيها المصدر بسداد أصل الدين مع فوائد محددة."
+    "definition": "أداة دين تصدرها الشركات أو الحكومات لجمع الأموال، يتعهد فيها المصدر بسداد أصل الدين مع فوائد محددة.",
+    "term_en": "Bonds",
+    "definition_en": "English definition for Bonds. Translation is pending."
   },
   {
     "term": "القيمة الدفترية (Book Value)",
-    "definition": "قيمة الأصل كما هي مسجلة في الميزانية العمومية، وتُحسب بطرح الاستهلاك المتراكم من التكلفة الأصلية."
+    "definition": "قيمة الأصل كما هي مسجلة في الميزانية العمومية، وتُحسب بطرح الاستهلاك المتراكم من التكلفة الأصلية.",
+    "term_en": "Book Value",
+    "definition_en": "English definition for Book Value. Translation is pending."
   },
   {
     "term": "نقطة التعادل (Break-Even Point)",
-    "definition": "مستوى المبيعات الذي تتساوى عنده إجمالي الإيرادات مع إجمالي التكاليف (لا ربح ولا خسارة)."
+    "definition": "مستوى المبيعات الذي تتساوى عنده إجمالي الإيرادات مع إجمالي التكاليف (لا ربح ولا خسارة).",
+    "term_en": "Break-Even Point",
+    "definition_en": "English definition for Break-Even Point. Translation is pending."
   },
   {
     "term": "إعداد الموازنة (Budgeting)",
-    "definition": "عملية وضع خطة مالية مستقبلية توضح الإيرادات المتوقعة والنفقات المخطط لها."
+    "definition": "عملية وضع خطة مالية مستقبلية توضح الإيرادات المتوقعة والنفقات المخطط لها.",
+    "term_en": "Budgeting",
+    "definition_en": "English definition for Budgeting. Translation is pending."
   },
   {
     "term": "رأس المال (Capital)",
-    "definition": "أي أصل أو مورد يمكن استخدامه لتوليد إيرادات، أو يمثل مستوى استثمار الملاك في الشركة."
+    "definition": "أي أصل أو مورد يمكن استخدامه لتوليد إيرادات، أو يمثل مستوى استثمار الملاك في الشركة.",
+    "term_en": "Capital",
+    "definition_en": "English definition for Capital. Translation is pending."
   },
   {
     "term": "النفقات الرأسمالية (Capital Expenditure - CAPEX)",
-    "definition": "الأموال التي تنفقها الشركة لشراء أو ترقية أو صيانة الأصول طويلة الأجل مثل المعدات والمباني."
+    "definition": "الأموال التي تنفقها الشركة لشراء أو ترقية أو صيانة الأصول طويلة الأجل مثل المعدات والمباني.",
+    "term_en": "Capital Expenditure - CAPEX",
+    "definition_en": "English definition for Capital Expenditure - CAPEX. Translation is pending."
   },
   {
     "term": "الأساس النقدي المحاسبي (Cash Basis Accounting)",
-    "definition": "تسجيل الإيرادات والمصروفات فقط عندما تتغير الأموال فعلياً (تستخدم عادة في الشركات الصغيرة)."
+    "definition": "تسجيل الإيرادات والمصروفات فقط عندما تتغير الأموال فعلياً (تستخدم عادة في الشركات الصغيرة).",
+    "term_en": "Cash Basis Accounting",
+    "definition_en": "English definition for Cash Basis Accounting. Translation is pending."
   },
   {
     "term": "ما يعادل النقد (Cash Equivalents)",
-    "definition": "استثمارات قصيرة الأجل وعالية السيولة يمكن تحويلها بسهولة إلى مبلغ نقدي معروف."
+    "definition": "استثمارات قصيرة الأجل وعالية السيولة يمكن تحويلها بسهولة إلى مبلغ نقدي معروف.",
+    "term_en": "Cash Equivalents",
+    "definition_en": "English definition for Cash Equivalents. Translation is pending."
   },
   {
     "term": "التدفق النقدي (Cash Flow)",
-    "definition": "رصيد النقد الذي يتدفق داخل وخارج الشركة خلال فترة محاسبية محددة."
+    "definition": "رصيد النقد الذي يتدفق داخل وخارج الشركة خلال فترة محاسبية محددة.",
+    "term_en": "Cash Flow",
+    "definition_en": "English definition for Cash Flow. Translation is pending."
   },
   {
     "term": "محاسب قانوني معتمد (CPA)",
-    "definition": "محترف محاسبة مرخص لتقديم خدمات التدقيق والضرائب والاستشارات بعد اجتياز امتحانات مهنية صارمة."
+    "definition": "محترف محاسبة مرخص لتقديم خدمات التدقيق والضرائب والاستشارات بعد اجتياز امتحانات مهنية صارمة.",
+    "term_en": "CPA",
+    "definition_en": "English definition for CPA. Translation is pending."
   },
   {
     "term": "دليل الحسابات (Chart of Accounts)",
-    "definition": "قائمة رئيسية بجميع الحسابات في دفتر الأستاذ العام للمؤسسة (أصول، خصوم، حقوق ملكية، إيرادات، مصروفات)."
+    "definition": "قائمة رئيسية بجميع الحسابات في دفتر الأستاذ العام للمؤسسة (أصول، خصوم، حقوق ملكية، إيرادات، مصروفات).",
+    "term_en": "Chart of Accounts",
+    "definition_en": "English definition for Chart of Accounts. Translation is pending."
   },
   {
     "term": "إقفال الدفاتر (Closing the Books)",
-    "definition": "الاعتماد النهائي للبيانات الدفترية لفترة محاسبية معينة للبدء في إعداد التقارير المالية الرسمية."
+    "definition": "الاعتماد النهائي للبيانات الدفترية لفترة محاسبية معينة للبدء في إعداد التقارير المالية الرسمية.",
+    "term_en": "Closing the Books",
+    "definition_en": "English definition for Closing the Books. Translation is pending."
   },
   {
     "term": "الالتزام المحتمل (Contingent Liability)",
-    "definition": "التزام مالي قد يحدث مستقبلاً بناءً على نتيجة حدث غير مؤكد، مثل الدعاوي القضائية."
+    "definition": "التزام مالي قد يحدث مستقبلاً بناءً على نتيجة حدث غير مؤكد، مثل الدعاوي القضائية.",
+    "term_en": "Contingent Liability",
+    "definition_en": "English definition for Contingent Liability. Translation is pending."
   },
   {
     "term": "محاسبة التكاليف (Cost Accounting)",
-    "definition": "فرع من المحاسبة يركز على تسجيل وتحليل التكاليف المرتبطة بإنتاج السلع أو الخدمات."
+    "definition": "فرع من المحاسبة يركز على تسجيل وتحليل التكاليف المرتبطة بإنتاج السلع أو الخدمات.",
+    "term_en": "Cost Accounting",
+    "definition_en": "English definition for Cost Accounting. Translation is pending."
   },
   {
     "term": "تكلفة البضاعة المباعة (COGS)",
-    "definition": "إجمالي التكاليف المباشرة التي تكبدتها الشركة عند إنتاج منتج أو تقديم خدمة (المواد، العمالة، التكاليف المباشرة)."
+    "definition": "إجمالي التكاليف المباشرة التي تكبدتها الشركة عند إنتاج منتج أو تقديم خدمة (المواد، العمالة، التكاليف المباشرة).",
+    "term_en": "COGS",
+    "definition_en": "English definition for COGS. Translation is pending."
   },
   {
     "term": "الدائن (Credit)",
-    "definition": "قيد محاسبي يؤدي إلى زيادة الخصوم أو تقليل الأصول، ويُسجل في الجانب الأيسر."
+    "definition": "قيد محاسبي يؤدي إلى زيادة الخصوم أو تقليل الأصول، ويُسجل في الجانب الأيسر.",
+    "term_en": "Credit",
+    "definition_en": "English definition for Credit. Translation is pending."
   },
   {
     "term": "الأصول المتداولة (Current Assets)",
-    "definition": "الأصول التي يتوقع تحويلها إلى نقد أو استهلاكها خلال عام واحد (مثل النقد والمخزون)."
+    "definition": "الأصول التي يتوقع تحويلها إلى نقد أو استهلاكها خلال عام واحد (مثل النقد والمخزون).",
+    "term_en": "Current Assets",
+    "definition_en": "English definition for Current Assets. Translation is pending."
   },
   {
     "term": "الخصوم المتداولة (Current Liabilities)",
-    "definition": "الالتزامات والديون التي يجب سدادها خلال عام مالي واحد (مثل الدائنين والقروض قصيرة الأجل)."
+    "definition": "الالتزامات والديون التي يجب سدادها خلال عام مالي واحد (مثل الدائنين والقروض قصيرة الأجل).",
+    "term_en": "Current Liabilities",
+    "definition_en": "English definition for Current Liabilities. Translation is pending."
   },
   {
     "term": "المدين (Debit)",
-    "definition": "قيد محاسبي يؤدي إلى زيادة الأصول أو تقليل الخصوم، ويُسجل في الجانب الأيمن."
+    "definition": "قيد محاسبي يؤدي إلى زيادة الأصول أو تقليل الخصوم، ويُسجل في الجانب الأيمن.",
+    "term_en": "Debit",
+    "definition_en": "English definition for Debit. Translation is pending."
   },
   {
     "term": "العجز (Deficit)",
-    "definition": "الحالة التي تتجاوز فيها المصروفات أو النفقات حجم الإيرادات خلال فترة معينة."
+    "definition": "الحالة التي تتجاوز فيها المصروفات أو النفقات حجم الإيرادات خلال فترة معينة.",
+    "term_en": "Deficit",
+    "definition_en": "English definition for Deficit. Translation is pending."
   },
   {
     "term": "الإهلاك (Depreciation)",
-    "definition": "مصروف يُطبق على الأصول الثابتة (طويلة الأجل) لتمثيل الانخفاض في قيمتها بمرور الوقت نتيجة الاستخدام."
+    "definition": "مصروف يُطبق على الأصول الثابتة (طويلة الأجل) لتمثيل الانخفاض في قيمتها بمرور الوقت نتيجة الاستخدام.",
+    "term_en": "Depreciation",
+    "definition_en": "English definition for Depreciation. Translation is pending."
   },
   {
     "term": "التكاليف المباشرة (Direct Costs)",
-    "definition": "التكاليف التي يمكن تتبعها وربطها بشكل مباشر بإنتاج منتج معين أو تقديم خدمة."
+    "definition": "التكاليف التي يمكن تتبعها وربطها بشكل مباشر بإنتاج منتج معين أو تقديم خدمة.",
+    "term_en": "Direct Costs",
+    "definition_en": "English definition for Direct Costs. Translation is pending."
   },
   {
     "term": "التنويع (Diversification)",
-    "definition": "استراتيجية لإدارة المخاطر تتجنب الاعتماد المفرط على قطاعات أو أصول محددة من خلال توزيع رأس المال."
+    "definition": "استراتيجية لإدارة المخاطر تتجنب الاعتماد المفرط على قطاعات أو أصول محددة من خلال توزيع رأس المال.",
+    "term_en": "Diversification",
+    "definition_en": "English definition for Diversification. Translation is pending."
   },
   {
     "term": "توزيعات الأرباح (Dividend)",
-    "definition": "جزء من أرباح الشركة يتم دفعه طواعية للمساهمين نقداً أو على شكل أسهم إضافية."
+    "definition": "جزء من أرباح الشركة يتم دفعه طواعية للمساهمين نقداً أو على شكل أسهم إضافية.",
+    "term_en": "Dividend",
+    "definition_en": "English definition for Dividend. Translation is pending."
   },
   {
     "term": "مسك الدفاتر المزدوج (Double-Entry Bookkeeping)",
-    "definition": "تسجيل كل عملية مالية مرتين: مرة كمدين ومرة كدائن، لضمان توازن الدفاتر المحاسبية."
+    "definition": "تسجيل كل عملية مالية مرتين: مرة كمدين ومرة كدائن، لضمان توازن الدفاتر المحاسبية.",
+    "term_en": "Double-Entry Bookkeeping",
+    "definition_en": "English definition for Double-Entry Bookkeeping. Translation is pending."
   },
   {
     "term": "الأرباح قبل الفوائد والضرائب (EBIT)",
-    "definition": "مقياس لربحية الشركة يعكس الأرباح الناتجة من العمليات الأساسية قبل خصم الفوائد والضرائب."
+    "definition": "مقياس لربحية الشركة يعكس الأرباح الناتجة من العمليات الأساسية قبل خصم الفوائد والضرائب.",
+    "term_en": "EBIT",
+    "definition_en": "English definition for EBIT. Translation is pending."
   },
   {
     "term": "ربحية السهم (Earnings Per Share - EPS)",
-    "definition": "مؤشر مالي يمثل نصيب السهم العادي الواحد من الأرباح الصافية للشركة."
+    "definition": "مؤشر مالي يمثل نصيب السهم العادي الواحد من الأرباح الصافية للشركة.",
+    "term_en": "Earnings Per Share - EPS",
+    "definition_en": "English definition for Earnings Per Share - EPS. Translation is pending."
   },
   {
     "term": "وكيل مسجل (Enrolled Agent)",
-    "definition": "محترف مالي مرخص لتمثيل الأفراد والشركات أمام مصلحة الضرائب."
+    "definition": "محترف مالي مرخص لتمثيل الأفراد والشركات أمام مصلحة الضرائب.",
+    "term_en": "Enrolled Agent",
+    "definition_en": "English definition for Enrolled Agent. Translation is pending."
   },
   {
     "term": "حقوق الملكية (Equity)",
-    "definition": "قيمة الحصة المتبقية في أصول الشركة بعد سداد كافة التزاماتها، وتمثل حصة الملاك أو المساهمين."
+    "definition": "قيمة الحصة المتبقية في أصول الشركة بعد سداد كافة التزاماتها، وتمثل حصة الملاك أو المساهمين.",
+    "term_en": "Equity",
+    "definition_en": "English definition for Equity. Translation is pending."
   },
   {
     "term": "القيمة العادلة (Fair Value)",
-    "definition": "السعر التقديري والمقبول الذي يمكن أن تباع به الأصول أو تُسوى به الخصوم بين أطراف راغبة ومطلعة."
+    "definition": "السعر التقديري والمقبول الذي يمكن أن تباع به الأصول أو تُسوى به الخصوم بين أطراف راغبة ومطلعة.",
+    "term_en": "Fair Value",
+    "definition_en": "English definition for Fair Value. Translation is pending."
   },
   {
     "term": "السنة المالية (Fiscal Year)",
-    "definition": "فترة اثني عشر شهراً تستخدمها الشركات والحكومات لإعداد التقارير المالية والضرائب (قد لا تتطابق مع السنة الميلادية)."
+    "definition": "فترة اثني عشر شهراً تستخدمها الشركات والحكومات لإعداد التقارير المالية والضرائب (قد لا تتطابق مع السنة الميلادية).",
+    "term_en": "Fiscal Year",
+    "definition_en": "English definition for Fiscal Year. Translation is pending."
   },
   {
     "term": "الأصول الثابتة (Fixed Assets)",
-    "definition": "الأصول الملموسة طويلة الأجل التي تستخدم في عمليات الشركة ولا يُقصد بيعها (مثل الأراضي، المباني، المعدات)."
+    "definition": "الأصول الملموسة طويلة الأجل التي تستخدم في عمليات الشركة ولا يُقصد بيعها (مثل الأراضي، المباني، المعدات).",
+    "term_en": "Fixed Assets",
+    "definition_en": "English definition for Fixed Assets. Translation is pending."
   },
   {
     "term": "التكلفة الثابتة (Fixed Cost)",
-    "definition": "تكلفة تظل ثابتة بغض النظر عن الزيادة أو النقصان في إنتاج أو إيرادات الشركة، مثل الإيجار والرواتب."
+    "definition": "تكلفة تظل ثابتة بغض النظر عن الزيادة أو النقصان في إنتاج أو إيرادات الشركة، مثل الإيجار والرواتب.",
+    "term_en": "Fixed Cost",
+    "definition_en": "English definition for Fixed Cost. Translation is pending."
   },
   {
     "term": "التنبؤ المالي (Forecasting)",
-    "definition": "استخدام البيانات المالية التاريخية لتقدير الإيرادات والمصروفات والاتجاهات المالية المستقبلية."
+    "definition": "استخدام البيانات المالية التاريخية لتقدير الإيرادات والمصروفات والاتجاهات المالية المستقبلية.",
+    "term_en": "Forecasting",
+    "definition_en": "English definition for Forecasting. Translation is pending."
   },
   {
     "term": "مبادئ المحاسبة المقبولة عموماً (GAAP)",
-    "definition": "مجموعة قياسية من الممارسات المحاسبية المعتمدة لضمان توحيد وشفافية التقارير المالية."
+    "definition": "مجموعة قياسية من الممارسات المحاسبية المعتمدة لضمان توحيد وشفافية التقارير المالية.",
+    "term_en": "GAAP",
+    "definition_en": "English definition for GAAP. Translation is pending."
   },
   {
     "term": "دفتر الأستاذ العام (General Ledger)",
-    "definition": "الحساب الرئيسي الذي يحتوي على سجل كامل لجميع المعاملات التي تمت خلال فترة محاسبية محددة."
+    "definition": "الحساب الرئيسي الذي يحتوي على سجل كامل لجميع المعاملات التي تمت خلال فترة محاسبية محددة.",
+    "term_en": "General Ledger",
+    "definition_en": "English definition for General Ledger. Translation is pending."
   },
   {
     "term": "الشهرة (Goodwill)",
-    "definition": "أصل غير ملموس يظهر عند استحواذ شركة على أخرى بسعر أعلى من القيمة العادلة لأصولها (يعكس سمعة الشركة وقيمة علامتها التجارية)."
+    "definition": "أصل غير ملموس يظهر عند استحواذ شركة على أخرى بسعر أعلى من القيمة العادلة لأصولها (يعكس سمعة الشركة وقيمة علامتها التجارية).",
+    "term_en": "Goodwill",
+    "definition_en": "English definition for Goodwill. Translation is pending."
   },
   {
     "term": "إجمالي الربح (Gross Profit)",
-    "definition": "قيمة المبيعات مطروحاً منها تكلفة البضاعة المباعة، دون خصم المصروفات التشغيلية (مثل التسويق والإدارة)."
+    "definition": "قيمة المبيعات مطروحاً منها تكلفة البضاعة المباعة، دون خصم المصروفات التشغيلية (مثل التسويق والإدارة).",
+    "term_en": "Gross Profit",
+    "definition_en": "English definition for Gross Profit. Translation is pending."
   },
   {
     "term": "قائمة الدخل (Income Statement)",
-    "definition": "بيان مالي يحدد إجمالي الإيرادات مطروحاً منه جميع المصروفات المتكبدة خلال فترة معينة لمعرفة الأرباح أو الخسائر."
+    "definition": "بيان مالي يحدد إجمالي الإيرادات مطروحاً منه جميع المصروفات المتكبدة خلال فترة معينة لمعرفة الأرباح أو الخسائر.",
+    "term_en": "Income Statement",
+    "definition_en": "English definition for Income Statement. Translation is pending."
   },
   {
     "term": "التكاليف غير المباشرة (Indirect Costs)",
-    "definition": "التكاليف التي لا يمكن تتبعها مباشرة إلى منتج واحد (مثل تكاليف إدارة المصنع أو الكهرباء)."
+    "definition": "التكاليف التي لا يمكن تتبعها مباشرة إلى منتج واحد (مثل تكاليف إدارة المصنع أو الكهرباء).",
+    "term_en": "Indirect Costs",
+    "definition_en": "English definition for Indirect Costs. Translation is pending."
   },
   {
     "term": "الأصول غير الملموسة (Intangible Assets)",
-    "definition": "الأصول التي لا كيان مادي لها ولكن لها قيمة اقتصادية (مثل براءات الاختراع، حقوق النشر، البرمجيات)."
+    "definition": "الأصول التي لا كيان مادي لها ولكن لها قيمة اقتصادية (مثل براءات الاختراع، حقوق النشر، البرمجيات).",
+    "term_en": "Intangible Assets",
+    "definition_en": "English definition for Intangible Assets. Translation is pending."
   },
   {
     "term": "الرقابة الداخلية (Internal Controls)",
-    "definition": "السياسات والإجراءات التي تطبقها الشركة لحماية أصولها، وضمان دقة السجلات المالية، ومنع الاحتيال."
+    "definition": "السياسات والإجراءات التي تطبقها الشركة لحماية أصولها، وضمان دقة السجلات المالية، ومنع الاحتيال.",
+    "term_en": "Internal Controls",
+    "definition_en": "English definition for Internal Controls. Translation is pending."
   },
   {
     "term": "المخزون (Inventory)",
-    "definition": "الأصول التي تنوي الشركة بيعها، بما في ذلك المواد الخام، البضائع قيد التصنيع، والمنتجات النهائية."
+    "definition": "الأصول التي تنوي الشركة بيعها، بما في ذلك المواد الخام، البضائع قيد التصنيع، والمنتجات النهائية.",
+    "term_en": "Inventory",
+    "definition_en": "English definition for Inventory. Translation is pending."
   },
   {
     "term": "الفاتورة (Invoice)",
-    "definition": "مستند تجاري يصدره البائع للمشتري يوضح المنتجات أو الخدمات المقدمة والمبالغ المستحقة."
+    "definition": "مستند تجاري يصدره البائع للمشتري يوضح المنتجات أو الخدمات المقدمة والمبالغ المستحقة.",
+    "term_en": "Invoice",
+    "definition_en": "English definition for Invoice. Translation is pending."
   },
   {
     "term": "قيد اليومية (Journal Entry)",
-    "definition": "التسجيل الأول للمعاملة المالية في النظام المحاسبي، ويوضح الحسابات المدينة والدائنة والمبالغ والتاريخ."
+    "definition": "التسجيل الأول للمعاملة المالية في النظام المحاسبي، ويوضح الحسابات المدينة والدائنة والمبالغ والتاريخ.",
+    "term_en": "Journal Entry",
+    "definition_en": "English definition for Journal Entry. Translation is pending."
   },
   {
     "term": "الخصوم (Liabilities)",
-    "definition": "الالتزامات والديون المستحقة على الشركة لصالح أطراف خارجية، مثل القروض المصرفية وديون الموردين."
+    "definition": "الالتزامات والديون المستحقة على الشركة لصالح أطراف خارجية، مثل القروض المصرفية وديون الموردين.",
+    "term_en": "Liabilities",
+    "definition_en": "English definition for Liabilities. Translation is pending."
   },
   {
     "term": "التصفية (Liquidation)",
-    "definition": "عملية بيع أصول الشركة لتحويلها إلى نقد بغرض سداد الديون، عادة عند إنهاء أعمال الشركة."
+    "definition": "عملية بيع أصول الشركة لتحويلها إلى نقد بغرض سداد الديون، عادة عند إنهاء أعمال الشركة.",
+    "term_en": "Liquidation",
+    "definition_en": "English definition for Liquidation. Translation is pending."
   },
   {
     "term": "السيولة (Liquidity)",
-    "definition": "السهولة التي يمكن بها تحويل الأصل إلى نقد. النقدية هي الأصول الأكثر سيولة."
+    "definition": "السهولة التي يمكن بها تحويل الأصل إلى نقد. النقدية هي الأصول الأكثر سيولة.",
+    "term_en": "Liquidity",
+    "definition_en": "English definition for Liquidity. Translation is pending."
   },
   {
     "term": "المحاسبة على أساس القيمة السوقية (Mark-to-Market)",
-    "definition": "تقييم الأصول أو الخصوم بناءً على أسعارها السوقية الحالية بدلاً من تكلفتها التاريخية."
+    "definition": "تقييم الأصول أو الخصوم بناءً على أسعارها السوقية الحالية بدلاً من تكلفتها التاريخية.",
+    "term_en": "Mark-to-Market",
+    "definition_en": "English definition for Mark-to-Market. Translation is pending."
   },
   {
     "term": "صافي الربح / صافي الدخل (Net Profit / Net Income)",
-    "definition": "المبلغ المتبقي بعد طرح تكلفة البضاعة المباعة والضرائب وكافة المصروفات من إجمالي الإيرادات."
+    "definition": "المبلغ المتبقي بعد طرح تكلفة البضاعة المباعة والضرائب وكافة المصروفات من إجمالي الإيرادات.",
+    "term_en": "Net Profit / Net Income",
+    "definition_en": "English definition for Net Profit / Net Income. Translation is pending."
   },
   {
     "term": "بالأجل / على الحساب (On Credit)",
-    "definition": "بيع منتجات أو خدمات للعملاء دون تلقي دفعة مسبقة، وتُسجل كحسابات مدينين."
+    "definition": "بيع منتجات أو خدمات للعملاء دون تلقي دفعة مسبقة، وتُسجل كحسابات مدينين.",
+    "term_en": "On Credit",
+    "definition_en": "English definition for On Credit. Translation is pending."
   },
   {
     "term": "المصروفات التشغيلية (Operating Expenses - OPEX)",
-    "definition": "التكاليف المرتبطة بإدارة الأعمال اليومية التي لا تدخل في التكلفة المباشرة للإنتاج (مثل الإيجار والرواتب الإدارية)."
+    "definition": "التكاليف المرتبطة بإدارة الأعمال اليومية التي لا تدخل في التكلفة المباشرة للإنتاج (مثل الإيجار والرواتب الإدارية).",
+    "term_en": "Operating Expenses - OPEX",
+    "definition_en": "English definition for Operating Expenses - OPEX. Translation is pending."
   },
   {
     "term": "التكاليف غير المباشرة الشاملة (Overhead)",
-    "definition": "نفقات ضرورية للحفاظ على العمليات التجارية لكنها لا تساهم بشكل مباشر في المنتج (مثل التأمين والتسويق)."
+    "definition": "نفقات ضرورية للحفاظ على العمليات التجارية لكنها لا تساهم بشكل مباشر في المنتج (مثل التأمين والتسويق).",
+    "term_en": "Overhead",
+    "definition_en": "English definition for Overhead. Translation is pending."
   },
   {
     "term": "مسير الرواتب (Payroll)",
-    "definition": "العمليات المحاسبية التي تدير وتسجل تعويضات الموظفين، بما في ذلك الضرائب والمزايا المستقطعة."
+    "definition": "العمليات المحاسبية التي تدير وتسجل تعويضات الموظفين، بما في ذلك الضرائب والمزايا المستقطعة.",
+    "term_en": "Payroll",
+    "definition_en": "English definition for Payroll. Translation is pending."
   },
   {
     "term": "صندوق المصروفات النثرية (Petty Cash)",
-    "definition": "مبلغ نقدي صغير تحتفظ به الشركة لتغطية النفقات البسيطة واليومية غير المتوقعة."
+    "definition": "مبلغ نقدي صغير تحتفظ به الشركة لتغطية النفقات البسيطة واليومية غير المتوقعة.",
+    "term_en": "Petty Cash",
+    "definition_en": "English definition for Petty Cash. Translation is pending."
   },
   {
     "term": "القيمة الحالية (Present Value)",
-    "definition": "طريقة لتقييم التدفقات النقدية المستقبلية أو الديون بقيمتها الحالية اليوم بعد أخذ التضخم والوقت بالاعتبار."
+    "definition": "طريقة لتقييم التدفقات النقدية المستقبلية أو الديون بقيمتها الحالية اليوم بعد أخذ التضخم والوقت بالاعتبار.",
+    "term_en": "Present Value",
+    "definition_en": "English definition for Present Value. Translation is pending."
   },
   {
     "term": "الإيصال (Receipt)",
-    "definition": "سجل مكتوب ورسمي لعملية شراء أو معاملة مالية، يثبت حدوثها ويستخدم لأغراض ضريبية وإثباتات الدفع."
+    "definition": "سجل مكتوب ورسمي لعملية شراء أو معاملة مالية، يثبت حدوثها ويستخدم لأغراض ضريبية وإثباتات الدفع.",
+    "term_en": "Receipt",
+    "definition_en": "English definition for Receipt. Translation is pending."
   },
   {
     "term": "التسوية (Reconciliation)",
-    "definition": "عملية مطابقة رصيدين (مثل الرصيد الدفتري ورصيد كشف الحساب البنكي) للتأكد من تطابقهما واكتشاف الأخطاء."
+    "definition": "عملية مطابقة رصيدين (مثل الرصيد الدفتري ورصيد كشف الحساب البنكي) للتأكد من تطابقهما واكتشاف الأخطاء.",
+    "term_en": "Reconciliation",
+    "definition_en": "English definition for Reconciliation. Translation is pending."
   },
   {
     "term": "الأرباح المحتجزة (Retained Earnings)",
-    "definition": "الأرباح المتبقية بعد دفع كافة المصاريف وتوزيعات الأرباح، ويُعاد استثمارها في الشركة لدعم نموها."
+    "definition": "الأرباح المتبقية بعد دفع كافة المصاريف وتوزيعات الأرباح، ويُعاد استثمارها في الشركة لدعم نموها.",
+    "term_en": "Retained Earnings",
+    "definition_en": "English definition for Retained Earnings. Translation is pending."
   },
   {
     "term": "عائد الاستثمار (ROI)",
-    "definition": "نسبة مئوية تصف مستوى الربح أو الخسارة الناتجة عن استثمار معين مقارنة بتكلفته الأصلية."
+    "definition": "نسبة مئوية تصف مستوى الربح أو الخسارة الناتجة عن استثمار معين مقارنة بتكلفته الأصلية.",
+    "term_en": "ROI",
+    "definition_en": "English definition for ROI. Translation is pending."
   },
   {
     "term": "الإيرادات (Revenue)",
-    "definition": "الدخل الذي تكسبه الشركة من خلال بيع المنتجات أو الخدمات المرتبطة بعملياتها الرئيسية."
+    "definition": "الدخل الذي تكسبه الشركة من خلال بيع المنتجات أو الخدمات المرتبطة بعملياتها الرئيسية.",
+    "term_en": "Revenue",
+    "definition_en": "English definition for Revenue. Translation is pending."
   },
   {
     "term": "مسك الدفاتر المفرد (Single-Entry Bookkeeping)",
-    "definition": "طريقة مبسطة لتسجيل الإيرادات والمصروفات بمدخل واحد، تستخدم عادة في الشركات الصغيرة جداً."
+    "definition": "طريقة مبسطة لتسجيل الإيرادات والمصروفات بمدخل واحد، تستخدم عادة في الشركات الصغيرة جداً.",
+    "term_en": "Single-Entry Bookkeeping",
+    "definition_en": "English definition for Single-Entry Bookkeeping. Translation is pending."
   },
   {
     "term": "الملاءة المالية (Solvency)",
-    "definition": "قدرة الشركة على الوفاء بالتزاماتها المالية طويلة الأجل والاستمرار في العمليات المستقبلية."
+    "definition": "قدرة الشركة على الوفاء بالتزاماتها المالية طويلة الأجل والاستمرار في العمليات المستقبلية.",
+    "term_en": "Solvency",
+    "definition_en": "English definition for Solvency. Translation is pending."
   },
   {
     "term": "أصحاب المصلحة (Stakeholder)",
-    "definition": "أي شخص أو كيان له مصلحة في الشركة ويمكن أن يؤثر أو يتأثر بنشاطها (الموظفون، العملاء، المستثمرون)."
+    "definition": "أي شخص أو كيان له مصلحة في الشركة ويمكن أن يؤثر أو يتأثر بنشاطها (الموظفون، العملاء، المستثمرون).",
+    "term_en": "Stakeholder",
+    "definition_en": "English definition for Stakeholder. Translation is pending."
   },
   {
     "term": "التكلفة الغارقة (Sunk Cost)",
-    "definition": "تكلفة تم تكبدها بالفعل ولا يمكن استردادها، ويجب ألا تؤثر على القرارات المالية المستقبلية."
+    "definition": "تكلفة تم تكبدها بالفعل ولا يمكن استردادها، ويجب ألا تؤثر على القرارات المالية المستقبلية.",
+    "term_en": "Sunk Cost",
+    "definition_en": "English definition for Sunk Cost. Translation is pending."
   },
   {
     "term": "ميزان المراجعة (Trial Balance)",
-    "definition": "تقرير بأرصدة جميع حسابات دفتر الأستاذ العام للتأكد من توازن إجمالي المدين والدائن قبل إعداد القوائم المالية."
+    "definition": "تقرير بأرصدة جميع حسابات دفتر الأستاذ العام للتأكد من توازن إجمالي المدين والدائن قبل إعداد القوائم المالية.",
+    "term_en": "Trial Balance",
+    "definition_en": "English definition for Trial Balance. Translation is pending."
   },
   {
     "term": "التكلفة المتغيرة (Variable Cost)",
-    "definition": "المصروفات التي تتغير صعوداً وهبوطاً بناءً على حجم السلع المنتجة أو المباعة من قبل الشركة."
+    "definition": "المصروفات التي تتغير صعوداً وهبوطاً بناءً على حجم السلع المنتجة أو المباعة من قبل الشركة.",
+    "term_en": "Variable Cost",
+    "definition_en": "English definition for Variable Cost. Translation is pending."
   },
   {
     "term": "تحليل الانحرافات (Variance Analysis)",
-    "definition": "دراسة وتحليل الفروق بين النتائج المالية الفعلية والمبالغ المخطط لها (الموازنة) لمعرفة أسباب التباين."
+    "definition": "دراسة وتحليل الفروق بين النتائج المالية الفعلية والمبالغ المخطط لها (الموازنة) لمعرفة أسباب التباين.",
+    "term_en": "Variance Analysis",
+    "definition_en": "English definition for Variance Analysis. Translation is pending."
   },
   {
     "term": "رأس المال العامل (Working Capital)",
-    "definition": "الأصول المتداولة مطروحاً منها الخصوم المتداولة، ويعكس قدرة الشركة على سداد التزاماتها قصيرة الأجل وتمويل العمليات اليومية."
+    "definition": "الأصول المتداولة مطروحاً منها الخصوم المتداولة، ويعكس قدرة الشركة على سداد التزاماتها قصيرة الأجل وتمويل العمليات اليومية.",
+    "term_en": "Working Capital",
+    "definition_en": "English definition for Working Capital. Translation is pending."
   }
 ]

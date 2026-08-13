@@ -3,24 +3,28 @@
     {
       "id": "financial",
       "title": "المحاسبة المالية",
+      "title_en": "Financial Accounting",
       "color": "#3B82F6",
       "count": 12
     },
     {
       "id": "cost",
       "title": "محاسبة التكاليف",
+      "title_en": "Cost Accounting",
       "color": "#F97316",
       "count": 8
     },
     {
       "id": "audit",
       "title": "المراجعة والتدقيق",
+      "title_en": "Auditing",
       "color": "#10B981",
       "count": 15
     },
     {
       "id": "tax",
       "title": "الضرائب والزكاة",
+      "title_en": "Tax & Zakat",
       "color": "#EF4444",
       "count": 10
     }
@@ -28,39 +32,57 @@
   "info": {
     "financial": {
       "title": "المحاسبة المالية",
-      "desc": "أساسيات القوائم المالية وتسجيل العمليات."
+      "title_en": "Financial Accounting",
+      "desc": "أساسيات القوائم المالية وتسجيل العمليات.",
+      "desc_en": "Basics of financial statements and recording transactions."
     },
     "managerial": {
       "title": "المحاسبة الإدارية",
-      "desc": "تحليل التكاليف واتخاذ القرارات."
+      "title_en": "Managerial Accounting",
+      "desc": "تحليل التكاليف واتخاذ القرارات.",
+      "desc_en": "Cost analysis and decision making."
     },
     "tax": {
       "title": "المحاسبة الضريبية",
-      "desc": "ضريبة القيمة المضافة والدخل."
+      "title_en": "Tax Accounting",
+      "desc": "ضريبة القيمة المضافة والدخل.",
+      "desc_en": "Value Added Tax (VAT) and Income Tax."
     },
     "audit": {
       "title": "المراجعة والتدقيق",
-      "desc": "معايير التدقيق الدولية والرقابة الداخلية."
+      "title_en": "Auditing",
+      "desc": "معايير التدقيق الدولية والرقابة الداخلية.",
+      "desc_en": "International auditing standards and internal controls."
     },
     "cost": {
       "title": "محاسبة التكاليف",
-      "desc": "تتبع النفقات وتحديد تكلفة الإنتاج."
+      "title_en": "Cost Accounting",
+      "desc": "تتبع النفقات وتحديد تكلفة الإنتاج.",
+      "desc_en": "Tracking expenses and determining production costs."
     },
     "corporate": {
       "title": "محاسبة الشركات",
-      "desc": "الاندماج، الاستحواذ، وتصفية الشركات."
+      "title_en": "Corporate Accounting",
+      "desc": "الاندماج، الاستحواذ، وتصفية الشركات.",
+      "desc_en": "Mergers, acquisitions, and corporate liquidation."
     },
     "ifrs": {
       "title": "المعايير الدولية (IFRS)",
-      "desc": "شرح مبسط لمعايير التقارير المالية الدولية (IFRS) ومعايير المحاسبة (IAS)."
+      "title_en": "International Standards (IFRS)",
+      "desc": "شرح مبسط لمعايير التقارير المالية الدولية (IFRS) ومعايير المحاسبة (IAS).",
+      "desc_en": "Simplified explanation of International Financial Reporting Standards (IFRS) and International Accounting Standards (IAS)."
     },
     "specialized": {
       "title": "المحاسبة المتخصصة",
-      "desc": "أدلة محاسبية لقطاعات معينة مثل المقاولات والمستشفيات."
+      "title_en": "Specialized Accounting",
+      "desc": "أدلة محاسبية لقطاعات معينة مثل المقاولات والمستشفيات.",
+      "desc_en": "Accounting guides for specific sectors like contracting and hospitals."
     },
     "modern": {
       "title": "الاتجاهات الحديثة في المحاسبة",
-      "desc": "الذكاء الاصطناعي، المحاسبة السحابية، والعملات الرقمية."
+      "title_en": "Modern Trends in Accounting",
+      "desc": "الذكاء الاصطناعي، المحاسبة السحابية، والعملات الرقمية.",
+      "desc_en": "Artificial intelligence, cloud accounting, and cryptocurrencies."
     }
   }
 }

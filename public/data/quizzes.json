@@ -7,7 +7,13 @@
         "الأصول = الخصوم + حقوق الملكية",
         "حقوق الملكية = الأصول + الخصوم"
       ],
-      "answerHash": "MTowOjE="
+      "answerHash": "MTowOjE=",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "أين تصنف الأراضي والمباني؟",
@@ -16,7 +22,13 @@
         "خصوم",
         "أصول غير متداولة"
       ],
-      "answerHash": "MToxOjI="
+      "answerHash": "MToxOjI=",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "2": [
@@ -27,7 +39,13 @@
         "قياس الأداء المالي (الربح أو الخسارة)",
         "معرفة الديون المستحقة"
       ],
-      "answerHash": "MjowOjE="
+      "answerHash": "MjowOjE=",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "كيف يُحسب مجمل الربح؟",
@@ -36,7 +54,13 @@
         "الإيرادات - المصروفات التشغيلية",
         "الأصول - الخصوم"
       ],
-      "answerHash": "MjoxOjA="
+      "answerHash": "MjoxOjA=",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "8": [
@@ -47,7 +71,13 @@
         "الدائن",
         "لا تتأثر"
       ],
-      "answerHash": "ODowOjA="
+      "answerHash": "ODowOjA=",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "إذا اشترت شركة بضاعة نقداً، ما هو الحساب الذي يصبح دائناً؟",
@@ -56,7 +86,13 @@
         "النقدية",
         "الموردون"
       ],
-      "answerHash": "ODoxOjE="
+      "answerHash": "ODoxOjE=",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "متى يصبح حساب رأس المال مديناً؟",
@@ -65,7 +101,13 @@
         "عند تخفيض رأس المال",
         "رأس المال دائماً دائن ولا يمكن أن يكون مديناً"
       ],
-      "answerHash": "ODoyOjE="
+      "answerHash": "ODoyOjE=",
+      "question_en": "Sample English Question 3?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "9": [
@@ -76,7 +118,13 @@
         "أتمتة إدخال البيانات واكتشاف الاحتيال",
         "الاستغناء الكامل عن المراجعين الخارجيين"
       ],
-      "answerHash": "OTowOjE="
+      "answerHash": "OTowOjE=",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "كيف سيؤثر الذكاء الاصطناعي على دور المحاسب؟",
@@ -85,7 +133,13 @@
         "لن يكون له أي تأثير يذكر",
         "سيحول دور المحاسب إلى مستشار مالي ومحلل"
       ],
-      "answerHash": "OToxOjI="
+      "answerHash": "OToxOjI=",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "10": [
@@ -96,7 +150,13 @@
         "تخزين البيانات على قرص صلب محلي فقط",
         "دفع تكلفة عالية لتراخيص السيرفرات"
       ],
-      "answerHash": "MTA6MDow"
+      "answerHash": "MTA6MDow",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "كيف يتم التعامل مع تحديثات البرامج في المحاسبة السحابية؟",
@@ -105,7 +165,13 @@
         "تتطلب شراء قرص مدمج جديد (CD)",
         "تتطلب الاستعانة بمهندس شبكات"
       ],
-      "answerHash": "MTA6MTow"
+      "answerHash": "MTA6MTow",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "11": [
@@ -116,7 +182,13 @@
         "أصول غير ملموسة",
         "أصول ملموسة"
       ],
-      "answerHash": "MTE6MDox"
+      "answerHash": "MTE6MDox",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "في حال انخفاض سعر العملة الرقمية في السوق عن تكلفتها الدفترية، ماذا يجب على الشركة فعله؟",
@@ -125,7 +197,13 @@
         "تسجيل خسارة انخفاض في القيمة",
         "تسجيل أرباح غير محققة"
       ],
-      "answerHash": "MTE6MTox"
+      "answerHash": "MTE6MTox",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "12": [
@@ -136,7 +214,13 @@
         "الاقتصاد والسوق والنمو",
         "الأرباح والمبيعات والمصروفات"
       ],
-      "answerHash": "MTI6MDow"
+      "answerHash": "MTI6MDow",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "لماذا يُعتبر المحاسبون جزءاً أساسياً في إعداد تقارير ESG؟",
@@ -145,7 +229,13 @@
         "لأنهم يمتلكون المهارات اللازمة لقياس البيانات وتدقيقها والإفصاح عنها بمهنية",
         "لأنها تتعلق بالضرائب فقط"
       ],
-      "answerHash": "MTI6MTox"
+      "answerHash": "MTI6MTox",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ],
   "13": [
@@ -156,7 +246,13 @@
         "توزيع تكلفة الأصل على مدار عمره الإنتاجي",
         "زيادة قيمة الأصول في الميزانية"
       ],
-      "answerHash": "MTM6MDox"
+      "answerHash": "MTM6MDox",
+      "question_en": "Sample English Question 1?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     },
     {
       "question": "أي طريقة إهلاك تخصص مبلغاً متساوياً من المصروف لكل سنة؟",
@@ -165,7 +261,13 @@
         "طريقة وحدات الإنتاج",
         "طريقة القسط الثابت"
       ],
-      "answerHash": "MTM6MToy"
+      "answerHash": "MTM6MToy",
+      "question_en": "Sample English Question 2?",
+      "options_en": [
+        "English Option 1",
+        "English Option 2",
+        "English Option 3"
+      ]
     }
   ]
 }

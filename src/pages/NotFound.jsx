@@ -1,7 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Home, AlertTriangle } from 'lucide-react';
 
 function NotFound() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   return (
     <div className="animate-fade-in flex flex-col items-center justify-center text-center py-20 px-4 min-h-[60vh]">
       <div className="relative mb-8">
@@ -13,9 +17,7 @@ function NotFound() {
         </div>
       </div>
       
-      <h1 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-4">
-        الصفحة غير موجودة
-      </h1>
+      <h1 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-4">{isEn ? 'Page Not Found' : 'الصفحة غير موجودة'}</h1>
       <p className="text-lg text-[var(--text-muted)] max-w-md mb-8">
         عذراً، الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها إلى عنوان آخر.
       </p>
@@ -24,9 +26,7 @@ function NotFound() {
         to="/" 
         className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white font-bold px-8 py-3 rounded-xl flex items-center gap-2 transition-colors"
       >
-        <Home size={20} />
-        العودة للرئيسية
-      </Link>
+        <Home size={20} />{isEn ? 'Back to Home' : 'العودة للرئيسية'}</Link>
     </div>
   );
 }

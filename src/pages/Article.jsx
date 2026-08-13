@@ -4,10 +4,13 @@ import { ChevronRight, Calendar, User, Tag, Bookmark } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { useData } from '../hooks/useData.js';
 import { useBookmarks } from '../context/BookmarkContext.jsx';
+import { useTranslation } from 'react-i18next';
 import './Article.css';
 
 function Article() {
   const { id } = useParams();
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
   
   const { data: articles, loading: loadingArticles } = useData('/data/articles.json');
   const { data: quizzesData } = useData('/data/quizzes.json');
@@ -23,7 +26,7 @@ function Article() {
     return (
       <div className="article-page flex items-center justify-center" style={{ minHeight: '60vh' }}>
         <div className="text-center">
-          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-secondary)' }}>جاري تحميل المقال...</h2>
+          <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--text-secondary)' }}>{t('article_page.loading')}</h2>
         </div>
       </div>
     );
@@ -33,9 +36,9 @@ function Article() {
     return (
       <div className="article-page flex items-center justify-center" style={{ minHeight: '60vh' }}>
         <div className="text-center">
-          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--primary-accent)' }}>عذراً، المقال غير موجود أو قيد الإعداد!</h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>نعمل على إضافة محتوى هذا المقال قريباً.</p>
-          <Link to="/categories" className="btn btn-primary">العودة للأقسام</Link>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--primary-accent)' }}>{t('article_page.not_found')}</h2>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>{t('article_page.not_found_desc')}</p>
+          <Link to="/categories" className="btn btn-primary">{t('article_page.back_cats')}</Link>
         </div>
       </div>
     );
@@ -45,44 +48,44 @@ function Article() {
     <div className="article-page animate-fade-in">
       <div className="container">
         <div className="breadcrumb flex items-center gap-2 mb-6">
-          <Link to="/">الرئيسية</Link>
+          <Link to="/">{t('article_page.home')}</Link>
           <ChevronRight size={16} />
-          <Link to={`/category/${article.categoryId}`}>{article.categoryName}</Link>
+          <Link to={`/category/${article.categoryId}`}>{isEn && article.categoryName_en ? article.categoryName_en : article.categoryName}</Link>
           <ChevronRight size={16} />
-          <span className="current">{article.title}</span>
+          <span className="current">{isEn && article.title_en ? article.title_en : article.title}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="main-content col-span-1 lg:col-span-2 glass-panel p-8">
             <div className="flex items-center justify-between mb-4">
-              <h1 className="article-title mb-0">{article.title}</h1>
+              <h1 className="article-title mb-0">{isEn && article.title_en ? article.title_en : article.title}</h1>
               <button 
                 onClick={() => toggleBookmark(id)} 
                 className="btn-icon" 
                 style={{ color: bookmarked ? 'var(--primary-accent)' : 'var(--text-muted)' }}
-                title={bookmarked ? 'إزالة من المفضلة' : 'حفظ المقال'}
+                title={bookmarked ? t('article_page.bookmark_rem') : t('article_page.bookmark_add')}
               >
                 <Bookmark size={28} fill={bookmarked ? 'currentColor' : 'none'} />
               </button>
             </div>
             
             <div className="article-meta flex items-center gap-6 mb-8">
-              <span className="flex items-center gap-2"><User size={16}/> {article.author}</span>
+              <span className="flex items-center gap-2"><User size={16}/> {isEn ? 'Accounting Encyclopedia Team' : article.author}</span>
               <span className="flex items-center gap-2"><Calendar size={16}/> {article.date}</span>
-              <span className="flex items-center gap-2"><Tag size={16}/> {article.categoryName}</span>
+              <span className="flex items-center gap-2"><Tag size={16}/> {isEn && article.categoryName_en ? article.categoryName_en : article.categoryName}</span>
             </div>
 
             <div 
               className="article-body"
-              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.content) }}
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize((isEn && article.content_en ? article.content_en : article.content) || '') }}
             />
             
-            {articleQuiz && <ArticleQuiz quizData={articleQuiz} articleId={id} />}
+            {articleQuiz && <ArticleQuiz quizData={articleQuiz} articleId={id} t={t} isEn={isEn} />}
           </div>
 
           <aside className="sidebar col-span-1">
             <div className="glass-panel p-6 mb-6">
-              <h3 className="sidebar-title">مقالات ذات صلة</h3>
+              <h3 className="sidebar-title">{t('article_page.related')}</h3>
               <ul className="related-links">
                 {/* Dynamically we could fetch related articles here, but keeping static as before for simplicity */}
                 <li><Link to="/article/2">قائمة الدخل ومكوناتها</Link></li>
@@ -92,9 +95,9 @@ function Article() {
             </div>
 
             <div className="glass-panel p-6 bg-gradient">
-              <h3 className="sidebar-title">هل لديك سؤال محاسبي؟</h3>
-              <p>اطرح سؤالك في منتدى المحاسبين وسيجيبك الخبراء في أسرع وقت.</p>
-              <button className="btn btn-secondary w-full mt-4">اطرح سؤالاً</button>
+              <h3 className="sidebar-title">{t('article_page.forum_title')}</h3>
+              <p>{t('article_page.forum_desc')}</p>
+              <button className="btn btn-secondary w-full mt-4">{t('article_page.forum_btn')}</button>
             </div>
           </aside>
         </div>
@@ -103,7 +106,7 @@ function Article() {
   );
 }
 
-function ArticleQuiz({ quizData, articleId }) {
+function ArticleQuiz({ quizData, articleId, t, isEn }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);
@@ -141,11 +144,11 @@ function ArticleQuiz({ quizData, articleId }) {
 
   return (
     <div className="glass-panel p-6 mt-8" style={{ border: '1px solid var(--primary-accent)' }}>
-      <h3 style={{ color: 'var(--primary-accent)', marginBottom: '1.5rem', fontSize: '1.5rem' }}>اختبر معلوماتك 📝</h3>
+      <h3 style={{ color: 'var(--primary-accent)', marginBottom: '1.5rem', fontSize: '1.5rem' }}>{t('article_page.quiz_title')}</h3>
       
       {quizData.map((q, qIndex) => (
         <div key={qIndex} className="mb-6">
-          <p style={{ fontWeight: 'bold', marginBottom: '1rem', color: 'var(--text-primary)' }}>{qIndex + 1}. {q.question}</p>
+          <p style={{ fontWeight: 'bold', marginBottom: '1rem', color: 'var(--text-primary)' }}>{qIndex + 1}. {isEn && q.question_en ? q.question_en : q.question}</p>
           <div className="flex flex-col gap-2">
             {q.options.map((option, oIndex) => {
               const isSelected = selectedAnswers[qIndex] === oIndex;
@@ -162,7 +165,7 @@ function ArticleQuiz({ quizData, articleId }) {
                   key={oIndex}
                   onClick={() => handleSelect(qIndex, oIndex)}
                   style={{
-                    textAlign: 'right',
+                    textAlign: isEn ? 'left' : 'right',
                     padding: '0.75rem 1rem',
                     borderRadius: '8px',
                     border: `1px solid ${isSelected ? 'var(--primary-accent)' : 'var(--border-color)'}`,
@@ -172,7 +175,7 @@ function ArticleQuiz({ quizData, articleId }) {
                     transition: 'all 0.2s'
                   }}
                 >
-                  {option}
+                  {isEn && q.options_en ? q.options_en[oIndex] : option}
                 </button>
               );
             })}
@@ -181,11 +184,11 @@ function ArticleQuiz({ quizData, articleId }) {
       ))}
 
       {!submitted ? (
-        <button onClick={handleSubmit} className="btn btn-primary w-full" disabled={Object.keys(selectedAnswers).length < quizData.length}>إرسال الإجابات</button>
+        <button onClick={handleSubmit} className="btn btn-primary w-full" disabled={Object.keys(selectedAnswers).length < quizData.length}>{t('article_page.submit_answers')}</button>
       ) : (
         <div className="text-center p-4 rounded-lg bg-gradient mt-4">
-          <h4 style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>نتيجتك: {score} من {quizData.length}</h4>
-          <p style={{ color: 'var(--text-secondary)' }}>{score === quizData.length ? 'ممتاز! لقد فهمت الدرس جيداً 👏' : 'يمكنك مراجعة المقال مرة أخرى لمحاولة أفضل.'}</p>
+          <h4 style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>{t('article_page.score', { score, total: quizData.length })}</h4>
+          <p style={{ color: 'var(--text-secondary)' }}>{score === quizData.length ? t('article_page.score_perfect') : t('article_page.score_good')}</p>
         </div>
       )}
     </div>

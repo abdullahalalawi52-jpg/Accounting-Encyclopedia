@@ -1,11 +1,15 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, Layers } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Layers } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 function CategoryCard({ category, IconComponent }) {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
   const color = category.color || '#3B82F6';
-  const desc = category.desc || 'المبادئ والأساسيات والتقارير';
+  const title = isEn && category.title_en ? category.title_en : category.title;
+  const desc = (isEn && category.desc_en ? category.desc_en : category.desc) || (isEn ? 'Principles, Fundamentals and Reports' : 'المبادئ والأساسيات والتقارير');
 
   return (
     <Link 
@@ -31,9 +35,9 @@ function CategoryCard({ category, IconComponent }) {
         </div>
         
         {/* النصوص */}
-        <div className="flex-1 min-w-0 mt-1" style={{ marginRight: '16px' }}>
+        <div className="flex-1 min-w-0 mt-1 ms-4">
           <h3 className="font-bold text-slate-800 dark:text-[var(--text-primary)] text-xl mb-1 truncate group-hover:text-[var(--primary-accent)] transition-colors">
-            {category.title}
+            {title}
           </h3>
           <p className="text-slate-500 dark:text-slate-400 text-sm font-medium truncate">
             {desc}
@@ -49,16 +53,16 @@ function CategoryCard({ category, IconComponent }) {
           className="h-[38px] px-4 rounded-full flex items-center gap-2 font-semibold text-sm transition-colors duration-300 border border-transparent group-hover:border-current"
           style={{ backgroundColor: `${color}15`, color: color }}
         >
-           <span className="flex items-center gap-1.5" dir="rtl">
+           <span className="flex items-center gap-1.5" dir={isEn ? "ltr" : "rtl"}>
               <span className="font-bold text-base">{category.count}</span>
-              <span className="opacity-90">مقال</span>
+              <span className="opacity-90">{t('home.article_count', 'مقال')}</span>
            </span>
            <Layers size={16} strokeWidth={2.5} className="opacity-70" />
         </div>
 
         {/* سهم الانتقال */}
-        <div className="text-slate-400 group-hover:text-[var(--primary-accent)] transition-transform group-hover:-translate-x-1 duration-300">
-          <ChevronLeft size={24} strokeWidth={2.5} />
+        <div className={`text-slate-400 group-hover:text-[var(--primary-accent)] transition-transform duration-300 ${isEn ? 'group-hover:translate-x-1' : 'group-hover:-translate-x-1'}`}>
+          {isEn ? <ChevronRight size={24} strokeWidth={2.5} /> : <ChevronLeft size={24} strokeWidth={2.5} />}
         </div>
         
       </div>

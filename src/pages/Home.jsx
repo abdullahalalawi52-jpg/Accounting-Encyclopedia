@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useData } from '../hooks/useData.js';
 import { useNewsAPI } from '../hooks/useNewsAPI.js';
 import { latestTemplates } from '../data/templates.js';
+import { useTranslation } from 'react-i18next';
 
 import ArticleCard from '../components/cards/ArticleCard.jsx';
 import CategoryCard from '../components/cards/CategoryCard.jsx';
@@ -17,6 +18,7 @@ const ICONS = {
 };
 
 function Home() {
+  const { t, i18n } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const navigate = useNavigate();
   const { data: categoriesData } = useData('/data/categories.json');
@@ -37,8 +39,8 @@ function Home() {
   return (
     <div className="home-page animate-fade-in pb-20">
       <PageHero 
-        title="مرجعك المحاسبي"
-        description="اكتشف آلاف المقالات، القوالب، والأدوات المالية المصممة خصيصاً للمحاسبين والشركات."
+        title={t('home.hero_title')}
+        description={t('home.hero_desc')}
         padding="py-24"
       />
 
@@ -50,14 +52,14 @@ function Home() {
           {/* Categories */}
           <div className="mb-12">
             <div className="flex flex-col sm:flex-row justify-between items-center mb-6 pb-2 border-b border-[var(--border-color)]">
-              <h2 className="text-2xl font-bold text-[var(--text-primary)]">تصفح الأقسام</h2>
+              <h2 className="text-2xl font-bold text-[var(--text-primary)]">{t('home.browse_categories')}</h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {displayCategories.map((cat, index) => {
                 const IconComponent = ICONS[cat.id] || BookOpen;
                 return (
-                  <CategoryCard key={index} category={{...cat, desc: categoriesData?.info?.[cat.id]?.desc}} IconComponent={IconComponent} />
+                  <CategoryCard key={index} category={{...cat, desc: categoriesData?.info?.[cat.id]?.desc, desc_en: categoriesData?.info?.[cat.id]?.desc_en}} IconComponent={IconComponent} />
                 );
               })}
             </div>
@@ -67,10 +69,10 @@ function Home() {
           <div>
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                <Star className="text-[var(--primary-accent)]" size={20} /> مقالات مختارة
+                <Star className="text-[var(--primary-accent)]" size={20} /> {t('home.featured_articles')}
               </h2>
               <Link to="/articles" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-1 text-sm transition-colors">
-                عرض الكل <ArrowLeft size={16} />
+                {t('home.view_all')} {i18n.language.startsWith('ar') ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
               </Link>
             </div>
             
@@ -98,14 +100,14 @@ function Home() {
               <div className="p-2 bg-blue-500/10 rounded-lg text-blue-500">
                 <FileDown size={20} />
               </div>
-              <h3 className="font-bold text-[var(--text-primary)] text-lg">أحدث النماذج والقوالب</h3>
+              <h3 className="font-bold text-[var(--text-primary)] text-lg">{t('home.latest_templates')}</h3>
             </div>
             
             <div className="space-y-[14px]">
               {latestTemplates.map(template => (
                 <Link key={template.id} to={`/templates/${template.id}`} className="group flex items-center justify-between p-3 rounded-xl hover:bg-[var(--bg-main)] transition-colors gap-3">
                   <span className="text-[var(--text-secondary)] text-sm font-medium group-hover:text-[var(--text-primary)] transition-colors flex-1 truncate">
-                    {template.title}
+                    {i18n.language.startsWith('en') && template.title_en ? template.title_en : template.title}
                   </span>
                   <span className={`text-xs px-3 py-1.5 rounded-md font-bold shrink-0 ${
                     template.type === 'Excel' ? 'bg-emerald-500/10 text-emerald-600' :
@@ -120,7 +122,7 @@ function Home() {
             
             <div className="mt-[26px] pt-4 border-t border-[var(--border-color)]">
               <Link to="/templates" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-1.5 text-sm justify-center font-bold transition-colors group">
-                تصفح المكتبة كاملة <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+                {t('home.browse_full_library')} {i18n.language.startsWith('ar') ? <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" /> : <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />}
               </Link>
             </div>
           </div>
@@ -130,12 +132,12 @@ function Home() {
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
             <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
             
-            <h3 className="font-bold text-2xl mb-3 relative z-10 text-white" style={{ color: 'white' }}>معايير IFRS</h3>
+            <h3 className="font-bold text-2xl mb-3 relative z-10 text-white" style={{ color: 'white' }}>{t('home.ifrs_standards')}</h3>
             <p className="text-sm mb-6 leading-relaxed relative z-10" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-              دليلك الشامل لفهم وتطبيق المعايير الدولية لإعداد التقارير المالية.
+              {t('home.ifrs_desc')}
             </p>
             <Link to="/standards" className="bg-white text-[var(--primary-accent)] hover:bg-slate-50 px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 w-full flex items-center justify-center gap-2 relative z-10 shadow-md">
-              اكتشف المعايير <ExternalLink size={18} />
+              {t('home.discover_standards')} <ExternalLink size={18} />
             </Link>
           </div>
         </aside>

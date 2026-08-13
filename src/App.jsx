@@ -1,4 +1,5 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -40,6 +41,24 @@ function PageLoader() {
 }
 
 function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    const handleLanguageChange = (lng) => {
+      // Force dir attribute based on language to ensure Tailwind updates correctly
+      const direction = lng && lng.startsWith('ar') ? 'rtl' : 'ltr';
+      document.documentElement.setAttribute('dir', direction);
+      document.documentElement.setAttribute('lang', lng || 'ar');
+    };
+    
+    handleLanguageChange(i18n.language || 'ar');
+    i18n.on('languageChanged', handleLanguageChange);
+    
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
+
   return (
     <ThemeProvider>
       <BookmarkProvider>

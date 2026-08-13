@@ -1,0 +1,118 @@
+{
+  "navbar": {
+    "brand_line1": "Accounting",
+    "brand_line2": "Encyclopedia",
+    "articles": "Articles",
+    "templates": "Templates & Forms",
+    "standards": "Standards & Regulations",
+    "tools_and_refs": "Tools & References",
+    "glossary": "Accounting Glossary",
+    "calculators": "Smart Calculators",
+    "chart_of_accounts": "Chart of Accounts",
+    "journal_entries": "Journal Entries Library",
+    "certifications": "Professional Certifications",
+    "courses": "Training Courses",
+    "search_placeholder": "Search the encyclopedia..."
+  },
+  "home": {
+    "hero_title": "Your Accounting Reference",
+    "hero_desc": "Discover thousands of articles, templates, and financial tools designed specifically for accountants and businesses.",
+    "browse_categories": "Browse Categories",
+    "featured_articles": "Featured Articles",
+    "latest_templates": "Latest Templates & Forms",
+    "browse_full_library": "Browse Full Library",
+    "view_all": "View All",
+    "ifrs_standards": "IFRS Standards",
+    "ifrs_desc": "Your comprehensive guide to understanding and applying International Financial Reporting Standards.",
+    "discover_standards": "Discover Standards",
+    "article_count": "Articles"
+  },
+  "footer": {
+    "brand": "Accounting Encyclopedia",
+    "description": "The comprehensive Arabic encyclopedia for all things accounting, financial standards, zakat and tax. Your trusted primary reference.",
+    "categories": "Categories",
+    "financial_accounting": "Financial Accounting",
+    "cost_accounting": "Cost Accounting",
+    "auditing": "Auditing",
+    "quick_links": "Quick Links",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "connect_with_us": "Connect With Us",
+    "copyright": "© {{year}} Accounting Encyclopedia. All rights reserved."
+  },
+  "categories": {
+    "page_title": "Articles Archive",
+    "page_desc": "Browse the latest reliable accounting articles and references.",
+    "sidebar_title": "Categories",
+    "loading": "Loading articles...",
+    "no_articles": "No articles found in this category currently.",
+    "next": "Next"
+  },
+  "article": {
+    "read_more": "Read more",
+    "default_time": "5 mins read"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions & Support",
+    "desc": "Find answers to the most common questions, or contact us directly.",
+    "faq_title": "Common Questions",
+    "contact_title": "Contact Us",
+    "name": "Full Name",
+    "name_ph": "Enter your name...",
+    "email": "Email Address",
+    "email_ph": "example@mail.com",
+    "subject": "Message Subject",
+    "subject_ph": "How can we help you?",
+    "submit": "Send Message",
+    "list": [
+      {
+        "question": "What is the Accounting Encyclopedia?",
+        "answer": "The Accounting Encyclopedia is a free educational platform aimed at simplifying accounting and financial concepts for students, junior accountants, and entrepreneurs."
+      },
+      {
+        "question": "Are the articles and lessons free?",
+        "answer": "Yes, all articles and terms in the encyclopedia are completely free and do not require any paid subscription."
+      },
+      {
+        "question": "How can I start learning accounting from scratch?",
+        "answer": "We recommend starting with the 'Financial Accounting' section as it contains basics like understanding the balance sheet, income statement, and journal entries, then moving to advanced sections."
+      },
+      {
+        "question": "Can I contribute by writing articles?",
+        "answer": "We welcome all accounting experts! You can contact us via the form on this page and we will reply to arrange the publishing process."
+      },
+      {
+        "question": "What is the difference between Financial and Managerial Accounting?",
+        "answer": "Financial Accounting focuses on preparing financial statements for external parties (investors, banks), while Managerial Accounting focuses on providing internal reports and analysis to help management make decisions."
+      }
+    ]
+  },
+  "glossary": {
+    "title": "Accounting Glossary",
+    "desc": "A quick and easy reference for the most important accounting and financial terms.",
+    "search_ph": "Search for a term...",
+    "loading": "Loading terms...",
+    "no_results": "No terms found matching your search",
+    "listen": "Listen to the term in English"
+  },
+  "article_page": {
+    "loading": "Loading article...",
+    "not_found": "Sorry, the article was not found or is under preparation!",
+    "not_found_desc": "We are working on adding the content of this article soon.",
+    "back_cats": "Back to Categories",
+    "home": "Home",
+    "bookmark_add": "Save Article",
+    "bookmark_rem": "Remove from Bookmarks",
+    "related": "Related Articles",
+    "forum_title": "Have an accounting question?",
+    "forum_desc": "Ask your question in the accountants forum and experts will answer you as soon as possible.",
+    "forum_btn": "Ask a Question",
+    "quiz_title": "Test your knowledge 📝",
+    "submit_answers": "Submit Answers",
+    "score": "Your Score: {{score}} out of {{total}}",
+    "score_perfect": "Excellent! You understood the lesson well 👏",
+    "score_good": "You can review the article again for a better attempt."
+  }
+}

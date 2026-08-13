@@ -1,6 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { BookOpen, Users, Target, ShieldCheck } from 'lucide-react';
 
 function About() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   return (
     <div className="about-page animate-fade-in" style={{ padding: '4rem 0' }}>
       <div className="container" style={{ maxWidth: '900px' }}>
@@ -15,7 +19,7 @@ function About() {
         </div>
 
         <div className="glass-panel" style={{ padding: '3rem', marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--primary-accent)' }}>رؤيتنا</h2>
+          <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--primary-accent)' }}>{isEn ? 'Our Vision' : 'رؤيتنا'}</h2>
           <p style={{ fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '1rem' }}>
             نسعى في "موسوعة المحاسبة" لسد الفجوة في المحتوى المالي والمحاسبي باللغة العربية على الإنترنت. نؤمن بأن المعرفة المالية يجب أن تكون متاحة، دقيقة، وسهلة الفهم للطلاب، رواد الأعمال، والمهنيين على حد سواء.
           </p>
