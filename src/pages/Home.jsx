@@ -1,4 +1,4 @@
-import { Book, Calculator, TrendingUp, FileText, ArrowLeft, ArrowRight, Star, FileDown, ExternalLink, BookOpen } from 'lucide-react';
+import { Book, Calculator, TrendingUp, FileText, ArrowLeft, ArrowRight, Star, FileDown, ExternalLink, BookOpen, Layers, Award, Sparkles, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useData } from '../hooks/useData.js';
 import { useNewsAPI } from '../hooks/useNewsAPI.js';
@@ -18,6 +18,7 @@ const ICONS = {
 
 function Home() {
   const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
   const { data: categoriesData } = useData('/data/categories.json');
   const { data: articlesData } = useNewsAPI();
   
@@ -26,23 +27,75 @@ function Home() {
   
   const displayCategories = categoriesList.filter(c => ICONS[c.id]).slice(0, 4);
 
+  const stats = [
+    {
+      icon: BookOpen,
+      count: '21+',
+      label: isEn ? 'Comprehensive Articles' : 'مقال محاسبي متخصص',
+    },
+    {
+      icon: FileDown,
+      count: '8+',
+      label: isEn ? 'Practical Templates' : 'نماذج مالية جاهزة',
+    },
+    {
+      icon: Award,
+      count: 'IFRS & SOCPA',
+      label: isEn ? 'Standards & Guides' : 'المعايير الدولية والمحلية',
+    },
+    {
+      icon: Sparkles,
+      count: '100%',
+      label: isEn ? 'Free Access' : 'محتوى مجاني بالكامل',
+    },
+  ];
+
   return (
     <div className="home-page animate-fade-in pb-20">
       <PageHero 
         title={t('home.hero_title')}
         description={t('home.hero_desc')}
-        padding="py-24"
+        badge={isEn ? 'Accounting Knowledge Hub' : 'الموسوعة المحاسبية الشاملة'}
+        padding="py-20 md:py-24"
       />
 
+      {/* Stats Highlight Strip */}
+      <div className="container -mt-8 relative z-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 md:p-6 rounded-2xl bg-[var(--bg-card)]/90 backdrop-blur-xl border border-[var(--border-color)] shadow-xl">
+          {stats.map((stat, idx) => {
+            const Icon = stat.icon;
+            return (
+              <div key={idx} className="flex items-center gap-3.5 p-2.5 rounded-xl transition-all hover:bg-[var(--bg-main)]">
+                <div className="w-11 h-11 shrink-0 rounded-xl bg-[var(--primary-accent)]/10 text-[var(--primary-accent)] flex items-center justify-center border border-[var(--primary-accent)]/20 shadow-sm">
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <div className="font-black text-base md:text-lg text-[var(--text-primary)] leading-tight">{stat.count}</div>
+                  <div className="text-xs text-[var(--text-muted)] font-medium leading-snug">{stat.label}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Main Content Area */}
-      <div className="container mt-12 flex flex-col lg:flex-row gap-8">
+      <div className="container mt-14 flex flex-col lg:flex-row gap-8 items-start">
         
         {/* Main Feed (Right Side in RTL) */}
-        <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3 flex flex-col gap-12">
+          
           {/* Categories */}
-          <div className="mb-12">
-            <div className="flex flex-col sm:flex-row justify-between items-center mb-6 pb-2 border-b border-[var(--border-color)]">
-              <h2 className="text-2xl font-bold text-[var(--text-primary)]">{t('home.browse_categories')}</h2>
+          <div>
+            <div className="flex justify-between items-center mb-6 pb-3 border-b border-[var(--border-color)]">
+              <div className="flex items-center gap-2.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-[var(--primary-accent)] shadow-sm shadow-[var(--primary-accent)]/50"></div>
+                <h2 className="text-xl md:text-2xl font-bold text-[var(--text-primary)]">{t('home.browse_categories')}</h2>
+              </div>
+              <Link to="/categories" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-1.5 text-sm font-semibold transition-colors group">
+                <span>{t('home.view_all')}</span>
+                {isEn ? <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /> : <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-1" />}
+              </Link>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -57,12 +110,14 @@ function Home() {
 
           {/* Featured Articles */}
           <div>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-xl font-bold text-[var(--text-primary)] flex items-center gap-2">
-                <Star className="text-[var(--primary-accent)]" size={20} /> {t('home.featured_articles')}
-              </h2>
-              <Link to="/articles" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-1 text-sm transition-colors">
-                {t('home.view_all')} {i18n.language.startsWith('ar') ? <ArrowLeft size={16} /> : <ArrowRight size={16} />}
+            <div className="flex justify-between items-center mb-6 pb-3 border-b border-[var(--border-color)]">
+              <div className="flex items-center gap-2.5">
+                <Star className="text-amber-400 fill-amber-400" size={20} />
+                <h2 className="text-xl md:text-2xl font-bold text-[var(--text-primary)]">{t('home.featured_articles')}</h2>
+              </div>
+              <Link to="/categories" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-1.5 text-sm font-semibold transition-colors group">
+                <span>{t('home.view_all')}</span>
+                {isEn ? <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /> : <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-1" />}
               </Link>
             </div>
             
@@ -73,36 +128,39 @@ function Home() {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-6">
-                <span className="text-[var(--text-secondary)]"></span>
+              <div className="text-center py-12">
+                <span className="text-[var(--text-secondary)]">{t('categories.loading')}</span>
               </div>
             )}
           </div>
         </div>
 
         {/* Sidebar (Left Side in RTL) */}
-        <aside className="w-full lg:w-1/3 flex flex-col gap-8">
+        <aside className="w-full lg:w-1/3 flex flex-col gap-6 sticky top-24">
           {/* Latest Templates */}
-          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-sm relative overflow-hidden" style={{ padding: '25px' }}>
+          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-sm relative overflow-hidden" style={{ padding: '24px' }}>
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl -z-10"></div>
             
-            <div className="flex items-center gap-3 mb-[34px] pb-4 border-b border-[var(--border-color)]">
-              <div className="p-2 bg-blue-500/10 rounded-lg text-blue-500">
+            <div className="flex items-center gap-3 mb-6 pb-4 border-b border-[var(--border-color)]">
+              <div className="p-2.5 bg-blue-500/10 rounded-xl text-blue-500 border border-blue-500/20">
                 <FileDown size={20} />
               </div>
-              <h3 className="font-bold text-[var(--text-primary)] text-lg">{t('home.latest_templates')}</h3>
+              <div>
+                <h3 className="font-bold text-[var(--text-primary)] text-lg leading-tight">{t('home.latest_templates')}</h3>
+                <p className="text-xs text-[var(--text-muted)] mt-0.5 mb-0">{isEn ? 'Excel & Word downloads' : 'جاهزة للتحميل والتعديل'}</p>
+              </div>
             </div>
             
-            <div className="space-y-[14px]">
+            <div className="space-y-2.5">
               {latestTemplates.map(template => (
-                <Link key={template.id} to={`/templates/${template.id}`} className="group flex items-center justify-between p-3 rounded-xl hover:bg-[var(--bg-main)] transition-colors gap-3">
+                <Link key={template.id} to={`/templates/${template.id}`} className="group flex items-center justify-between p-3 rounded-xl border border-transparent hover:border-[var(--border-color)] hover:bg-[var(--bg-main)] transition-all gap-3">
                   <span className="text-[var(--text-secondary)] text-sm font-medium group-hover:text-[var(--text-primary)] transition-colors flex-1 truncate">
-                    {i18n.language.startsWith('en') && template.title_en ? template.title_en : template.title}
+                    {isEn && template.title_en ? template.title_en : template.title}
                   </span>
-                  <span className={`text-xs px-3 py-1.5 rounded-md font-bold shrink-0 ${
-                    template.type === 'Excel' ? 'bg-emerald-500/10 text-emerald-600' :
-                    template.type === 'Word' ? 'bg-blue-500/10 text-blue-600' :
-                    'bg-red-500/10 text-red-600'
+                  <span className={`text-xs px-2.5 py-1 rounded-lg font-bold shrink-0 shadow-sm ${
+                    template.type === 'Excel' ? 'bg-emerald-500/10 text-emerald-600 border border-emerald-500/20' :
+                    template.type === 'Word' ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' :
+                    'bg-red-500/10 text-red-600 border border-red-500/20'
                   }`}>
                     {template.type}
                   </span>
@@ -110,29 +168,34 @@ function Home() {
               ))}
             </div>
             
-            <div className="mt-[26px] pt-4 border-t border-[var(--border-color)]">
-              <Link to="/templates" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-1.5 text-sm justify-center font-bold transition-colors group">
-                {t('home.browse_full_library')} {i18n.language.startsWith('ar') ? <ArrowLeft size={16} className="transition-transform group-hover:-translate-x-1" /> : <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />}
+            <div className="mt-6 pt-4 border-t border-[var(--border-color)]">
+              <Link to="/templates" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 text-sm justify-center font-bold transition-colors group py-1">
+                <span>{t('home.browse_full_library')}</span>
+                {isEn ? <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /> : <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-1" />}
               </Link>
             </div>
           </div>
 
           {/* Promo Box */}
-          <div className="bg-gradient-to-br from-[var(--primary-accent)] to-[var(--primary-hover)] rounded-2xl p-8 text-center relative overflow-hidden shadow-lg shadow-[var(--primary-accent)]/20 text-white">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/10 rounded-full blur-2xl"></div>
+          <div className="bg-gradient-to-br from-[#0B172A] via-[#115E59] to-[#047857] rounded-2xl p-7 text-start relative overflow-hidden shadow-xl border border-emerald-500/30 text-white">
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-400/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-black/30 rounded-full blur-2xl pointer-events-none"></div>
             
-            <h3 className="font-bold text-2xl mb-3 relative z-10 text-white" style={{ color: 'white' }}>{t('home.ifrs_standards')}</h3>
-            <p className="text-sm mb-6 leading-relaxed relative z-10" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/10 border border-white/20 text-emerald-200 text-xs font-bold mb-4 backdrop-blur-md">
+              <Sparkles size={13} />
+              <span>{isEn ? 'Accounting Standards' : 'دليل المعايير المحاسبية'}</span>
+            </div>
+
+            <h3 className="font-extrabold text-2xl mb-2 text-white leading-snug">{t('home.ifrs_standards')}</h3>
+            <p className="text-sm mb-6 leading-relaxed text-slate-200 font-normal">
               {t('home.ifrs_desc')}
             </p>
             <Link 
               to="/standards" 
-              style={{ backgroundColor: '#ffffff', color: '#047857' }} 
-              className="px-6 py-3 rounded-xl font-bold transition-all hover:bg-slate-100 hover:scale-105 active:scale-95 w-full flex items-center justify-center gap-2 relative z-10 shadow-lg"
+              className="bg-white text-emerald-900 hover:bg-emerald-50 px-5 py-3 rounded-xl font-bold text-sm transition-all hover:shadow-lg active:scale-95 w-full flex items-center justify-center gap-2 relative z-10"
             >
               <span>{t('home.discover_standards')}</span>
-              <ExternalLink size={18} />
+              <ExternalLink size={16} />
             </Link>
           </div>
         </aside>
