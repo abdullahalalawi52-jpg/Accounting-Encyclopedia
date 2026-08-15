@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// ضع مفتاح API الخاص بك هنا (مؤقت للاختبار، ويفضل وضعه في ملف .env في بيئة العمل الحقيقية)
-const API_KEY = '1f3a616196d4a6ae4e4404b87777eeae'; 
+// قراءة مفتاح الـ API بشكل آمن من متغيرات البيئة
+const API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
 
 export function useNewsAPI() {
   const { i18n } = useTranslation();
@@ -38,8 +38,7 @@ export function useNewsAPI() {
     };
 
     const fetchNews = async () => {
-      if (API_KEY === 'YOUR_API_KEY_HERE' || API_KEY === '1f3a616196d4a6ae4e4404b87777eeae') {
-        console.warn('API Key is missing or rate-limited. Using local fallback data.');
+      if (!API_KEY || API_KEY === 'YOUR_API_KEY_HERE') {
         return fetchFallback();
       }
 
