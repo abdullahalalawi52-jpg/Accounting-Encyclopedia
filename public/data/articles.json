@@ -13,7 +13,7 @@
     "isFeatured": true,
     "categoryName_en": "Financial Accounting",
     "title_en": "What is a Balance Sheet?",
-    "summary_en": "تعرف على أساسيات الميزانية العمومية وأهميتها في تحديد المركز المالي.",
+    "summary_en": "Learn the fundamentals of the balance sheet and its importance in assessing financial position.",
     "time_en": "5 min read",
     "content_en": "<h2>What is a Balance Sheet?</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
@@ -31,7 +31,7 @@
     "isFeatured": true,
     "categoryName_en": "Financial Accounting",
     "title_en": "Income Statement Explained",
-    "summary_en": "كيفية قراءة قائمة الدخل ومعرفة صافي الربح أو الخسارة.",
+    "summary_en": "How to read an income statement and understand net profit or loss.",
     "time_en": "8 min read",
     "content_en": "<h2>Income Statement Explained</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
@@ -49,7 +49,7 @@
     "isFeatured": true,
     "categoryName_en": "Managerial Accounting",
     "title_en": "Break-Even Point Analysis",
-    "summary_en": "كيف تحسب نقطة التعادل لاتخاذ قرارات تسعير صحيحة.",
+    "summary_en": "How to calculate the break-even point to make sound pricing and cost decisions.",
     "time_en": "4 min read",
     "content_en": "<h2>Break-Even Point Analysis</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
@@ -67,7 +67,7 @@
     "isFeatured": true,
     "categoryName_en": "Auditing",
     "title_en": "Internal vs External Audit",
-    "summary_en": "مقارنة شاملة بين دور المراجع الداخلي والمراجع الخارجي.",
+    "summary_en": "A comprehensive comparison between internal audit and external audit roles.",
     "time_en": "6 min read",
     "content_en": "<h2>Internal vs External Audit</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
@@ -85,8 +85,8 @@
     "isFeatured": false,
     "categoryName_en": "Tax Accounting",
     "title_en": "Value Added Tax (VAT)",
-    "summary_en": "تعرف على مفهوم ضريبة القيمة المضافة وكيفية حسابها والقرارات المتعلقة بها.",
-    "time_en": null,
+    "summary_en": "Understand Value Added Tax (VAT) concepts, calculation, and compliance.",
+    "time_en": "5 min read",
     "content_en": "<h2>Value Added Tax (VAT)</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -103,8 +103,8 @@
     "isFeatured": false,
     "categoryName_en": "Cost Accounting",
     "title_en": "Inventory Pricing Methods",
-    "summary_en": "شرح طرق التسعير المختلفة مثل ما يرد أولاً يصرف أولاً (FIFO).",
-    "time_en": null,
+    "summary_en": "Overview of inventory valuation methods including FIFO and weighted average.",
+    "time_en": "6 min read",
     "content_en": "<h2>Inventory Pricing Methods</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -121,8 +121,8 @@
     "isFeatured": false,
     "categoryName_en": "Corporate Accounting",
     "title_en": "Establishing Joint Stock Companies",
-    "summary_en": "خطوات وإجراءات تأسيس الشركات المساهمة وحقوق المساهمين.",
-    "time_en": null,
+    "summary_en": "Steps, accounting procedures, and shareholder rights in joint stock companies.",
+    "time_en": "7 min read",
     "content_en": "<h2>Establishing Joint Stock Companies</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -139,8 +139,8 @@
     "isFeatured": false,
     "categoryName_en": "Financial Accounting",
     "title_en": "Journal Entries and Recording",
-    "summary_en": "شرح مفصل لنظرية القيد المزدوج وكيفية تسجيل العمليات المالية اليومية.",
-    "time_en": null,
+    "summary_en": "Detailed explanation of double-entry bookkeeping and daily transaction recording.",
+    "time_en": "9 min read",
     "content_en": "<h2>Journal Entries and Recording</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -157,8 +157,8 @@
     "isFeatured": false,
     "categoryName_en": "Modern Trends",
     "title_en": "AI in Accounting",
-    "summary_en": "كيف يحول الذكاء الاصطناعي مستقبل مهنة المحاسبة.",
-    "time_en": null,
+    "summary_en": "How Artificial Intelligence is transforming the future of accounting and finance.",
+    "time_en": "5 min read",
     "content_en": "<h2>AI in Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -175,8 +175,8 @@
     "isFeatured": false,
     "categoryName_en": "Modern Trends",
     "title_en": "Cloud Accounting",
-    "summary_en": "مزايا البرامج المحاسبية السحابية وإدارة البيانات عن بعد.",
-    "time_en": null,
+    "summary_en": "Key benefits of cloud accounting software and remote financial data management.",
+    "time_en": "5 min read",
     "content_en": "<h2>Cloud Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -193,8 +193,8 @@
     "isFeatured": false,
     "categoryName_en": "Modern Trends",
     "title_en": "Accounting for Cryptocurrencies",
-    "summary_en": "كيفية تصنيف وتقييم العملات الرقمية في القوائم المالية.",
-    "time_en": null,
+    "summary_en": "Classification, valuation, and accounting treatment of cryptocurrencies.",
+    "time_en": "7 min read",
     "content_en": "<h2>Accounting for Cryptocurrencies</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -211,8 +211,8 @@
     "isFeatured": false,
     "categoryName_en": "Modern Trends",
     "title_en": "ESG Sustainability Reports",
-    "summary_en": "دور المحاسبة في تقارير الاستدامة البيئية والاجتماعية.",
-    "time_en": null,
+    "summary_en": "The role of accounting in Environmental, Social, and Governance (ESG) reporting.",
+    "time_en": "6 min read",
     "content_en": "<h2>ESG Sustainability Reports</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -229,8 +229,8 @@
     "isFeatured": false,
     "categoryName_en": "Financial Accounting",
     "title_en": "Depreciation and its Methods",
-    "summary_en": "شرح مفهوم الإهلاك للأصول الثابتة وأشهر طرق حسابه مثل القسط الثابت والمتناقص.",
-    "time_en": null,
+    "summary_en": "Depreciation concepts for fixed assets and methods like straight-line and declining balance.",
+    "time_en": "6 min read",
     "content_en": "<h2>Depreciation and its Methods</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -247,8 +247,8 @@
     "isFeatured": false,
     "categoryName_en": "Tax Accounting",
     "title_en": "Income and Corporate Tax",
-    "summary_en": "تحديثات مستمرة لقوانين ضريبة الدخل وضريبة الشركات حسب الدول العربية.",
-    "time_en": null,
+    "summary_en": "Corporate income tax rules, calculation methods, and accounting treatments.",
+    "time_en": "5 min read",
     "content_en": "<h2>Income and Corporate Tax</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -264,9 +264,9 @@
     "time": null,
     "isFeatured": false,
     "categoryName_en": "Tax Accounting",
-    "title_en": "Zakat Guide",
-    "summary_en": "كيفية حساب الزكاة للشركات والمؤسسات التجارية بناءً على المعايير الشرعية والمحلية.",
-    "time_en": null,
+    "title_en": "Zakat Guide for Businesses",
+    "summary_en": "How to calculate business Zakat according to Sharia and accounting standards.",
+    "time_en": "6 min read",
     "content_en": "<h2>Zakat Guide</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -283,8 +283,8 @@
     "isFeatured": false,
     "categoryName_en": "International Standards (IFRS)",
     "title_en": "Introduction to IFRS",
-    "summary_en": "نظرة عامة على المعايير الدولية للتقارير المالية والفرق بينها وبين المعايير المحلية.",
-    "time_en": null,
+    "summary_en": "An overview of International Financial Reporting Standards (IFRS) and global accounting convergence.",
+    "time_en": "6 min read",
     "content_en": "<h2>Introduction to IFRS</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -301,8 +301,8 @@
     "isFeatured": false,
     "categoryName_en": "International Standards (IFRS)",
     "title_en": "IFRS 15: Revenue from Contracts",
-    "summary_en": "شرح نموذج الخطوات الخمس للاعتراف بالإيراد مع أمثلة عملية.",
-    "time_en": null,
+    "summary_en": "The 5-step model for revenue recognition under IFRS 15 with practical examples.",
+    "time_en": "8 min read",
     "content_en": "<h2>IFRS 15: Revenue from Contracts</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -319,8 +319,8 @@
     "isFeatured": false,
     "categoryName_en": "International Standards (IFRS)",
     "title_en": "IFRS 16: Leases",
-    "summary_en": "كيفية معالجة عقود الإيجار للمستأجر والمؤجر وفقاً للمعيار الدولي.",
-    "time_en": null,
+    "summary_en": "Accounting treatment of lease contracts for lessees and lessors under IFRS 16.",
+    "time_en": "7 min read",
     "content_en": "<h2>IFRS 16: Leases</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
@@ -335,11 +335,11 @@
     "image": "/images/articles/finance.png",
     "time": null,
     "isFeatured": false,
-    "categoryName_en": "المحاسبة المتخصصة",
-    "title_en": "محاسبة المقاولات",
-    "summary_en": "طرق الاعتراف بالإيراد في عقود الإنشاءات ونسبة الإنجاز.",
-    "time_en": null,
-    "content_en": "<h2>محاسبة المقاولات</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
+    "categoryName_en": "Specialized Accounting",
+    "title_en": "Construction & Contracting Accounting",
+    "summary_en": "Revenue recognition methods in construction contracts and percentage of completion.",
+    "time_en": "7 min read",
+    "content_en": "<h2>Construction & Contracting Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 20,
@@ -353,11 +353,11 @@
     "image": "/images/articles/finance.png",
     "time": null,
     "isFeatured": false,
-    "categoryName_en": "المحاسبة المتخصصة",
-    "title_en": "محاسبة المستشفيات والمراكز الطبية",
-    "summary_en": "دليل الحسابات الخاص بالمستشفيات وكيفية معالجة الإيرادات والمصروفات الطبية.",
-    "time_en": null,
-    "content_en": "<h2>محاسبة المستشفيات والمراكز الطبية</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
+    "categoryName_en": "Specialized Accounting",
+    "title_en": "Hospital & Healthcare Accounting",
+    "summary_en": "Healthcare chart of accounts and handling of medical revenues and insurance claims.",
+    "time_en": "8 min read",
+    "content_en": "<h2>Hospital & Healthcare Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   },
   {
     "id": 21,
@@ -371,10 +371,10 @@
     "image": "/images/articles/finance.png",
     "time": null,
     "isFeatured": false,
-    "categoryName_en": "المحاسبة المتخصصة",
-    "title_en": "محاسبة المصارف الإسلامية",
-    "summary_en": "المرابحة، المضاربة، والمشاركة: الأسس المحاسبية للبنوك الإسلامية.",
-    "time_en": null,
-    "content_en": "<h2>محاسبة المصارف الإسلامية</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
+    "categoryName_en": "Specialized Accounting",
+    "title_en": "Islamic Banking Accounting",
+    "summary_en": "Accounting foundations for Islamic finance contracts such as Murabaha, Mudaraba, and Ijara.",
+    "time_en": "8 min read",
+    "content_en": "<h2>Islamic Banking Accounting</h2><p>This is the English version of the article. Full detailed content is currently being translated and will be updated shortly.</p><ul><li>Placeholder point 1</li><li>Placeholder point 2</li></ul><p>Thank you for reading.</p>"
   }
 ]
