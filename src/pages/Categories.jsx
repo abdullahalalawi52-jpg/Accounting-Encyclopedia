@@ -38,6 +38,11 @@ function Categories() {
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / itemsPerPage));
   const paginatedArticles = filteredArticles.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
+  const changePage = (newPage) => {
+    setCurrentPage(newPage);
+    window.scrollTo({ top: 100, behavior: 'smooth' });
+  };
+
   return (
     <div className="archive-page animate-fade-in pb-10">
       <PageHero 
@@ -106,10 +111,7 @@ function Categories() {
                   <div className="pagination-wrapper mt-12 pt-8 border-t border-[var(--border-color)] flex flex-wrap justify-center items-center gap-2">
                     <button 
                       disabled={currentPage === 1}
-                      onClick={() => {
-                        setCurrentPage(prev => Math.max(prev - 1, 1));
-                        window.scrollTo({ top: 350, behavior: 'smooth' });
-                      }}
+                      onClick={() => changePage(Math.max(currentPage - 1, 1))}
                       className="page-nav-btn flex items-center gap-1.5 px-4 h-10 rounded-xl text-sm font-semibold border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-[var(--primary-accent)] hover:text-[var(--primary-accent)] disabled:opacity-40 disabled:pointer-events-none transition-all duration-200"
                     >
                       {isEn ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
@@ -120,10 +122,7 @@ function Categories() {
                       {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
                         <button 
                           key={page}
-                          onClick={() => {
-                            setCurrentPage(page);
-                            window.scrollTo({ top: 350, behavior: 'smooth' });
-                          }}
+                          onClick={() => changePage(page)}
                           className={`min-w-[40px] h-10 px-3 rounded-xl text-sm font-bold transition-all duration-200 flex items-center justify-center border ${
                             currentPage === page 
                               ? 'bg-[var(--primary-accent)] text-white border-[var(--primary-accent)] shadow-md shadow-[var(--primary-accent)]/30' 
@@ -137,10 +136,7 @@ function Categories() {
 
                     <button 
                       disabled={currentPage === totalPages}
-                      onClick={() => {
-                        setCurrentPage(prev => Math.min(prev + 1, totalPages));
-                        window.scrollTo({ top: 350, behavior: 'smooth' });
-                      }}
+                      onClick={() => changePage(Math.min(currentPage + 1, totalPages))}
                       className="page-nav-btn flex items-center gap-1.5 px-4 h-10 rounded-xl text-sm font-semibold border border-[var(--border-color)] bg-[var(--bg-card)] text-[var(--text-secondary)] hover:border-[var(--primary-accent)] hover:text-[var(--primary-accent)] disabled:opacity-40 disabled:pointer-events-none transition-all duration-200"
                     >
                       <span>{isEn ? 'Next' : 'التالي'}</span>
