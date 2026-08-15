@@ -14,20 +14,18 @@ function CategoryCard({ category, IconComponent }) {
   return (
     <Link 
       to={`/category/${category.id}`} 
-      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 py-5 ps-5 pe-4 overflow-hidden"
+      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-[22px] border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 py-4 ps-5 pe-4 overflow-hidden"
     >
-      {/* خلفية توهج خفيفة عند التحويم */}
-      <div 
-        className="absolute -top-10 -right-10 w-32 h-32 rounded-full blur-3xl opacity-10 group-hover:opacity-25 transition-opacity pointer-events-none"
-        style={{ backgroundColor: color }}
-      ></div>
-
       {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 10px) */}
-      <div className="flex items-start gap-[10px] mb-6 relative z-10">
-        {/* الأيقونة المضيئة */}
+      <div className="flex items-start gap-[10px] relative z-10">
+        {/* الأيقونة الدائرية */}
         <div className="relative shrink-0">
           <div 
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-105"
+            className="absolute inset-0 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-300"
+            style={{ backgroundColor: color }}
+          ></div>
+          <div 
+            className="relative w-12 h-12 rounded-full flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105"
             style={{ background: `linear-gradient(135deg, ${color}, ${color}dd)` }}
           >
             {IconComponent && <IconComponent size={24} strokeWidth={2.2} />}
@@ -35,8 +33,8 @@ function CategoryCard({ category, IconComponent }) {
         </div>
         
         {/* النصوص */}
-        <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-[var(--text-primary)] text-lg sm:text-xl mb-1.5 leading-snug group-hover:text-[var(--primary-accent)] transition-colors">
+        <div className="flex-1 min-w-0 pt-0.5">
+          <h3 className="font-bold text-[var(--text-primary)] text-xl mb-1 leading-snug group-hover:text-[var(--primary-accent)] transition-colors">
             {title}
           </h3>
           <p className="text-[var(--text-secondary)] text-sm leading-relaxed line-clamp-2">
@@ -46,14 +44,14 @@ function CategoryCard({ category, IconComponent }) {
       </div>
       
       {/* 2. القسم السفلي (الشارة وسهم الانتقال بفاصل 10px) */}
-      <div className="flex items-center justify-end gap-[10px] pt-4 border-t border-[var(--border-color)]/60 mt-auto relative z-10">
+      <div className="flex items-center justify-end gap-[10px] mt-6 relative z-10">
         {/* شارة عدد المقالات */}
         <div 
-          className="px-3.5 py-1.5 rounded-full flex items-center gap-1.5 font-semibold text-xs transition-colors"
-          style={{ backgroundColor: `${color}15`, color: color }}
+          className="h-[34px] px-3.5 rounded-full flex items-center gap-1.5 font-semibold text-xs transition-colors"
+          style={{ backgroundColor: `${color}18`, color: color }}
         >
-          <span className="flex items-center gap-1">
-            <span className="font-bold text-sm">{category.count}</span>
+          <span className="flex items-center gap-1 font-bold">
+            <span>{category.count}</span>
             <span>{t('home.article_count', 'مقال')}</span>
           </span>
           <Layers size={14} strokeWidth={2.5} className="opacity-80" />
