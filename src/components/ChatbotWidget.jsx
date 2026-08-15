@@ -52,28 +52,28 @@ function ChatbotWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 inset-inline-end-6 z-50">
+    <div className="fixed bottom-6 z-50" style={{ insetInlineEnd: '1.5rem' }}>
       {isOpen ? (
         <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-2xl w-80 sm:w-96 h-[420px] flex flex-col overflow-hidden animate-fade-in">
           {/* Header */}
-          <div className="bg-[var(--primary-accent)] p-4 flex justify-between items-center text-white">
+          <div className="bg-[var(--primary-accent)] p-4 flex justify-between items-center text-white shadow-sm">
             <div className="flex items-center gap-2">
               <MessageSquare size={20} />
               <span className="font-bold">{isEn ? 'Smart Assistant' : 'المساعد الذكي'}</span>
             </div>
-            <button onClick={() => setIsOpen(false)} className="hover:bg-black/20 p-1 rounded-lg transition-colors" aria-label="Close chat">
-              <X size={20} />
+            <button onClick={() => setIsOpen(false)} className="hover:bg-black/20 p-1.5 rounded-lg transition-colors" aria-label="Close chat">
+              <X size={18} />
             </button>
           </div>
           
           {/* Chat Area */}
-          <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3">
+          <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 bg-[var(--bg-main)]/30">
             {messages.map(msg => (
               <div 
                 key={msg.id} 
                 className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed ${
                   msg.sender === 'bot' 
-                    ? 'bg-[var(--bg-tertiary)] text-[var(--text-primary)] self-start rounded-bs-none border border-[var(--border-color)]' 
+                    ? 'bg-[var(--bg-card)] text-[var(--text-primary)] self-start rounded-bs-none border border-[var(--border-color)] shadow-sm' 
                     : 'bg-[var(--primary-accent)] text-white self-end rounded-be-none shadow-sm'
                 }`}
               >
@@ -103,7 +103,7 @@ function ChatbotWidget() {
       ) : (
         <button 
           onClick={() => setIsOpen(true)}
-          className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white p-4 rounded-full shadow-lg hover:scale-105 transition-all flex items-center justify-center shadow-emerald-500/20"
+          className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-emerald-500/30 ring-4 ring-emerald-500/20"
           aria-label="Open chat"
         >
           <MessageSquare size={24} />

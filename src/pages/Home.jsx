@@ -126,8 +126,13 @@ function Home() {
             <p className="text-sm mb-6 leading-relaxed relative z-10" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
               {t('home.ifrs_desc')}
             </p>
-            <Link to="/standards" className="bg-white text-[var(--primary-accent)] hover:bg-slate-50 px-6 py-3 rounded-xl font-bold transition-transform hover:scale-105 active:scale-95 w-full flex items-center justify-center gap-2 relative z-10 shadow-md">
-              {t('home.discover_standards')} <ExternalLink size={18} />
+            <Link 
+              to="/standards" 
+              style={{ backgroundColor: '#ffffff', color: '#047857' }} 
+              className="px-6 py-3 rounded-xl font-bold transition-all hover:bg-slate-100 hover:scale-105 active:scale-95 w-full flex items-center justify-center gap-2 relative z-10 shadow-lg"
+            >
+              <span>{t('home.discover_standards')}</span>
+              <ExternalLink size={18} />
             </Link>
           </div>
         </aside>
