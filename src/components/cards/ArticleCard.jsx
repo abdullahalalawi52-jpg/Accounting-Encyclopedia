@@ -14,56 +14,55 @@ function ArticleCard({ article }) {
   return (
     <Link 
       to={`/article/${article.id}`} 
-      className="group relative flex flex-col h-full bg-[var(--bg-card)] rounded-2xl overflow-hidden border border-[var(--border-color)] hover:border-[var(--primary-accent)]/70 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+      className="group relative flex flex-col h-full bg-[var(--bg-card)] rounded-2xl overflow-hidden border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
     >
-      {/* 1. منطقة الصورة مع الشارة الزجاجية المضيئة */}
-      <div className="h-48 w-full relative overflow-hidden bg-slate-950">
+      {/* 1. صورة المقال مع شارة التصنيف */}
+      <div className="h-48 sm:h-52 w-full relative overflow-hidden bg-[var(--bg-main)] flex items-center justify-center">
         <img 
           src={article.image || '/images/placeholder.svg'} 
           alt={title} 
           loading="lazy" 
-          className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
+          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none"></div>
         
-        {/* شارة التصنيف العائمة بتصميم زجاجي فاخر */}
+        {/* شارة التصنيف العائمة */}
         {categoryName && (
           <div 
-            style={{ insetInlineStart: '0.875rem' }}
-            className="absolute top-3.5 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-900/85 dark:bg-black/75 backdrop-blur-md text-white border border-white/15 shadow-md"
+            style={{ insetInlineStart: '1rem' }}
+            className="absolute top-3.5 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900/90 text-white border border-white/20 shadow-lg"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary-accent)] shadow-[0_0_8px_var(--primary-accent)]"></span>
-            <span>{categoryName}</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+            <span className="leading-none">{categoryName}</span>
           </div>
         )}
       </div>
 
       {/* 2. محتوى المقال */}
-      <div className="p-5 flex flex-col flex-1 justify-between">
+      <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between gap-4">
         <div>
-          <h3 className="font-bold text-lg sm:text-xl text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug mb-3">
+          <h3 className="font-bold text-lg sm:text-xl text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug mb-2.5">
             {title}
           </h3>
           {(article.summary || article.desc) && (
-            <p className="text-[var(--text-secondary)] text-sm line-clamp-2 leading-relaxed mb-4">
+            <p className="text-[var(--text-secondary)] text-sm line-clamp-2 leading-relaxed">
               {isEn && article.summary_en ? article.summary_en : (article.summary || article.desc)}
             </p>
           )}
         </div>
 
-        {/* 3. شريط الإجراءات السفلي */}
-        <div className="flex justify-between items-center text-sm pt-3.5 border-t border-[var(--border-color)]/50 mt-auto">
-          <span className="text-[var(--primary-accent)] font-semibold text-xs sm:text-sm flex items-center gap-1.5 group-hover:gap-2 transition-all">
+        {/* 3. شريط التذييل السفلي */}
+        <div className="flex justify-between items-center text-sm pt-4 border-t border-[var(--border-color)] mt-auto">
+          <span className="text-[var(--primary-accent)] font-bold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
             {t('article.read_more', 'اقرأ المزيد')} 
             {isEn ? (
-              <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
             ) : (
-              <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+              <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-1" />
             )}
           </span>
 
-          <div className="flex items-center gap-1.5 text-[var(--text-muted)] bg-[var(--bg-main)] px-2.5 py-1 rounded-full text-xs font-medium border border-[var(--border-color)]/60">
-            <Clock size={12} className="opacity-70" />
+          <div className="flex items-center gap-1.5 text-[var(--text-secondary)] bg-[var(--bg-main)] px-3 py-1 rounded-full text-xs font-medium border border-[var(--border-color)]">
+            <Clock size={13} className="text-[var(--primary-accent)] opacity-80" />
             <span>{time}</span>
           </div>
         </div>
