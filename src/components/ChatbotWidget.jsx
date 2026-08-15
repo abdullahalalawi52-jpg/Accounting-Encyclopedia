@@ -1,84 +1,145 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { MessageSquare, X, Send } from 'lucide-react';
+import { MessageSquare, X, Send, Sparkles, Bot, User, CornerDownLeft } from 'lucide-react';
 
 function ChatbotWidget() {
   const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
   const [messages, setMessages] = useState([
     { 
       id: 1, 
-      text: isEn ? 'Welcome to Accounting Encyclopedia! I am your smart assistant 🤖. How can I help you today?' : 'مرحباً بك في موسوعة المحاسبة! أنا مساعدك الذكي 🤖. كيف يمكنني مساعدتك اليوم؟', 
+      text: isEn ? 'Welcome to Accounting Encyclopedia! I am your AI assistant 🤖. How can I help you today?' : 'مرحباً بك في موسوعة المحاسبة! أنا مساعدك الذكي 🤖. كيف يمكنني مساعدتك اليوم؟', 
       sender: 'bot' 
     }
   ]);
   const [input, setInput] = useState('');
+  const messagesEndRef = useRef(null);
+
+  const quickQuestions = isEn ? [
+    'How to calculate depreciation?',
+    'What is IFRS 15 standard?',
+    'Payroll Journal Entries',
+    'Financial Ratios guide'
+  ] : [
+    'كيف أحسب قسط الإهلاك؟',
+    'ما هو معيار IFRS 15؟',
+    'قيود الرواتب والأجور',
+    'حساب ضريبة القيمة المضافة'
+  ];
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      scrollToBottom();
+    }
+  }, [messages, isOpen, isTyping]);
+
+  const sendQuery = (queryText) => {
+    if (!queryText.trim()) return;
+    
+    const userText = queryText.trim();
+    setMessages(prev => [...prev, { id: Date.now(), text: userText, sender: 'user' }]);
+    setInput('');
+    setIsTyping(true);
+
+    setTimeout(() => {
+      let botResponse = isEn 
+        ? 'You can explore our interactive Tools, Glossary, and Articles library for in-depth guidance on this topic!' 
+        : 'يمكنك الاستزادة أكثر من خلال أدوات المنصة، القاموس المحاسبي، والمقالات المتخصصة بالأعلى!';
+      
+      const lower = userText.toLowerCase();
+      if (lower.includes('قيد') || lower.includes('قيود') || lower.includes('journal') || lower.includes('entry') || lower.includes('راتب') || lower.includes('payroll')) {
+        botResponse = isEn 
+          ? 'For journal entries, check out our "Journal Entries Library" or browse Financial Accounting articles.' 
+          : 'لقيود اليومية، يمكنك تصفح "مكتبة القيود اليومية" في قائمة الأدوات أو استعراض قسم المحاسبة المالية.';
+      } else if (lower.includes('إهلاك') || lower.includes('depreciation') || lower.includes('قسط')) {
+        botResponse = isEn 
+          ? 'You can calculate asset depreciation instantly using our "Asset Depreciation Calculator" under Tools.' 
+          : 'يمكنك حساب قسط الإهلاك بدقة باستخدام "حاسبة إهلاك الأصول" في قسم الحاسبات بالأعلى.';
+      } else if (lower.includes('ضريبة') || lower.includes('vat') || lower.includes('tax') || lower.includes('قيمة مضافة')) {
+        botResponse = isEn 
+          ? 'Use our VAT Calculator in the Tools section to calculate 15% tax and extract amounts seamlessly.' 
+          : 'استخدم "حاسبة ضريبة القيمة المضافة" في صفحة الحاسبات لحساب الضريبة (15%) واستخراج المبالغ قبل وبعد الضريبة فورياً.';
+      } else if (lower.includes('معيار') || lower.includes('ifrs') || lower.includes('socpa') || lower.includes('standard')) {
+        botResponse = isEn 
+          ? 'Visit the "Standards" page for an interactive guide on IFRS 9, 15, 16, and SOCPA local frameworks.' 
+          : 'تفضل بزيارة صفحة "المعايير والقوانين" لاستعراض معايير المحاسبة الدولية IFRS والمعايير السعودية SOCPA مع أمثلة عملية.';
+      }
+
+      setIsTyping(false);
+      setMessages(prev => [...prev, { id: Date.now() + 1, text: botResponse, sender: 'bot' }]);
+    }, 600);
+  };
 
   const handleSend = (e) => {
     e.preventDefault();
-    if (!input.trim()) return;
-    
-    const userText = input.trim();
-    // Add user message
-    const newMessages = [...messages, { id: Date.now(), text: userText, sender: 'user' }];
-    setMessages(newMessages);
-    setInput('');
-
-    // Simulate bot response
-    setTimeout(() => {
-      let botResponse = isEn 
-        ? 'I am currently in learning mode. You can explore the Glossary or Journal Entries library to find answers!' 
-        : 'عذراً، ما زلت في مرحلة التعلم. لكن يمكنك البحث في "القاموس" أو "مكتبة القيود" عن ما تريد!';
-      
-      const lower = userText.toLowerCase();
-      if (lower.includes('قيد') || lower.includes('قيود') || lower.includes('journal') || lower.includes('entry')) {
-        botResponse = isEn 
-          ? 'For journal entries, visit the "Journal Entries Library" or check the Financial Accounting category.' 
-          : 'لقيود اليومية، أنصحك بزيارة قسم "مكتبة القيود" أو البحث في قسم "المحاسبة المالية" عن المقالات المتعلقة.';
-      } else if (lower.includes('إهلاك') || lower.includes('depreciation')) {
-        botResponse = isEn 
-          ? 'You can calculate depreciation easily using our Asset Depreciation Calculator in the Tools section.' 
-          : 'يمكنك حساب الإهلاك باستخدام حاسبة الإهلاك الموجودة في قسم "حاسبات" أعلى الصفحة.';
-      } else if (lower.includes('ضريبة') || lower.includes('vat') || lower.includes('tax')) {
-        botResponse = isEn 
-          ? 'Check our VAT Calculator in the Calculators page to quickly calculate taxes.' 
-          : 'يمكنك حساب ضريبة القيمة المضافة من خلال حاسبة الضريبة في صفحة الحاسبات.';
-      }
-
-      setMessages(prev => [...prev, { id: Date.now() + 1, text: botResponse, sender: 'bot' }]);
-    }, 800);
+    sendQuery(input);
   };
 
   return (
     <div className="fixed bottom-6 z-50" style={{ insetInlineEnd: '1.5rem' }}>
       {isOpen ? (
-        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-2xl w-80 sm:w-96 h-[420px] flex flex-col overflow-hidden animate-fade-in">
+        <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-2xl w-80 sm:w-96 h-[460px] flex flex-col overflow-hidden animate-fade-in backdrop-blur-2xl">
           {/* Header */}
-          <div className="bg-[var(--primary-accent)] p-4 flex justify-between items-center text-white shadow-sm">
-            <div className="flex items-center gap-2">
-              <MessageSquare size={20} />
-              <span className="font-bold">{isEn ? 'Smart Assistant' : 'المساعد الذكي'}</span>
+          <div className="bg-gradient-to-r from-[var(--primary-accent)] to-[var(--primary-hover)] p-4 flex justify-between items-center text-white shadow-md">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                <Bot size={18} />
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5 leading-tight">
+                  <span className="font-bold text-sm">{isEn ? 'Accounting Assistant' : 'المساعد المحاسبي'}</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+                </div>
+                <span className="text-[10px] text-white/80">{isEn ? 'Online • 24/7 Guide' : 'متصل • مرشدك الذكي'}</span>
+              </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="hover:bg-black/20 p-1.5 rounded-lg transition-colors" aria-label="Close chat">
+            <button onClick={() => setIsOpen(false)} className="hover:bg-white/20 p-1.5 rounded-lg transition-colors" aria-label="Close chat">
               <X size={18} />
             </button>
           </div>
           
           {/* Chat Area */}
-          <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 bg-[var(--bg-main)]/30">
+          <div className="flex-1 p-4 overflow-y-auto flex flex-col gap-3 bg-[var(--bg-main)]/40">
             {messages.map(msg => (
               <div 
                 key={msg.id} 
-                className={`max-w-[85%] p-3 rounded-2xl text-sm leading-relaxed ${
+                className={`max-w-[85%] p-3 rounded-2xl text-xs sm:text-sm leading-relaxed ${
                   msg.sender === 'bot' 
                     ? 'bg-[var(--bg-card)] text-[var(--text-primary)] self-start rounded-bs-none border border-[var(--border-color)] shadow-sm' 
                     : 'bg-[var(--primary-accent)] text-white self-end rounded-be-none shadow-sm'
                 }`}
               >
-                <p className="m-0">{msg.text}</p>
+                <p className="m-0 font-medium">{msg.text}</p>
               </div>
+            ))}
+
+            {isTyping && (
+              <div className="bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-muted)] self-start p-3 rounded-2xl rounded-bs-none shadow-sm flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary-accent)] animate-bounce"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary-accent)] animate-bounce [animation-delay:0.2s]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--primary-accent)] animate-bounce [animation-delay:0.4s]"></span>
+              </div>
+            )}
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Quick Suggestions */}
+          <div className="px-3 py-2 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex gap-1.5 overflow-x-auto no-scrollbar">
+            {quickQuestions.map((q, idx) => (
+              <button
+                key={idx}
+                onClick={() => sendQuery(q)}
+                className="whitespace-nowrap text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-[var(--bg-main)] hover:bg-[var(--primary-accent)]/10 text-[var(--text-secondary)] hover:text-[var(--primary-accent)] border border-[var(--border-color)] transition-all shrink-0"
+              >
+                {q}
+              </button>
             ))}
           </div>
 
@@ -89,24 +150,26 @@ function ChatbotWidget() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={isEn ? 'Ask a question...' : 'اكتب سؤالك هنا...'} 
-              className="flex-1 bg-[var(--bg-dark)] border border-[var(--border-color)] rounded-full px-4 py-2 text-sm focus:outline-none focus:border-[var(--primary-accent)] text-[var(--text-primary)]"
+              className="flex-1 bg-[var(--bg-dark)] border border-[var(--border-color)] rounded-xl px-3.5 py-2 text-xs sm:text-sm focus:outline-none focus:border-[var(--primary-accent)] text-[var(--text-primary)]"
             />
             <button 
               type="submit" 
-              className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white p-2.5 rounded-full transition-colors flex-shrink-0 shadow-sm"
+              className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white px-3 py-2 rounded-xl transition-all flex items-center justify-center shadow-sm active:scale-95 shrink-0"
               aria-label="Send message"
             >
-              <Send size={16} />
+              <Send size={15} />
             </button>
           </form>
         </div>
       ) : (
         <button 
           onClick={() => setIsOpen(true)}
-          className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-emerald-500/30 ring-4 ring-emerald-500/20"
+          className="group relative bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center shadow-emerald-500/30 ring-4 ring-emerald-500/20"
           aria-label="Open chat"
         >
-          <MessageSquare size={24} />
+          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-300 rounded-full border-2 border-slate-900 animate-ping"></span>
+          <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-emerald-300 rounded-full border-2 border-slate-900"></span>
+          <MessageSquare size={24} className="transition-transform group-hover:scale-110" />
         </button>
       )}
     </div>

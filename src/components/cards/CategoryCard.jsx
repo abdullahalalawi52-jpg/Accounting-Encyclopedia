@@ -14,9 +14,14 @@ function CategoryCard({ category, IconComponent }) {
   return (
     <Link 
       to={`/category/${category.id}`} 
-      style={{ padding: '20px' }}
-      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
+      style={{ padding: '22px' }}
+      className="group card-shimmer relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
     >
+      {/* Ambient background glow on hover */}
+      <div 
+        className="absolute -top-12 -right-12 w-28 h-28 rounded-full blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none"
+        style={{ backgroundColor: color }}
+      ></div>
       {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 12px) */}
       <div className="flex items-start relative z-10" style={{ gap: '12px' }}>
         {/* الأيقونة الدائرية */}

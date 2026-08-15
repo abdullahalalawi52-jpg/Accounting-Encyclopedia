@@ -14,7 +14,7 @@ function ArticleCard({ article }) {
   return (
     <Link 
       to={`/article/${article.id}`} 
-      className="group relative flex flex-col h-full bg-[var(--bg-card)] rounded-2xl overflow-hidden border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+      className="group card-shimmer relative flex flex-col h-full bg-[var(--bg-card)] rounded-2xl overflow-hidden border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
     >
       {/* 1. صورة المقال مع شارة التصنيف */}
       <div className="h-48 sm:h-52 w-full relative overflow-hidden bg-[var(--bg-main)] flex items-center justify-center">

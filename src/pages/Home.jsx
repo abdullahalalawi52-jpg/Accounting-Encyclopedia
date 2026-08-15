@@ -1,5 +1,6 @@
-import { Book, Calculator, TrendingUp, FileText, ArrowLeft, ArrowRight, Star, FileDown, ExternalLink, BookOpen, Layers, Award, Sparkles, CheckCircle2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Book, Calculator, TrendingUp, FileText, ArrowLeft, ArrowRight, Star, FileDown, ExternalLink, BookOpen, Layers, Award, Sparkles, CheckCircle2, Search } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useData } from '../hooks/useData.js';
 import { useNewsAPI } from '../hooks/useNewsAPI.js';
 import { latestTemplates } from '../data/templates.js';
@@ -19,6 +20,9 @@ const ICONS = {
 function Home() {
   const { t, i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
+  const navigate = useNavigate();
+  const [heroSearch, setHeroSearch] = useState('');
+
   const { data: categoriesData } = useData('/data/categories.json');
   const { data: articlesData } = useNewsAPI();
   
@@ -26,6 +30,13 @@ function Home() {
   const featuredArticles = articlesData ? articlesData.filter(a => a.isFeatured) : [];
   
   const displayCategories = categoriesList.filter(c => ICONS[c.id]).slice(0, 4);
+
+  const handleHeroSearch = (e) => {
+    e.preventDefault();
+    if (heroSearch.trim()) {
+      navigate(`/search?q=${encodeURIComponent(heroSearch.trim())}`);
+    }
+  };
 
   const stats = [
     {
@@ -56,8 +67,50 @@ function Home() {
         title={t('home.hero_title')}
         description={t('home.hero_desc')}
         badge={isEn ? 'Accounting Knowledge Hub' : 'الموسوعة المحاسبية الشاملة'}
-        padding="py-20 md:py-24"
-      />
+        padding="pt-16 pb-20 md:pt-20 md:pb-24"
+      >
+        <div className="max-w-2xl mx-auto">
+          <form onSubmit={handleHeroSearch} className="relative flex items-center shadow-2xl rounded-2xl overflow-hidden bg-[var(--bg-card)] border border-[var(--border-color)] focus-within:border-[var(--primary-accent)] focus-within:ring-4 focus-within:ring-[var(--primary-accent)]/15 transition-all">
+            <div className="px-3.5 text-[var(--text-muted)]">
+              <Search size={20} />
+            </div>
+            <input 
+              type="text" 
+              value={heroSearch} 
+              onChange={(e) => setHeroSearch(e.target.value)}
+              placeholder={isEn ? "Search accounting topics, IFRS standards, templates, or terms..." : "ابحث عن أي موضوع محاسبي، معيار IFRS، نموذج، أو مصطلح..."}
+              className="w-full py-3.5 px-2 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm md:text-base outline-none font-medium"
+            />
+            <button 
+              type="submit" 
+              className="m-1.5 px-5 py-2.5 rounded-xl font-bold text-sm bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white shadow-md transition-all active:scale-95 shrink-0 flex items-center gap-1.5"
+            >
+              <span>{isEn ? "Search" : "بحث"}</span>
+              {isEn ? <ArrowRight size={16} /> : <ArrowLeft size={16} />}
+            </button>
+          </form>
+
+          {/* Quick Topic Pills */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-4">
+            <span className="text-xs text-[var(--text-muted)] font-semibold">{isEn ? 'Quick topics:' : 'مواضيع شائعة:'}</span>
+            {[
+              { label: isEn ? 'IFRS Standards' : 'معايير IFRS', path: '/standards' },
+              { label: isEn ? 'Journal Entries' : 'قيود اليومية', path: '/journal-entries' },
+              { label: isEn ? 'Chart of Accounts' : 'دليل الحسابات', path: '/chart-of-accounts' },
+              { label: isEn ? 'Calculators' : 'حاسبات مالية', path: '/calculators' },
+              { label: isEn ? 'Excel Templates' : 'نماذج إكسل', path: '/templates' },
+            ].map((item, idx) => (
+              <Link 
+                key={idx}
+                to={item.path}
+                className="px-3 py-1 rounded-lg text-xs font-semibold bg-[var(--bg-card)]/80 hover:bg-[var(--primary-accent)]/10 text-[var(--text-secondary)] hover:text-[var(--primary-accent)] border border-[var(--border-color)] hover:border-[var(--primary-accent)]/30 transition-all backdrop-blur-md"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </PageHero>
 
       {/* Stats Highlight Strip */}
       <div className="container -mt-8 relative z-20">
