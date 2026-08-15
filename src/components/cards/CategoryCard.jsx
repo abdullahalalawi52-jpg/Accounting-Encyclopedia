@@ -27,10 +27,10 @@ function CategoryCard({ category, IconComponent }) {
         {/* الأيقونة المضيئة */}
         <div className="relative shrink-0">
           <div 
-            className="w-14 h-14 rounded-2xl flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-105"
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-white shadow-md transition-transform duration-300 group-hover:scale-105"
             style={{ background: `linear-gradient(135deg, ${color}, ${color}dd)` }}
           >
-            {IconComponent && <IconComponent size={26} strokeWidth={2.2} />}
+            {IconComponent && <IconComponent size={24} strokeWidth={2.2} />}
           </div>
         </div>
         
