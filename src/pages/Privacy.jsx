@@ -10,7 +10,7 @@ function Privacy() {
           <p style={{ color: 'var(--text-muted)' }}>آخر تحديث: أغسطس 2026</p>
         </div>
 
-        <div className="glass-panel" style={{ padding: '3rem' }}>
+        <div className="glass-panel rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm" style={{ padding: '2.5rem' }}>
           <section style={{ marginBottom: '2rem' }}>
             <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--primary-accent)' }}>1. جمع المعلومات</h2>
             <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>

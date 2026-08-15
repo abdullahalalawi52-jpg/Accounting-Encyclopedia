@@ -22,14 +22,14 @@ function About() {
           </p>
         </div>
 
-        <div className="glass-panel" style={{ padding: '3rem', marginBottom: '3rem' }}>
+        <div className="glass-panel rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm" style={{ padding: '2.5rem', marginBottom: '2.5rem' }}>
           <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem', color: 'var(--primary-accent)' }}>{isEn ? 'Our Vision' : 'رؤيتنا'}</h2>
-          <p style={{ fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '1rem' }}>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '1rem', color: 'var(--text-secondary)' }}>
             {isEn 
               ? 'At "Accounting Encyclopedia", we strive to bridge the gap in financial and accounting content online. We believe financial literacy should be accessible, accurate, and easy to understand for students, entrepreneurs, and professionals alike.' 
               : 'نسعى في "موسوعة المحاسبة" لسد الفجوة في المحتوى المالي والمحاسبي باللغة العربية على الإنترنت. نؤمن بأن المعرفة المالية يجب أن تكون متاحة، دقيقة، وسهلة الفهم للطلاب، رواد الأعمال، والمهنيين على حد سواء.'}
           </p>
-          <p style={{ fontSize: '1.15rem', lineHeight: '1.8' }}>
+          <p style={{ fontSize: '1.15rem', lineHeight: '1.8', color: 'var(--text-secondary)' }}>
             {isEn 
               ? 'We aspire to be the go-to platform for anyone seeking a term definition, understanding an international accounting standard, or practical examples explaining financial intricacies smoothly.' 
               : 'نطمح لأن نكون المنصة التي يلجأ إليها كل من يبحث عن تفسير لمصطلح، أو فهم لمعيار محاسبي دولي، أو أمثلة عملية توضح تعقيدات الأرقام بأسلوب سلس.'}
@@ -37,17 +37,17 @@ function About() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="glass-panel text-center" style={{ padding: '2rem' }}>
+          <div className="glass-panel rounded-2xl border border-[var(--border-color)] text-center shadow-sm" style={{ padding: '24px' }}>
             <Users size={32} color="var(--secondary-accent)" style={{ margin: '0 auto 1rem' }} />
             <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>{isEn ? 'For Everyone' : 'للجميع'}</h3>
             <p style={{ color: 'var(--text-muted)' }}>{isEn ? 'Content tailored for beginners and professionals alike.' : 'محتوى يناسب المبتدئين والمحترفين.'}</p>
           </div>
-          <div className="glass-panel text-center" style={{ padding: '2rem' }}>
+          <div className="glass-panel rounded-2xl border border-[var(--border-color)] text-center shadow-sm" style={{ padding: '24px' }}>
             <Target size={32} color="var(--primary-accent)" style={{ margin: '0 auto 1rem' }} />
             <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>{isEn ? 'Goal Accuracy' : 'دقة الهدف'}</h3>
             <p style={{ color: 'var(--text-muted)' }}>{isEn ? 'Focused information backed by practical real-world examples.' : 'معلومات مركزة ومدعومة بأمثلة واقعية.'}</p>
           </div>
-          <div className="glass-panel text-center" style={{ padding: '2rem' }}>
+          <div className="glass-panel rounded-2xl border border-[var(--border-color)] text-center shadow-sm" style={{ padding: '24px' }}>
             <ShieldCheck size={32} color="var(--secondary-accent)" style={{ margin: '0 auto 1rem' }} />
             <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem' }}>{isEn ? 'Reliability' : 'موثوقية'}</h3>
             <p style={{ color: 'var(--text-muted)' }}>{isEn ? 'References built on International Financial Reporting Standards (IFRS).' : 'مراجع مبنية على معايير التقارير المالية (IFRS).'}</p>

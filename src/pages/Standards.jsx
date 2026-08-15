@@ -67,7 +67,7 @@ function Standards() {
       <div className="container py-10 flex flex-col lg:flex-row gap-8">
           {/* Sidebar */}
           <aside className="w-full lg:w-1/4">
-            <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl mb-6">
+            <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-2xl mb-6 shadow-sm">
               <h3 className="font-bold text-[var(--text-primary)] text-lg mb-4 border-b border-[var(--border-color)] pb-3">{isEn ? 'Guide Contents' : 'محتويات الدليل'}</h3>
               <ul className="list-none p-0 flex flex-col gap-3">
                 <li><a href="#ifrs" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16} className={isEn ? 'rotate-180' : ''}/>{isEn ? 'International Standards (IFRS)' : 'المعايير الدولية (IFRS)'}</a></li>
@@ -76,7 +76,7 @@ function Standards() {
               </ul>
             </div>
 
-            <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl">
+            <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-2xl shadow-sm">
               <h3 className="font-bold text-[var(--text-primary)] text-lg mb-6 border-b border-[var(--border-color)] pb-3">{isEn ? 'Mandatory and Update Dates' : 'تواريخ الإلزام والتحديث'}</h3>
               <div className="timeline">
                 {TIMELINE.map((item, index) => (
@@ -104,10 +104,12 @@ function Standards() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {IFRS_STANDARDS.map(std => (
-                  <div key={std.id} className="card bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl border-t-[var(--primary-accent)] border-t-4 hover-lift">
-                    <h3 className="font-bold text-[var(--text-primary)] text-lg mb-2">{std.title}</h3>
-                    <p className="text-[var(--text-secondary)] text-sm mb-6 leading-relaxed">{std.desc}</p>
-                    <button className="bg-transparent border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--primary-accent)] hover:text-[var(--primary-accent)] px-4 py-2 rounded-lg transition-all duration-300 text-sm font-bold shadow-sm hover:shadow-[0_0_10px_rgba(16,185,129,0.2)]">{isEn ? 'Show Details' : 'عرض التفاصيل'}</button>
+                  <div key={std.id} style={{ padding: '24px' }} className="card card-shimmer bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl border-t-[var(--primary-accent)] border-t-4 hover-lift flex flex-col justify-between overflow-hidden shadow-sm">
+                    <div>
+                      <h3 className="font-bold text-[var(--text-primary)] text-lg mb-2">{std.title}</h3>
+                      <p className="text-[var(--text-secondary)] text-sm mb-6 leading-relaxed">{std.desc}</p>
+                    </div>
+                    <button className="bg-transparent border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--primary-accent)] hover:text-[var(--primary-accent)] px-4 py-2 rounded-xl transition-all duration-300 text-sm font-bold shadow-sm w-fit">{isEn ? 'Show Details' : 'عرض التفاصيل'}</button>
                   </div>
                 ))}
               </div>
@@ -115,7 +117,7 @@ function Standards() {
 
             {/* Local Standards */}
             <section id="socpa" className="mb-12">
-               <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] p-8 rounded-xl relative overflow-hidden">
+               <div style={{ padding: '28px' }} className="card bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-2xl relative overflow-hidden shadow-sm">
                  <div className="relative z-10">
                    <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{isEn ? 'Local Regulations & Authority Recommendations (SOCPA)' : 'الأنظمة المحلية وتوصيات الهيئة (SOCPA)'}</h2>
                    <p className="mb-8 text-[var(--text-secondary)] max-w-2xl leading-relaxed">
@@ -123,7 +125,7 @@ function Standards() {
                        ? 'Explore modifications and additions approved by the Saudi Organization for Chartered and Professional Accountants (SOCPA) to align IFRS with the local regulatory environment.'
                        : 'تعرف على التعديلات والإضافات التي أقرتها الهيئة السعودية للمراجعين والمحاسبين على المعايير الدولية لتتناسب مع البيئة النظامية المحلية.'}
                    </p>
-                   <button className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white px-6 py-2.5 rounded font-bold transition-colors shadow-lg">{isEn ? 'Browse Authority Publications' : 'استعرض إصدارات الهيئة'}</button>
+                   <button className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white px-6 py-2.5 rounded-xl font-bold transition-colors shadow-lg">{isEn ? 'Browse Authority Publications' : 'استعرض إصدارات الهيئة'}</button>
                  </div>
                  <AlertCircle size={180} className="absolute left-[-20px] bottom-[-40px] opacity-[0.03] text-[var(--text-primary)]" />
                </div>
@@ -132,7 +134,7 @@ function Standards() {
             {/* Comparison Table */}
             <section id="comparison">
               <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">{isEn ? 'Quick Comparison: IFRS vs US GAAP' : 'مقارنة سريعة: IFRS مقابل US GAAP'}</h2>
-              <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl overflow-hidden">
+              <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl overflow-hidden shadow-sm">
                 <table className={`w-full ${isEn ? 'text-left' : 'text-right'} border-collapse text-[var(--text-primary)]`}>
                   <thead className="bg-[var(--bg-dark)] border-b border-[var(--border-color)]">
                     <tr>

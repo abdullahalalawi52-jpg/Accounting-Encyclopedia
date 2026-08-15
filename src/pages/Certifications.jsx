@@ -56,34 +56,36 @@ function Certifications() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {certificationsDB.map(cert => (
-          <div key={cert.id} className="glass-panel border border-[var(--border-color)] p-6 hover:shadow-[0_0_20px_rgba(16,185,129,0.1)] transition-all">
-            <h2 className="text-2xl font-bold mb-2 text-[var(--primary-accent)]">{cert.title}</h2>
-            <p className="text-sm font-semibold text-[var(--text-muted)] mb-4">{cert.organization}</p>
-            <p className="mb-6 line-clamp-3">{cert.desc}</p>
-            
-            <div className="space-y-4 mb-6">
-              <div className="flex items-start gap-3">
-                <BookOpen size={20} className="text-[var(--secondary-accent)] shrink-0 mt-1" />
-                <div>
-                  <strong className="block mb-1">المواد / الأجزاء:</strong>
-                  <ul className="list-disc list-inside text-sm text-[var(--text-secondary)]">
-                    {cert.subjects.map((sub, i) => <li key={i}>{sub}</li>)}
-                  </ul>
+          <div key={cert.id} style={{ padding: '26px' }} className="glass-panel card-shimmer rounded-2xl border border-[var(--border-color)] hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden shadow-sm">
+            <div>
+              <h2 className="text-2xl font-bold mb-2 text-[var(--primary-accent)]">{cert.title}</h2>
+              <p className="text-xs md:text-sm font-semibold text-[var(--text-muted)] mb-4">{cert.organization}</p>
+              <p className="mb-6 text-sm text-[var(--text-secondary)] leading-relaxed">{cert.desc}</p>
+              
+              <div className="space-y-4 mb-6 pt-4 border-t border-[var(--border-color)]/60">
+                <div className="flex items-start gap-3">
+                  <BookOpen size={18} className="text-[var(--secondary-accent)] shrink-0 mt-1" />
+                  <div>
+                    <strong className="block mb-1 text-sm text-[var(--text-primary)]">المواد / الأجزاء:</strong>
+                    <ul className="list-disc list-inside text-xs md:text-sm text-[var(--text-secondary)] space-y-1">
+                      {cert.subjects.map((sub, i) => <li key={i}>{sub}</li>)}
+                    </ul>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Clock size={20} className="text-[var(--secondary-accent)] shrink-0" />
-                <span><strong className="ml-2">المدة المتوقعة:</strong> {cert.time}</span>
-              </div>
-              
-              <div className="flex items-center gap-3">
-                <Target size={20} className="text-[var(--secondary-accent)] shrink-0" />
-                <span><strong className="ml-2">مستوى الصعوبة:</strong> {cert.difficulty}</span>
+                
+                <div className="flex items-center gap-3 text-xs md:text-sm text-[var(--text-secondary)]">
+                  <Clock size={18} className="text-[var(--secondary-accent)] shrink-0" />
+                  <span><strong className="ml-2 text-[var(--text-primary)]">المدة المتوقعة:</strong> {cert.time}</span>
+                </div>
+                
+                <div className="flex items-center gap-3 text-xs md:text-sm text-[var(--text-secondary)]">
+                  <Target size={18} className="text-[var(--secondary-accent)] shrink-0" />
+                  <span><strong className="ml-2 text-[var(--text-primary)]">مستوى الصعوبة:</strong> {cert.difficulty}</span>
+                </div>
               </div>
             </div>
             
-            <button className="btn btn-outline w-full text-center mt-auto">
+            <button className="btn btn-outline w-full text-center mt-auto rounded-xl py-2.5 font-bold text-sm">
               {isEn ? 'How to Prepare (Coming Soon)' : 'كيفية التحضير (قريباً)'}
             </button>
           </div>

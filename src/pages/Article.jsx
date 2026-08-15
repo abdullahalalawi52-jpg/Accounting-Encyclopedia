@@ -84,7 +84,7 @@ function Article() {
           </div>
 
           <aside className="sidebar col-span-1">
-            <div className="glass-panel p-6 mb-6">
+            <div className="glass-panel rounded-2xl border border-[var(--border-color)] p-6 mb-6 shadow-sm overflow-hidden">
               <h3 className="sidebar-title">{t('article_page.related')}</h3>
               <ul className="related-links">
                 {/* Dynamically we could fetch related articles here, but keeping static as before for simplicity */}
@@ -94,10 +94,10 @@ function Article() {
               </ul>
             </div>
 
-            <div className="glass-panel p-6 bg-gradient">
+            <div className="glass-panel rounded-2xl border border-[var(--border-color)] p-6 shadow-sm overflow-hidden">
               <h3 className="sidebar-title">{t('article_page.forum_title')}</h3>
-              <p>{t('article_page.forum_desc')}</p>
-              <button className="btn btn-secondary w-full mt-4">{t('article_page.forum_btn')}</button>
+              <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{t('article_page.forum_desc')}</p>
+              <button className="btn btn-secondary w-full mt-4 rounded-xl font-bold text-sm py-2.5">{t('article_page.forum_btn')}</button>
             </div>
           </aside>
         </div>

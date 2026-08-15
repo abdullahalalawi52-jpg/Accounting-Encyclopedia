@@ -56,36 +56,38 @@ function Courses() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {coursesDB.map(course => (
-          <div key={course.id} className="glass-panel overflow-hidden flex flex-col group border border-[var(--border-color)]">
-            <div className="relative h-48 overflow-hidden">
+          <div key={course.id} className="glass-panel card-shimmer rounded-2xl overflow-hidden flex flex-col group border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all hover:shadow-xl hover:-translate-y-1.5 shadow-sm">
+            <div className="relative h-48 overflow-hidden bg-[var(--bg-main)]">
               <img 
                 src={course.image} 
                 alt={course.title} 
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-xs">
                 <PlayCircle size={48} className="text-white" />
               </div>
             </div>
             
-            <div className="p-5 flex flex-col flex-1">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-xs bg-[var(--bg-tertiary)] px-2 py-1 rounded text-[var(--text-secondary)]">{course.level}</span>
-                <div className="flex items-center gap-1 text-yellow-500 text-sm">
-                  <Star size={14} fill="currentColor" /> {course.rating}
+            <div style={{ padding: '22px' }} className="flex flex-col flex-1 justify-between">
+              <div>
+                <div className="flex justify-between items-center mb-2.5">
+                  <span className="text-xs bg-[var(--bg-dark)] px-2.5 py-1 rounded-lg border border-[var(--border-color)] text-[var(--text-secondary)] font-semibold">{course.level}</span>
+                  <div className="flex items-center gap-1 text-amber-400 font-bold text-xs">
+                    <Star size={13} fill="currentColor" /> {course.rating}
+                  </div>
                 </div>
+                
+                <h3 className="font-bold text-base md:text-lg mb-2 line-clamp-2 leading-snug text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors">{course.title}</h3>
+                <p className="text-xs md:text-sm text-[var(--text-muted)] mb-4">{course.instructor}</p>
               </div>
               
-              <h3 className="font-bold text-lg mb-2 line-clamp-2">{course.title}</h3>
-              <p className="text-sm text-[var(--text-muted)] mb-4">{course.instructor}</p>
-              
-              <div className="mt-auto flex items-center justify-between border-t border-[var(--border-color)] pt-4">
-                <div className="flex items-center gap-1 text-sm text-[var(--text-secondary)]">
-                  <Clock size={16} /> {course.duration}
+              <div className="mt-auto flex items-center justify-between border-t border-[var(--border-color)] pt-3.5">
+                <div className="flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
+                  <Clock size={14} className="text-[var(--primary-accent)] opacity-80" /> {course.duration}
                 </div>
-                <button className="text-[var(--primary-accent)] font-semibold text-sm hover:underline">
-                  ابدأ التعلم
+                <button className="text-[var(--primary-accent)] font-bold text-xs hover:underline">
+                  {isEn ? 'Start Learning' : 'ابدأ التعلم'}
                 </button>
               </div>
             </div>

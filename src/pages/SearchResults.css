@@ -15,10 +15,11 @@
 }
 
 .result-card {
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 1.75rem;
+  border-radius: var(--radius-2xl);
   background: var(--bg-card);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
   display: block;
   text-decoration: none;
@@ -27,6 +28,7 @@
 .result-card:hover {
   border-color: var(--primary-accent);
   background: rgba(16, 185, 129, 0.05);
+  box-shadow: var(--shadow-lg);
   transform: translateX(-5px);
 }
 

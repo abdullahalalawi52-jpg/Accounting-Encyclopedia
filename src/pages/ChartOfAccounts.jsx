@@ -106,15 +106,15 @@ function ChartOfAccounts() {
 
       <div className="max-w-4xl mx-auto space-y-4">
         {accountsData.map((account) => (
-          <div key={account.id} className="glass-panel border border-[var(--border-color)] overflow-hidden">
+          <div key={account.id} className="glass-panel border border-[var(--border-color)] rounded-2xl overflow-hidden shadow-sm">
             <button 
               onClick={() => toggleSection(account.id)}
-              className="w-full flex items-center justify-between p-6 bg-[var(--bg-card)] hover:bg-[var(--bg-tertiary)] transition-colors"
+              className="w-full flex items-center justify-between p-6 bg-[var(--bg-card)] hover:bg-[var(--bg-tertiary)]/50 transition-colors"
             >
               <div className="flex flex-col items-start gap-2">
                 <div className="flex items-center gap-3">
                   <h2 className="text-2xl font-bold m-0">{account.name}</h2>
-                  <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold border ${
                     account.type === 'مدين' 
                       ? 'bg-blue-500/15 text-blue-500 border-blue-500/30' 
                       : 'bg-red-500/15 text-red-500 border-red-500/30'
@@ -122,27 +122,30 @@ function ChartOfAccounts() {
                     {isEn ? `Account Nature: ${account.type === 'مدين' ? 'Debit' : 'Credit'}` : `طبيعة الحساب: ${account.type}`}
                   </span>
                 </div>
-                <p className="text-[var(--text-secondary)] m-0">{account.description}</p>
+                <p className="text-[var(--text-secondary)] text-sm m-0">{account.description}</p>
               </div>
-              {expandedSection === account.id ? <ChevronUp size={28} /> : <ChevronDown size={28} />}
+              {expandedSection === account.id ? <ChevronUp size={24} className="text-[var(--primary-accent)]" /> : <ChevronDown size={24} className="text-[var(--text-muted)]" />}
             </button>
 
             {expandedSection === account.id && (
-              <div className="p-6 bg-[var(--bg-card)] border-t border-[var(--border-color)]">
+              <div className="p-6 md:p-8 bg-[var(--bg-card)] border-t border-[var(--border-color)]">
                 {account.subAccounts.map((sub, idx) => (
                   <div key={idx} className="mb-8 last:mb-0">
-                    <h3 className="text-xl font-bold mb-4 text-[var(--primary-accent)] border-b border-[var(--border-color)] pb-2">{sub.name}</h3>
+                    <h3 className="text-lg font-bold mb-4 text-[var(--primary-accent)] border-b border-[var(--border-color)] pb-2 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-[var(--primary-accent)]"></span>
+                      <span>{sub.name}</span>
+                    </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {sub.items.map((item, itemIdx) => (
-                        <div key={itemIdx} className="bg-[var(--bg-tertiary)] p-4 rounded-lg border border-[var(--border-color)]">
+                        <div key={itemIdx} className="bg-[var(--bg-dark)] p-5 rounded-xl border border-[var(--border-color)] flex flex-col justify-between">
                           <div className="flex justify-between items-center mb-3">
-                            <h4 className="font-bold text-lg m-0 flex items-center gap-2">
-                              <FileText size={18} className="text-[var(--primary-accent)]"/> {item.name}
+                            <h4 className="font-bold text-base m-0 flex items-center gap-2 text-[var(--text-primary)]">
+                              <FileText size={17} className="text-[var(--primary-accent)]"/> {item.name}
                             </h4>
-                            <span className="bg-[var(--bg-card)] px-2 py-1 rounded text-sm text-[var(--text-muted)] font-mono">رقم: {item.code}</span>
+                            <span className="bg-[var(--bg-card)] px-2.5 py-1 rounded-lg text-xs text-[var(--text-muted)] font-mono border border-[var(--border-color)]">رقم: {item.code}</span>
                           </div>
-                          <div className="bg-[#1e1e1e] rounded p-3 text-left rtl:text-right" dir="ltr">
-                            <pre className="text-green-400 font-mono text-sm whitespace-pre-wrap font-bold" dir="rtl">{item.example}</pre>
+                          <div className="bg-[#0b0f19] border border-white/10 rounded-xl p-3.5 text-left rtl:text-right shadow-inner" dir="ltr">
+                            <pre className="text-emerald-400 font-mono text-xs md:text-sm whitespace-pre-wrap font-bold m-0" dir="rtl">{item.example}</pre>
                           </div>
                         </div>
                       ))}

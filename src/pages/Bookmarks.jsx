@@ -57,7 +57,7 @@ function Bookmarks() {
             })}
           </div>
         ) : (
-          <div className="glass-panel text-center p-12 mt-6">
+          <div className="glass-panel text-center p-12 mt-6 rounded-2xl border border-[var(--border-color)] overflow-hidden shadow-sm">
             <Bookmark size={48} color="var(--text-muted)" style={{ margin: '0 auto 1rem auto', opacity: 0.5 }} />
             <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
               {isEn ? 'No Saved Articles' : 'لا توجد مقالات محفوظة'}

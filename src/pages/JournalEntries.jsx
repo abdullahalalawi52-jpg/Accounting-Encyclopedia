@@ -53,26 +53,28 @@ function JournalEntries() {
         {searchTerm ? (
           filteredEntries.length > 0 ? (
             filteredEntries.map(entry => (
-              <div key={entry.id} className="glass-panel p-6 border-s-4 border-[var(--primary-accent)]">
-                <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">{entry.title}</h3>
-                <div className="bg-[#1e1e1e] rounded-lg p-4 mb-4" dir="ltr">
-                  <pre className="text-green-400 font-mono text-base font-bold whitespace-pre-wrap text-start" dir="auto">{entry.entry}</pre>
+              <div key={entry.id} style={{ padding: '24px' }} className="glass-panel card-shimmer rounded-2xl border border-[var(--border-color)] border-s-4 border-s-[var(--primary-accent)] overflow-hidden shadow-sm flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold mb-4 text-[var(--text-primary)]">{entry.title}</h3>
+                  <div className="bg-[#0b0f19] border border-white/10 rounded-xl p-4 mb-4 shadow-inner" dir="ltr">
+                    <pre className="text-emerald-400 font-mono text-sm md:text-base font-bold whitespace-pre-wrap text-start m-0" dir="auto">{entry.entry}</pre>
+                  </div>
                 </div>
-                <p className="text-sm text-[var(--text-muted)] m-0 flex items-start gap-2">
-                  <span className="font-bold text-[var(--secondary-accent)]">{isEn ? 'Note:' : 'ملاحظة:'}</span> {entry.notes}
+                <p className="text-xs md:text-sm text-[var(--text-muted)] m-0 flex items-start gap-2 pt-2 border-t border-[var(--border-color)]/50">
+                  <span className="font-bold text-[var(--primary-accent)]">{isEn ? 'Note:' : 'ملاحظة:'}</span> {entry.notes}
                 </p>
               </div>
             ))
           ) : (
-            <div className="col-span-1 md:col-span-2 text-center p-12 glass-panel">
-              <p className="text-xl text-[var(--text-muted)]">
+            <div className="col-span-1 md:col-span-2 text-center p-12 glass-panel rounded-2xl border border-[var(--border-color)]">
+              <p className="text-xl text-[var(--text-muted)] m-0">
                 {isEn ? 'No journal entries found. Try simpler keywords like "purchase" or "sale".' : 'لم يتم العثور على قيود تطابق بحثك. جرب كتابة كلمات أبسط مثل "شراء" أو "بيع".'}
               </p>
             </div>
           )
         ) : (
-          <div className="col-span-1 md:col-span-2 text-center p-8">
-            <p className="text-lg text-[var(--text-muted)]">
+          <div className="col-span-1 md:col-span-2 text-center p-10 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)]">
+            <p className="text-base md:text-lg text-[var(--text-muted)] m-0">
               {isEn ? 'Start typing in the search box to see matching entries...' : 'ابدأ الكتابة في مربع البحث لتظهر النتائج...'}
             </p>
           </div>

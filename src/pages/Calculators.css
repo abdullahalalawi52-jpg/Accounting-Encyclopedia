@@ -37,11 +37,11 @@
 .calc-container {
   max-width: 600px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2.5rem;
   background: var(--bg-card);
-  border-radius: 16px;
+  border-radius: var(--radius-2xl);
   border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
 }
 
 .calc-container h2 {
@@ -62,26 +62,27 @@
 
 .calc-input {
   width: 100%;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  background: var(--bg-tertiary);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-xl);
+  background: var(--bg-dark);
   border: 1px solid var(--border-color);
   color: var(--text-primary);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   transition: all 0.2s;
 }
 
 .calc-input:focus {
   outline: none;
   border-color: var(--primary-accent);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
 }
 
 .calc-result {
   margin-top: 2rem;
-  padding: 1.5rem;
-  background: rgba(16, 185, 129, 0.1);
+  padding: 1.75rem;
+  background: rgba(16, 185, 129, 0.08);
   border: 1px solid var(--primary-accent);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   text-align: center;
 }
 
@@ -92,7 +93,7 @@
 }
 
 .calc-result .amount {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2.25rem;
+  font-weight: 800;
   color: var(--text-primary);
 }

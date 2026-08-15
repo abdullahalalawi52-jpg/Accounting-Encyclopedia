@@ -69,25 +69,25 @@ function Tools() {
       <div className="container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
           {toolsList.map((tool) => (
-            <Link to={tool.path} key={tool.id} className="card hover-lift bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl flex flex-col items-center text-center overflow-hidden group">
+            <Link to={tool.path} key={tool.id} className="card card-shimmer hover-lift bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl flex flex-col items-center text-center overflow-hidden group shadow-sm hover:border-[var(--primary-accent)]/60">
               {/* Colored Top Border */}
-              <div className="w-full h-1" style={{ backgroundColor: tool.color }}></div>
+              <div className="w-full h-1.5" style={{ backgroundColor: tool.color }}></div>
               
-              <div className="p-8 flex flex-col items-center flex-grow w-full">
+              <div style={{ padding: '26px' }} className="flex flex-col items-center flex-grow w-full">
                 <div 
-                  className="mb-4 transition-transform duration-300 group-hover:-translate-y-1"
+                  className="mb-4 transition-transform duration-300 group-hover:-translate-y-1 p-3 rounded-2xl bg-[var(--bg-dark)] border border-[var(--border-color)] shadow-inner"
                   style={{ color: tool.color }}
                 >
                   {tool.icon}
                 </div>
-                <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-3">
+                <h2 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] mb-3">
                   {tool.title}
                 </h2>
                 <p className="text-[var(--text-secondary)] text-sm mb-6 leading-relaxed flex-grow">
                   {tool.desc}
                 </p>
                 <div className="w-full flex justify-end text-sm mt-auto" style={{ color: tool.color }}>
-                  <span className="flex items-center gap-1 font-bold group-hover:opacity-80 transition-opacity">{isEn ? 'View All' : 'عرض الكل'}<ChevronLeft size={16} />
+                  <span className="flex items-center gap-1 font-bold group-hover:opacity-80 transition-opacity">{isEn ? 'View All' : 'عرض الكل'}<ChevronLeft size={16} className={isEn ? 'rotate-180' : ''}/>
                   </span>
                 </div>
               </div>
