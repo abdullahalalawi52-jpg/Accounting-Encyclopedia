@@ -50,45 +50,45 @@ function Navbar() {
           </Link>
           
           {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-3">
             <Link 
               to="/categories" 
-              className={`nav-link px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+              className={`nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all border ${
                 isActive('/categories') 
-                  ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)]' 
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-dark)]'
+                  ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)] border-[var(--primary-accent)]/30 shadow-sm' 
+                  : 'text-[var(--text-secondary)] border-transparent hover:border-[var(--border-color)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
               {t('navbar.articles')}
             </Link>
             <Link 
               to="/templates" 
-              className={`nav-link px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+              className={`nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all border ${
                 isActive('/templates') 
-                  ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)]' 
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-dark)]'
+                  ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)] border-[var(--primary-accent)]/30 shadow-sm' 
+                  : 'text-[var(--text-secondary)] border-transparent hover:border-[var(--border-color)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
               {t('navbar.templates')}
             </Link>
             <Link 
               to="/standards" 
-              className={`nav-link px-3.5 py-2 rounded-xl text-sm font-semibold transition-all ${
+              className={`nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all border ${
                 isActive('/standards') 
-                  ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)]' 
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-dark)]'
+                  ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)] border-[var(--primary-accent)]/30 shadow-sm' 
+                  : 'text-[var(--text-secondary)] border-transparent hover:border-[var(--border-color)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-card)]'
               }`}
             >
               {t('navbar.standards')}
             </Link>
             
             {/* Dropdown for Tools & References */}
-            <div className="nav-item-dropdown relative cursor-pointer group py-2">
-              <div className="flex items-center gap-1 px-3.5 py-2 rounded-xl text-sm font-semibold text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-dark)] transition-all">
+            <div className="nav-item-dropdown relative cursor-pointer group py-1">
+              <div className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold text-[var(--text-secondary)] border border-transparent group-hover:border-[var(--border-color)] group-hover:text-[var(--text-primary)] group-hover:bg-[var(--bg-card)] transition-all">
                 <span>{t('navbar.tools_and_refs')}</span>
                 <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-[var(--text-muted)]" />
               </div>
-              <div className="dropdown-menu absolute top-full inset-inline-start-0 mt-1 hidden group-hover:block bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-xl min-w-[220px] p-2 z-50 animate-fade-in backdrop-blur-xl">
+              <div className="dropdown-menu absolute top-full inset-inline-start-0 mt-2 hidden group-hover:block bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl shadow-2xl min-w-[220px] p-2 z-50 animate-fade-in backdrop-blur-xl">
                 <Link to="/glossary" className="dropdown-link">{t('navbar.glossary')}</Link>
                 <Link to="/calculators" className="dropdown-link">{t('navbar.calculators')}</Link>
                 <Link to="/chart-of-accounts" className="dropdown-link">{t('navbar.chart_of_accounts')}</Link>
