@@ -1,8 +1,12 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { Calculator } from 'lucide-react';
 import './Calculators.css';
 
 function VATCalculator() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   const [amount, setAmount] = useState('');
   const [rate, setRate] = useState(15);
   const [type, setType] = useState('exclude'); // 'exclude' (add VAT) or 'include' (extract VAT)
@@ -25,21 +29,17 @@ function VATCalculator() {
 
   return (
     <div className="calc-container animate-fade-in">
-      <h2>حاسبة ضريبة القيمة المضافة</h2>
+      <h2>{isEn ? 'VAT Calculator' : 'حاسبة ضريبة القيمة المضافة'}</h2>
       
       <div className="calc-input-group flex gap-4">
         <label className="flex items-center gap-2 cursor-pointer">
-          <input type="radio" checked={type === 'exclude'} onChange={() => setType('exclude')} />
-          المبلغ غير شامل الضريبة
-        </label>
+          <input type="radio" checked={type === 'exclude'} onChange={() => setType('exclude')} />{isEn ? 'Amount excludes tax' : 'المبلغ غير شامل الضريبة'}</label>
         <label className="flex items-center gap-2 cursor-pointer">
-          <input type="radio" checked={type === 'include'} onChange={() => setType('include')} />
-          المبلغ شامل الضريبة
-        </label>
+          <input type="radio" checked={type === 'include'} onChange={() => setType('include')} />{isEn ? 'Amount includes tax' : 'المبلغ شامل الضريبة'}</label>
       </div>
 
       <div className="calc-input-group">
-        <label>المبلغ</label>
+        <label>{isEn ? 'Amount' : 'المبلغ'}</label>
         <input type="number" className="calc-input" value={amount} onChange={e => setAmount(e.target.value)} placeholder="أدخل المبلغ..." />
       </div>
       
@@ -78,7 +78,7 @@ function DepreciationCalculator() {
       <h2>حاسبة الإهلاك (القسط الثابت)</h2>
       
       <div className="calc-input-group">
-        <label>تكلفة الأصل</label>
+        <label>{isEn ? 'Asset Cost' : 'تكلفة الأصل'}</label>
         <input type="number" className="calc-input" value={cost} onChange={e => setCost(e.target.value)} />
       </div>
       
@@ -94,7 +94,7 @@ function DepreciationCalculator() {
 
       {numCost > 0 && (
         <div className="calc-result">
-          <h3>قسط الإهلاك السنوي</h3>
+          <h3>{isEn ? 'Annual Depreciation' : 'قسط الإهلاك السنوي'}</h3>
           <div className="amount">{annualDepreciation.toFixed(2)}</div>
         </div>
       )}
@@ -259,18 +259,16 @@ function Calculators() {
           <div className="inline-block p-4 rounded-full bg-gradient mb-4">
             <Calculator size={32} color="var(--primary-accent)" />
           </div>
-          <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>الأدوات والحاسبات</h1>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-            أدوات محاسبية عملية تساعدك في إنجاز حساباتك بسرعة ودقة.
-          </p>
+          <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{isEn ? 'Tools and Calculators' : 'الأدوات والحاسبات'}</h1>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>{isEn ? 'Practical accounting tools to help you complete your calculations quickly and accurately.' : 'أدوات محاسبية عملية تساعدك في إنجاز حساباتك بسرعة ودقة.'}</p>
         </div>
 
         <div className="calc-tabs flex-wrap justify-center gap-2 mb-8">
-          <button className={`calc-tab ${activeTab === 'vat' ? 'active' : ''}`} onClick={() => setActiveTab('vat')}>ضريبة القيمة المضافة</button>
-          <button className={`calc-tab ${activeTab === 'depreciation' ? 'active' : ''}`} onClick={() => setActiveTab('depreciation')}>إهلاك الأصول</button>
-          <button className={`calc-tab ${activeTab === 'breakeven' ? 'active' : ''}`} onClick={() => setActiveTab('breakeven')}>نقطة التعادل</button>
-          <button className={`calc-tab ${activeTab === 'endofservice' ? 'active' : ''}`} onClick={() => setActiveTab('endofservice')}>نهاية الخدمة</button>
-          <button className={`calc-tab ${activeTab === 'pv' ? 'active' : ''}`} onClick={() => setActiveTab('pv')}>القيمة الحالية</button>
+          <button className={`calc-tab ${activeTab === 'vat' ? 'active' : ''}`} onClick={() => setActiveTab('vat')}>{isEn ? 'VAT Calculator' : 'ضريبة القيمة المضافة'}</button>
+          <button className={`calc-tab ${activeTab === 'depreciation' ? 'active' : ''}`} onClick={() => setActiveTab('depreciation')}>{isEn ? 'Asset Depreciation' : 'إهلاك الأصول'}</button>
+          <button className={`calc-tab ${activeTab === 'breakeven' ? 'active' : ''}`} onClick={() => setActiveTab('breakeven')}>{isEn ? 'Break-even Point' : 'نقطة التعادل'}</button>
+          <button className={`calc-tab ${activeTab === 'endofservice' ? 'active' : ''}`} onClick={() => setActiveTab('endofservice')}>{isEn ? 'End of Service' : 'نهاية الخدمة'}</button>
+          <button className={`calc-tab ${activeTab === 'pv' ? 'active' : ''}`} onClick={() => setActiveTab('pv')}>{isEn ? 'Present Value' : 'القيمة الحالية'}</button>
         </div>
 
         {activeTab === 'vat' && <VATCalculator />}

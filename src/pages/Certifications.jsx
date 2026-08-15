@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Award, BookOpen, Clock, Target } from 'lucide-react';
 
 const certificationsDB = [
@@ -40,13 +41,16 @@ const certificationsDB = [
 ];
 
 function Certifications() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   return (
     <div className="container py-12 animate-fade-in">
       <div className="text-center mb-12">
         <div className="inline-block p-4 rounded-full bg-gradient mb-4">
           <Award size={32} color="var(--primary-accent)" />
         </div>
-        <h1 className="text-4xl font-bold mb-4 text-gradient">الشهادات المهنية المحاسبية</h1>
+        <h1 className="text-4xl font-bold mb-4 text-gradient">{isEn ? 'Accounting Professional Certifications' : 'الشهادات المهنية المحاسبية'}</h1>
         <p className="text-xl text-[var(--text-secondary)]">دليلك الشامل لأهم الشهادات المهنية في عالم المحاسبة والمالية</p>
       </div>
 

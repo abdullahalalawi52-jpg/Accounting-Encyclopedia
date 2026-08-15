@@ -1,45 +1,49 @@
+import { useTranslation } from 'react-i18next';
 import { PlayCircle, Clock, Star } from 'lucide-react';
 
-const coursesDB = [
-  {
-    id: 1,
-    title: 'مبادئ المحاسبة المالية (المستوى الأول)',
-    instructor: 'أ. أحمد عبدالله',
-    duration: '4 ساعات',
-    level: 'مبتدئ',
-    rating: 4.8,
-    image: '/images/placeholder.svg'
-  },
-  {
-    id: 2,
-    title: 'إعداد القوائم المالية وفقاً لـ IFRS',
-    instructor: 'د. خالد محمد',
-    duration: '6.5 ساعات',
-    level: 'متوسط',
-    rating: 4.9,
-    image: '/images/placeholder.svg'
-  },
-  {
-    id: 3,
-    title: 'تطبيقات الإكسل في المحاسبة',
-    instructor: 'م. سارة علي',
-    duration: '5 ساعات',
-    level: 'جميع المستويات',
-    rating: 4.7,
-    image: '/images/placeholder.svg'
-  },
-  {
-    id: 4,
-    title: 'المحاسبة الضريبية (ضريبة القيمة المضافة)',
-    instructor: 'مستشار ضريبي / عمر سعيد',
-    duration: '3 ساعات',
-    level: 'متوسط',
-    rating: 4.6,
-    image: '/images/placeholder.svg'
-  }
-];
-
 function Courses() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
+  const coursesDB = [
+    {
+      id: 1,
+      title: 'مبادئ المحاسبة المالية (المستوى الأول)',
+      instructor: 'أ. أحمد عبدالله',
+      duration: '4 ساعات',
+      level: (isEn ? 'Beginner' : 'مبتدئ'),
+      rating: 4.8,
+      image: '/images/placeholder.svg'
+    },
+    {
+      id: 2,
+      title: 'إعداد القوائم المالية وفقاً لـ IFRS',
+      instructor: 'د. خالد محمد',
+      duration: '6.5 ساعات',
+      level: (isEn ? 'Intermediate' : 'متوسط'),
+      rating: 4.9,
+      image: '/images/placeholder.svg'
+    },
+    {
+      id: 3,
+      title: 'تطبيقات الإكسل في المحاسبة',
+      instructor: 'م. سارة علي',
+      duration: '5 ساعات',
+      level: 'جميع المستويات',
+      rating: 4.7,
+      image: '/images/placeholder.svg'
+    },
+    {
+      id: 4,
+      title: 'المحاسبة الضريبية (ضريبة القيمة المضافة)',
+      instructor: 'مستشار ضريبي / عمر سعيد',
+      duration: '3 ساعات',
+      level: (isEn ? 'Intermediate' : 'متوسط'),
+      rating: 4.6,
+      image: '/images/placeholder.svg'
+    }
+  ];
+
   return (
     <div className="container py-12 animate-fade-in min-h-screen">
       <div className="text-center mb-12">

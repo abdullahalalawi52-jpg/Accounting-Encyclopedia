@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { Download, Star, FileText, CheckSquare, Calendar, ChevronDown, Check } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
@@ -7,7 +8,10 @@ import './Templates.css';
 import { TEMPLATES } from '../data/templates.js';
 
 function Templates() {
-  const [activeType, setActiveType] = useState('الكل');
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
+  const [activeType, setActiveType] = useState(isEn ? 'All' : 'الكل');
   
   const handleDownload = (template) => {
     let content = '';
@@ -46,7 +50,7 @@ function Templates() {
     }, 100);
   };
 
-  const filteredTemplates = activeType === 'الكل' 
+  const filteredTemplates = activeType === (isEn ? 'All' : 'الكل') 
     ? TEMPLATES 
     : TEMPLATES.filter(t => t.type === activeType);
 
@@ -55,7 +59,7 @@ function Templates() {
       
       <PageHero 
         title="مكتبة النماذج والقوالب"
-        description="حمل أحدث النماذج المحاسبية والمالية الجاهزة للاستخدام بصيغ Excel, Word, PDF."
+        description={isEn ? 'Download the latest accounting and financial templates ready to use in Excel, Word, PDF.' : 'حمل أحدث النماذج المحاسبية والمالية الجاهزة للاستخدام بصيغ Excel, Word, PDF.'}
       />
 
       <div className="container py-10">
@@ -65,18 +69,15 @@ function Templates() {
           <aside className="w-full lg:w-1/4 flex-shrink-0">
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 shadow-sm sticky top-24">
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-[var(--border-color)]">
-                <h3 className="font-bold text-[var(--text-primary)] text-lg m-0 flex items-center gap-2">
-                  الفلترة
-                </h3>
-                <span className="text-[var(--text-secondary)] text-sm cursor-pointer hover:text-[var(--primary-accent)] font-medium transition-colors bg-[var(--bg-main)] px-3 py-1 rounded-full">مسح الكل</span>
+                <h3 className="font-bold text-[var(--text-primary)] text-lg m-0 flex items-center gap-2">{isEn ? 'Filter' : 'الفلترة'}</h3>
+                <span className="text-[var(--text-secondary)] text-sm cursor-pointer hover:text-[var(--primary-accent)] font-medium transition-colors bg-[var(--bg-main)] px-3 py-1 rounded-full">{isEn ? 'Clear All' : 'مسح الكل'}</span>
               </div>
               
               <div className="filter-group mb-8">
-                <h4 className="font-bold text-[var(--text-primary)] flex items-center justify-between cursor-pointer mb-4">
-                  نوع الملف <ChevronDown size={18} className="text-[var(--text-secondary)]" />
+                <h4 className="font-bold text-[var(--text-primary)] flex items-center justify-between cursor-pointer mb-4">{isEn ? 'File Type' : 'نوع الملف'}<ChevronDown size={18} className="text-[var(--text-secondary)]" />
                 </h4>
                 <div className="flex flex-col gap-3">
-                  {['الكل', 'Excel', 'Word', 'PDF'].map(type => (
+                  {[(isEn ? 'All' : 'الكل'), 'Excel', 'Word', 'PDF'].map(type => (
                     <label key={type} className="flex items-center gap-3 cursor-pointer group">
                       <div className={`w-5 h-5 rounded flex items-center justify-center border transition-all duration-300 shadow-sm ${
                         activeType === type 
@@ -100,8 +101,7 @@ function Templates() {
               </div>
 
               <div className="filter-group">
-                <h4 className="font-bold text-[var(--text-primary)] flex items-center justify-between cursor-pointer mb-4">
-                  التصنيفات <ChevronDown size={18} className="text-[var(--text-secondary)]" />
+                <h4 className="font-bold text-[var(--text-primary)] flex items-center justify-between cursor-pointer mb-4">{isEn ? 'Categories' : 'التصنيفات'}<ChevronDown size={18} className="text-[var(--text-secondary)]" />
                 </h4>
                 <div className="flex flex-col gap-3">
                   {['محاسبة مالية', 'محاسبة تكاليف', 'الموارد البشرية', 'نماذج ضريبية'].map(cat => (

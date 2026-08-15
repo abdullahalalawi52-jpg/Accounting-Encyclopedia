@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Book, ChevronLeft } from 'lucide-react';
@@ -6,6 +7,9 @@ import ArticleCard from '../components/cards/ArticleCard.jsx';
 import SearchInput from '../components/ui/SearchInput.jsx';
 
 function Category() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   const { id } = useParams();
   const { data: categoriesData, loading: loadingCategories } = useData('/data/categories.json');
   const { data: articlesData, loading: loadingArticles } = useData('/data/articles.json');

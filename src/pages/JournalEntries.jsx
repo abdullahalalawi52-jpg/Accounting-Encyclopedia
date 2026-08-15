@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { Search, BookText } from 'lucide-react';
 const journalEntriesDB = [
@@ -13,6 +14,9 @@ const journalEntriesDB = [
 ];
 
 function JournalEntries() {
+  const { t, i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredEntries = journalEntriesDB.filter(item => 
@@ -26,7 +30,7 @@ function JournalEntries() {
         <div className="inline-block p-4 rounded-full bg-gradient mb-4">
           <BookText size={32} color="var(--primary-accent)" />
         </div>
-        <h1 className="text-4xl font-bold mb-4 text-gradient">مكتبة القيود اليومية</h1>
+        <h1 className="text-4xl font-bold mb-4 text-gradient">{isEn ? 'Journal Entries Library' : 'مكتبة القيود اليومية'}</h1>
         <p className="text-xl text-[var(--text-secondary)]">ابحث عن أي معاملة مالية (مثال: "شراء بضاعة") ليظهر لك القيد المحاسبي الصحيح.</p>
       </div>
 
