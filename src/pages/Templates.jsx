@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
-import { Download, Star, FileText, CheckSquare, Calendar, ChevronDown, Check } from 'lucide-react';
+import { ChevronDown, Check } from 'lucide-react';
 import PageHero from '../components/ui/PageHero.jsx';
 import TemplateCard from '../components/cards/TemplateCard.jsx';
 import './Templates.css';
@@ -8,7 +8,7 @@ import './Templates.css';
 import { TEMPLATES } from '../data/templates.js';
 
 function Templates() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const [activeType, setActiveType] = useState(isEn ? 'All' : 'الكل');
@@ -58,7 +58,7 @@ function Templates() {
     <div className="templates-page animate-fade-in pb-10">
       
       <PageHero 
-        title="مكتبة النماذج والقوالب"
+        title={isEn ? 'Templates & Forms Library' : 'مكتبة النماذج والقوالب'}
         description={isEn ? 'Download the latest accounting and financial templates ready to use in Excel, Word, PDF.' : 'حمل أحدث النماذج المحاسبية والمالية الجاهزة للاستخدام بصيغ Excel, Word, PDF.'}
       />
 

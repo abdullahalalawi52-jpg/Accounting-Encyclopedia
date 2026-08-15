@@ -1,11 +1,15 @@
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Search, FileText, BookA } from 'lucide-react';
 import { useData } from '../hooks/useData.js';
 import SearchInput from '../components/ui/SearchInput.jsx';
 import './SearchResults.css';
 
 function SearchResults() {
+  const { i18n } = useTranslation();
+  const isEn = i18n.language.startsWith('en');
+  
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
@@ -17,13 +21,7 @@ function SearchResults() {
   const { data: articlesData, loading: loadingArticles } = useData('/data/articles.json');
   const { data: glossaryData, loading: loadingGlossary } = useData('/data/glossary.json');
 
-  useEffect(() => {
-    if (initialQuery && articlesData && glossaryData) {
-      performSearch(initialQuery);
-    }
-  }, [initialQuery, articlesData, glossaryData]);
-
-  const performSearch = (searchQuery) => {
+  const performSearch = useCallback((searchQuery) => {
     if (!searchQuery.trim() || !articlesData || !glossaryData) {
       setResults([]);
       return;
@@ -36,9 +34,9 @@ function SearchResults() {
       (item.content && item.content.toLowerCase().includes(lowerQuery))
     ).map(item => ({
       id: `/article/${item.id}`,
-      type: 'مقال',
+      type: isEn ? 'Article' : 'مقال',
       title: item.title,
-      content: item.summary || 'انقر لقراءة المقال...',
+      content: item.summary || (isEn ? 'Click to read article...' : 'انقر لقراءة المقال...'),
       icon: FileText
     }));
 
@@ -47,14 +45,20 @@ function SearchResults() {
       item.definition.toLowerCase().includes(lowerQuery)
     ).map(item => ({
       id: '/glossary',
-      type: 'مصطلح',
+      type: isEn ? 'Term' : 'مصطلح',
       title: item.term,
       content: item.definition,
       icon: BookA
     }));
 
     setResults([...articleResults, ...glossaryResults]);
-  };
+  }, [articlesData, glossaryData, isEn]);
+
+  useEffect(() => {
+    if (initialQuery && articlesData && glossaryData) {
+      performSearch(initialQuery);
+    }
+  }, [initialQuery, articlesData, glossaryData, performSearch]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();

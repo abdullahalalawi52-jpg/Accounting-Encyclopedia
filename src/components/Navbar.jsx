@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { BookOpen, Search, Menu, X, Globe, Moon, Sun, Bookmark } from 'lucide-react';
+import { BookOpen, Search, Menu, X, Moon, Sun, Bookmark } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useBookmarks } from '../context/BookmarkContext';
 import { useTranslation } from 'react-i18next';

@@ -6,7 +6,7 @@ import { useBookmarks } from '../context/BookmarkContext.jsx';
 import './Bookmarks.css';
 
 function Bookmarks() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const { bookmarks: savedIds, removeBookmark } = useBookmarks();
@@ -20,9 +20,11 @@ function Bookmarks() {
           <div className="inline-block p-4 rounded-full bg-gradient mb-4">
             <Bookmark size={32} color="var(--primary-accent)" />
           </div>
-          <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>مفضلتي</h1>
+          <h1 className="text-gradient" style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>
+            {isEn ? 'My Bookmarks' : 'مفضلتي'}
+          </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-            المقالات التي قمت بحفظها للرجوع إليها لاحقاً
+            {isEn ? 'Articles you saved to read or reference later' : 'المقالات التي قمت بحفظها للرجوع إليها لاحقاً'}
           </p>
         </div>
 
@@ -44,9 +46,9 @@ function Bookmarks() {
                   
                   <div className="bookmark-actions mt-4">
                     <Link to={`/article/${id}`} className="flex items-center gap-1" style={{ color: 'var(--primary-accent)' }}>
-                      اقرأ المقال <ArrowRight size={16} />
+                      {isEn ? 'Read Article' : 'اقرأ المقال'} <ArrowRight size={16} />
                     </Link>
-                    <button onClick={() => removeBookmark(id)} className="btn-icon" style={{ color: '#EF4444' }} title="إزالة من المفضلة">
+                    <button onClick={() => removeBookmark(id)} className="btn-icon" style={{ color: '#EF4444' }} title={isEn ? 'Remove from bookmarks' : 'إزالة من المفضلة'}>
                       <Trash2 size={20} />
                     </button>
                   </div>
@@ -57,9 +59,13 @@ function Bookmarks() {
         ) : (
           <div className="glass-panel text-center p-12 mt-6">
             <Bookmark size={48} color="var(--text-muted)" style={{ margin: '0 auto 1rem auto', opacity: 0.5 }} />
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>لا توجد مقالات محفوظة</h3>
-            <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>قم بتصفح الأقسام وحفظ المقالات التي تهمك للعودة إليها بسهولة.</p>
-            <Link to="/categories" className="btn btn-primary">تصفح الأقسام</Link>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
+              {isEn ? 'No Saved Articles' : 'لا توجد مقالات محفوظة'}
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
+              {isEn ? 'Browse categories and save articles you care about to easily access them.' : 'قم بتصفح الأقسام وحفظ المقالات التي تهمك للعودة إليها بسهولة.'}
+            </p>
+            <Link to="/categories" className="btn btn-primary">{isEn ? 'Browse Categories' : 'تصفح الأقسام'}</Link>
           </div>
         )}
       </div>

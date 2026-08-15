@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, FileText } from 'lucide-react';
 function ChartOfAccounts() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const accountsData = [

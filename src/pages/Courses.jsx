@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { PlayCircle, Clock, Star } from 'lucide-react';
 
 function Courses() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const coursesDB = [

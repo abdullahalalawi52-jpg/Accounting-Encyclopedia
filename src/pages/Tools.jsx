@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calculator, Book, FileText, ClipboardList, GraduationCap, PlayCircle, ChevronLeft } from 'lucide-react';
 
 function Tools() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const toolsList = [

@@ -1,6 +1,4 @@
-import { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronLeft, Mail, Clock } from 'lucide-react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNewsAPI } from '../hooks/useNewsAPI.js';
 import ArticleCard from '../components/cards/ArticleCard.jsx';

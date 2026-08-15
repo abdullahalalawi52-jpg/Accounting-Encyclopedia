@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { ChevronLeft, Info, BookOpen, AlertCircle } from 'lucide-react';
+import { ChevronLeft, BookOpen, AlertCircle } from 'lucide-react';
 import './Standards.css';
 
 function Standards() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   const TIMELINE = [

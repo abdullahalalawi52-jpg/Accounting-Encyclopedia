@@ -80,7 +80,7 @@ function Article() {
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize((isEn && article.content_en ? article.content_en : article.content) || '') }}
             />
             
-            {articleQuiz && <ArticleQuiz quizData={articleQuiz} articleId={id} t={t} isEn={isEn} />}
+            {articleQuiz && <ArticleQuiz quizData={articleQuiz} t={t} isEn={isEn} />}
           </div>
 
           <aside className="sidebar col-span-1">
@@ -106,7 +106,7 @@ function Article() {
   );
 }
 
-function ArticleQuiz({ quizData, articleId, t, isEn }) {
+function ArticleQuiz({ quizData, t, isEn }) {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [score, setScore] = useState(0);

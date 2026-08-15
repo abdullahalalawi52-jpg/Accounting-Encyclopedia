@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Home, AlertTriangle } from 'lucide-react';
 
 function NotFound() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   return (
@@ -19,7 +19,7 @@ function NotFound() {
       
       <h1 className="text-3xl md:text-4xl font-extrabold text-[var(--text-primary)] mb-4">{isEn ? 'Page Not Found' : 'الصفحة غير موجودة'}</h1>
       <p className="text-lg text-[var(--text-muted)] max-w-md mb-8">
-        عذراً، الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها إلى عنوان آخر.
+        {isEn ? 'Sorry, the page you are looking for does not exist or may have been moved.' : 'عذراً، الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها إلى عنوان آخر.'}
       </p>
       
       <Link 

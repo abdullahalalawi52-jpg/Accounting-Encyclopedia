@@ -41,7 +41,7 @@ const certificationsDB = [
 ];
 
 function Certifications() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const isEn = i18n.language.startsWith('en');
 
   return (

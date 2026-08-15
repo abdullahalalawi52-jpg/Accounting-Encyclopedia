@@ -1,6 +1,5 @@
-import { Search, Book, Calculator, TrendingUp, FileText, ChevronLeft, ArrowLeft, ArrowRight, Star, Clock, FileDown, ExternalLink, BookOpen } from 'lucide-react';
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Book, Calculator, TrendingUp, FileText, ArrowLeft, ArrowRight, Star, FileDown, ExternalLink, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useData } from '../hooks/useData.js';
 import { useNewsAPI } from '../hooks/useNewsAPI.js';
 import { latestTemplates } from '../data/templates.js';
@@ -19,8 +18,6 @@ const ICONS = {
 
 function Home() {
   const { t, i18n } = useTranslation();
-  const [searchQuery, setSearchQuery] = useState('');
-  const navigate = useNavigate();
   const { data: categoriesData } = useData('/data/categories.json');
   const { data: articlesData } = useNewsAPI();
   
@@ -28,13 +25,6 @@ function Home() {
   const featuredArticles = articlesData ? articlesData.filter(a => a.isFeatured) : [];
   
   const displayCategories = categoriesList.filter(c => ICONS[c.id]).slice(0, 4);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
-    }
-  };
 
   return (
     <div className="home-page animate-fade-in pb-20">
