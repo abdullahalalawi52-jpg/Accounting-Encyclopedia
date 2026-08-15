@@ -77,42 +77,17 @@
 
 
 /* Pagination */
-.pagination {
-  display: flex;
-  align-items: center;
-}
-
-.page-btn {
+.pagination-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--border-color);
-  background: var(--bg-card);
-  color: var(--text-secondary);
-  border-radius: var(--radius-md);
-  font-weight: bold;
+}
+
+.page-nav-btn {
   cursor: pointer;
-  transition: all var(--transition-fast);
+  user-select: none;
 }
 
-.page-btn:hover {
-  border-color: var(--primary-accent);
-  color: var(--primary-accent);
-}
-
-.page-btn.active {
-  background: var(--primary-accent);
-  color: #fff;
-  border-color: var(--primary-accent);
-}
-
-.page-dots {
-  color: var(--text-muted);
-  font-weight: bold;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
+.page-nav-btn:disabled {
+  cursor: not-allowed;
 }
