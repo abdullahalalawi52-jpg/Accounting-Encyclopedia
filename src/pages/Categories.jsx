@@ -39,26 +39,35 @@ function Categories() {
           
           {/* Sidebar */}
           <aside className="w-full lg:w-1/4 flex-shrink-0">
-            <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl mb-6 sticky top-24 min-h-[450px]" style={{ padding: '2.5rem' }}>
-              <h3 className="font-bold text-[var(--text-primary)] text-xl mb-8 flex items-center gap-3 border-b border-[var(--border-color)] pb-4">
-                <span className="w-2 h-2 rounded-full bg-[var(--primary-accent)]"></span> {t('categories.sidebar_title')}
+            <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 shadow-sm mb-6 sticky top-24">
+              <h3 className="font-bold text-[var(--text-primary)] text-lg mb-5 flex items-center gap-2.5 border-b border-[var(--border-color)]/60 pb-3">
+                <span className="w-2.5 h-2.5 rounded-full bg-[var(--primary-accent)] shadow-sm shadow-[var(--primary-accent)]/50"></span> {t('categories.sidebar_title')}
               </h3>
-              <div className="radio-group flex flex-row flex-wrap lg:flex-col gap-4">
-                {ALL_CATEGORIES.map(cat => (
-                  <label key={cat.id} className="radio-label text-lg py-2 whitespace-nowrap">
-                    <input 
-                      type="radio" 
-                      name="category" 
-                      value={cat.id} 
-                      checked={activeCategory === cat.id}
-                      onChange={() => setActiveCategory(cat.id)}
-                    />
-                    <span className="radio-text">{isEn ? cat.en : cat.ar}</span>
-                  </label>
-                ))}
+              <div className="flex flex-col gap-1.5">
+                {ALL_CATEGORIES.map(cat => {
+                  const isActive = activeCategory === cat.id;
+                  return (
+                    <label 
+                      key={cat.id} 
+                      className={`radio-label px-3 py-2 rounded-xl transition-all duration-200 cursor-pointer flex items-center gap-3 ${
+                        isActive 
+                          ? 'bg-[var(--primary-accent)]/10 text-[var(--primary-accent)] font-semibold' 
+                          : 'hover:bg-[var(--bg-main)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      <input 
+                        type="radio" 
+                        name="category" 
+                        value={cat.id} 
+                        checked={isActive}
+                        onChange={() => setActiveCategory(cat.id)}
+                      />
+                      <span className="radio-text text-sm">{isEn ? cat.en : cat.ar}</span>
+                    </label>
+                  );
+                })}
               </div>
             </div>
-
           </aside>
 
           {/* Main Content */}
