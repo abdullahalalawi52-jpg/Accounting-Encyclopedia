@@ -14,19 +14,20 @@ function CategoryCard({ category, IconComponent }) {
   return (
     <Link 
       to={`/category/${category.id}`} 
-      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-5 overflow-hidden"
+      style={{ padding: '20px' }}
+      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden"
     >
-      {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 10px) */}
-      <div className="flex items-start gap-[10px] relative z-10">
+      {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 12px) */}
+      <div className="flex items-start relative z-10" style={{ gap: '12px' }}>
         {/* الأيقونة الدائرية */}
-        <div className="relative shrink-0">
+        <div className="relative shrink-0" style={{ width: '48px', height: '48px' }}>
           <div 
             className="absolute inset-0 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-300"
             style={{ backgroundColor: color }}
           ></div>
           <div 
-            className="relative w-12 h-12 rounded-full flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105"
-            style={{ background: `linear-gradient(135deg, ${color}, ${color}dd)` }}
+            className="relative rounded-full flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105"
+            style={{ background: `linear-gradient(135deg, ${color}, ${color}dd)`, width: '48px', height: '48px' }}
           >
             {IconComponent && <IconComponent size={24} strokeWidth={2.2} />}
           </div>
@@ -43,8 +44,8 @@ function CategoryCard({ category, IconComponent }) {
         </div>
       </div>
       
-      {/* 2. القسم السفلي (الشارة وسهم الانتقال بفاصل 10px) */}
-      <div className="flex items-center justify-end gap-[10px] mt-6 relative z-10">
+      {/* 2. القسم السفلي (الشارة وسهم الانتقال) */}
+      <div className="flex items-center justify-end mt-6 relative z-10" style={{ gap: '10px' }}>
         {/* شارة عدد المقالات */}
         <div 
           className="h-[34px] px-3.5 rounded-full flex items-center gap-1.5 font-semibold text-xs transition-colors"
