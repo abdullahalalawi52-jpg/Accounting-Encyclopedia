@@ -7,15 +7,48 @@ function Standards() {
   const isEn = i18n.language.startsWith('en');
 
   const TIMELINE = [
-    { year: '2024', text: 'تحديث معيار IFRS 16 (عقود الإيجار) والتعديلات المتعلقة بالبيع والاستئجار.' },
-    { year: '2023', text: 'الإلزام بتطبيق IFRS 17 (عقود التأمين) للشركات المدرجة.' },
-    { year: '2017', text: (isEn ? 'Full transition to IFRS in Saudi Arabia (SOCPA).' : 'التحول الكامل لمعايير IFRS في المملكة العربية السعودية (SOCPA).') },
+    { 
+      year: '2024', 
+      text: isEn 
+        ? 'IFRS 16 (Leases) update and amendments relating to sale and leaseback transactions.' 
+        : 'تحديث معيار IFRS 16 (عقود الإيجار) والتعديلات المتعلقة بالبيع والاستئجار.' 
+    },
+    { 
+      year: '2023', 
+      text: isEn 
+        ? 'Mandatory adoption of IFRS 17 (Insurance Contracts) for listed companies.' 
+        : 'الإلزام بتطبيق IFRS 17 (عقود التأمين) للشركات المدرجة.' 
+    },
+    { 
+      year: '2017', 
+      text: isEn 
+        ? 'Full transition to IFRS in Saudi Arabia (SOCPA).' 
+        : 'التحول الكامل لمعايير IFRS في المملكة العربية السعودية (SOCPA).' 
+    },
   ];
 
   const IFRS_STANDARDS = [
-    { id: 'ifrs9', title: 'IFRS 9 - الأدوات المالية', desc: 'يحدد متطلبات الاعتراف والقياس للأصول والالتزامات المالية.' },
-    { id: 'ifrs15', title: 'IFRS 15 - الإيرادات من العقود', desc: 'نموذج من 5 خطوات لتحديد متى وكيف يتم الاعتراف بالإيرادات.' },
-    { id: 'ias1', title: 'IAS 1 - عرض القوائم المالية', desc: 'الأساس لعرض القوائم المالية ذات الغرض العام لضمان قابلية المقارنة.' },
+    { 
+      id: 'ifrs9', 
+      title: isEn ? 'IFRS 9 - Financial Instruments' : 'IFRS 9 - الأدوات المالية', 
+      desc: isEn 
+        ? 'Specifies recognition and measurement requirements for financial assets and liabilities.' 
+        : 'يحدد متطلبات الاعتراف والقياس للأصول والالتزامات المالية.' 
+    },
+    { 
+      id: 'ifrs15', 
+      title: isEn ? 'IFRS 15 - Revenue from Contracts' : 'IFRS 15 - الإيرادات من العقود', 
+      desc: isEn 
+        ? 'A 5-step model to determine when and how much revenue to recognize.' 
+        : 'نموذج من 5 خطوات لتحديد متى وكيف يتم الاعتراف بالإيرادات.' 
+    },
+    { 
+      id: 'ias1', 
+      title: isEn ? 'IAS 1 - Presentation of Financial Statements' : 'IAS 1 - عرض القوائم المالية', 
+      desc: isEn 
+        ? 'Basis for presenting general purpose financial statements to ensure comparability.' 
+        : 'الأساس لعرض القوائم المالية ذات الغرض العام لضمان قابلية المقارنة.' 
+    },
   ];
 
   return (
@@ -37,9 +70,9 @@ function Standards() {
             <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl mb-6">
               <h3 className="font-bold text-[var(--text-primary)] text-lg mb-4 border-b border-[var(--border-color)] pb-3">{isEn ? 'Guide Contents' : 'محتويات الدليل'}</h3>
               <ul className="list-none p-0 flex flex-col gap-3">
-                <li><a href="#ifrs" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16}/>{isEn ? 'International Standards (IFRS)' : 'المعايير الدولية (IFRS)'}</a></li>
-                <li><a href="#socpa" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16}/>{isEn ? 'Local Regulations (SOCPA)' : 'الأنظمة المحلية (SOCPA)'}</a></li>
-                <li><a href="#comparison" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16}/> مقارنة IFRS و US GAAP</a></li>
+                <li><a href="#ifrs" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16} className={isEn ? 'rotate-180' : ''}/>{isEn ? 'International Standards (IFRS)' : 'المعايير الدولية (IFRS)'}</a></li>
+                <li><a href="#socpa" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16} className={isEn ? 'rotate-180' : ''}/>{isEn ? 'Local Regulations (SOCPA)' : 'الأنظمة المحلية (SOCPA)'}</a></li>
+                <li><a href="#comparison" className="text-[var(--text-secondary)] hover:text-[var(--primary-accent)] flex items-center gap-2 transition-colors"><ChevronLeft size={16} className={isEn ? 'rotate-180' : ''}/>{isEn ? 'IFRS vs US GAAP Comparison' : 'مقارنة IFRS و US GAAP'}</a></li>
               </ul>
             </div>
 
@@ -66,7 +99,7 @@ function Standards() {
             <section id="ifrs" className="mb-12">
               <div className="flex items-center gap-2 mb-6">
                 <BookOpen className="text-[var(--text-primary)]" size={28} />
-                <h2 className="text-2xl font-bold text-[var(--text-primary)]">المعايير الدولية (IAS / IFRS)</h2>
+                <h2 className="text-2xl font-bold text-[var(--text-primary)]">{isEn ? 'International Standards (IAS / IFRS)' : 'المعايير الدولية (IAS / IFRS)'}</h2>
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -84,9 +117,11 @@ function Standards() {
             <section id="socpa" className="mb-12">
                <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] p-8 rounded-xl relative overflow-hidden">
                  <div className="relative z-10">
-                   <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">الأنظمة المحلية وتوصيات الهيئة (SOCPA)</h2>
+                   <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-4">{isEn ? 'Local Regulations & Authority Recommendations (SOCPA)' : 'الأنظمة المحلية وتوصيات الهيئة (SOCPA)'}</h2>
                    <p className="mb-8 text-[var(--text-secondary)] max-w-2xl leading-relaxed">
-                     تعرف على التعديلات والإضافات التي أقرتها الهيئة السعودية للمراجعين والمحاسبين على المعايير الدولية لتتناسب مع البيئة النظامية المحلية.
+                     {isEn 
+                       ? 'Explore modifications and additions approved by the Saudi Organization for Chartered and Professional Accountants (SOCPA) to align IFRS with the local regulatory environment.'
+                       : 'تعرف على التعديلات والإضافات التي أقرتها الهيئة السعودية للمراجعين والمحاسبين على المعايير الدولية لتتناسب مع البيئة النظامية المحلية.'}
                    </p>
                    <button className="bg-[var(--primary-accent)] hover:bg-[var(--primary-hover)] text-white px-6 py-2.5 rounded font-bold transition-colors shadow-lg">{isEn ? 'Browse Authority Publications' : 'استعرض إصدارات الهيئة'}</button>
                  </div>
@@ -96,14 +131,14 @@ function Standards() {
 
             {/* Comparison Table */}
             <section id="comparison">
-              <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">مقارنة سريعة: IFRS مقابل US GAAP</h2>
+              <h2 className="text-2xl font-bold text-[var(--text-primary)] mb-6">{isEn ? 'Quick Comparison: IFRS vs US GAAP' : 'مقارنة سريعة: IFRS مقابل US GAAP'}</h2>
               <div className="card bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl overflow-hidden">
-                <table className="w-full text-right border-collapse text-[var(--text-primary)]">
+                <table className={`w-full ${isEn ? 'text-left' : 'text-right'} border-collapse text-[var(--text-primary)]`}>
                   <thead className="bg-[var(--bg-dark)] border-b border-[var(--border-color)]">
                     <tr>
                       <th className="p-4 font-bold">{isEn ? 'Item' : 'البند'}</th>
-                      <th className="p-4 font-bold text-[var(--primary-accent)]">IFRS (المعايير الدولية)</th>
-                      <th className="p-4 font-bold text-[var(--text-muted)]">US GAAP (الأمريكية)</th>
+                      <th className="p-4 font-bold text-[var(--primary-accent)]">{isEn ? 'IFRS (International)' : 'IFRS (المعايير الدولية)'}</th>
+                      <th className="p-4 font-bold text-[var(--text-muted)]">{isEn ? 'US GAAP (American)' : 'US GAAP (الأمريكية)'}</th>
                     </tr>
                   </thead>
                   <tbody>

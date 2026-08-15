@@ -104,13 +104,18 @@ function Templates() {
                 <h4 className="font-bold text-[var(--text-primary)] flex items-center justify-between cursor-pointer mb-4">{isEn ? 'Categories' : 'التصنيفات'}<ChevronDown size={18} className="text-[var(--text-secondary)]" />
                 </h4>
                 <div className="flex flex-col gap-3">
-                  {['محاسبة مالية', 'محاسبة تكاليف', 'الموارد البشرية', 'نماذج ضريبية'].map(cat => (
-                    <label key={cat} className="flex items-center gap-3 cursor-pointer group">
+                  {[
+                    { ar: 'محاسبة مالية', en: 'Financial Accounting' },
+                    { ar: 'محاسبة تكاليف', en: 'Cost Accounting' },
+                    { ar: 'الموارد البشرية', en: 'Human Resources (HR)' },
+                    { ar: 'نماذج ضريبية', en: 'Tax Forms' }
+                  ].map(cat => (
+                    <label key={cat.en} className="flex items-center gap-3 cursor-pointer group">
                       <div className="w-5 h-5 rounded flex items-center justify-center border bg-[var(--bg-main)] border-[var(--border-color)] text-transparent transition-all duration-300 shadow-sm group-hover:border-[var(--primary-accent)]">
                         <Check size={14} strokeWidth={4} />
                       </div>
                       <input type="checkbox" className="hidden" />
-                      <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{cat}</span>
+                      <span className="text-sm font-medium text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors">{isEn ? cat.en : cat.ar}</span>
                     </label>
                   ))}
                 </div>
@@ -129,7 +134,7 @@ function Templates() {
             
             {filteredTemplates.length === 0 && (
               <div className="text-center py-10 text-muted">
-                لا توجد قوالب تطابق الفلتر المحدد.
+                {isEn ? 'No templates match the selected filter.' : 'لا توجد قوالب تطابق الفلتر المحدد.'}
               </div>
             )}
           </main>
