@@ -44,23 +44,31 @@ function CategoryCard({ category, IconComponent }) {
         </div>
       </div>
       
-      {/* 2. القسم السفلي (الشارة وسهم الانتقال) */}
-      <div className="flex items-center justify-end mt-6 relative z-10" style={{ gap: '10px' }}>
+      {/* 2. القسم السفلي (الشارة وسهم الانتقال بتصميم عصري فخم) */}
+      <div className="flex items-center justify-between pt-3 mt-4 border-t border-[var(--border-color)]/40 relative z-10">
         {/* شارة عدد المقالات */}
         <div 
-          className="h-[34px] px-3.5 rounded-full flex items-center gap-1.5 font-semibold text-xs transition-colors"
-          style={{ backgroundColor: `${color}18`, color: color }}
+          className="px-3 py-1 rounded-full flex items-center gap-1.5 text-xs font-medium border transition-all duration-300"
+          style={{ 
+            backgroundColor: `${color}12`, 
+            color: color,
+            borderColor: `${color}30` 
+          }}
         >
-          <span className="flex items-center gap-1 font-bold">
-            <span>{category.count}</span>
-            <span>{t('home.article_count', 'مقال')}</span>
+          <Layers size={13} strokeWidth={2.2} className="opacity-80" />
+          <span className="flex items-center gap-1">
+            <strong className="font-bold">{category.count}</strong>
+            <span className="opacity-90">{t('home.article_count', 'مقال')}</span>
           </span>
-          <Layers size={14} strokeWidth={2.5} className="opacity-80" />
         </div>
 
-        {/* سهم الانتقال */}
-        <div className={`text-[var(--text-muted)] group-hover:text-[var(--primary-accent)] transition-all duration-300 flex items-center justify-center ${isEn ? 'group-hover:translate-x-1' : 'group-hover:-translate-x-1'}`}>
-          {isEn ? <ChevronRight size={20} strokeWidth={2.5} /> : <ChevronLeft size={20} strokeWidth={2.5} />}
+        {/* زر سهم الانتقال الدائري التفاعلي */}
+        <div className="w-8 h-8 rounded-full bg-[var(--bg-main)] border border-[var(--border-color)] group-hover:border-[var(--primary-accent)] group-hover:bg-[var(--primary-accent)] group-hover:text-white text-[var(--text-muted)] flex items-center justify-center transition-all duration-300 shadow-sm">
+          {isEn ? (
+            <ChevronRight size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+          ) : (
+            <ChevronLeft size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:-translate-x-0.5" />
+          )}
         </div>
       </div>
     </Link>
