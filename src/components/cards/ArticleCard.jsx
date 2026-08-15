@@ -38,9 +38,9 @@ function ArticleCard({ article }) {
       </div>
 
       {/* 2. محتوى المقال */}
-      <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between gap-4">
-        <div>
-          <h3 className="font-bold text-lg sm:text-xl text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug mb-2.5">
+      <div className="flex flex-col flex-1 justify-between" style={{ padding: '22px' }}>
+        <div className="space-y-2.5">
+          <h3 className="font-bold text-lg text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug">
             {title}
           </h3>
           {(article.summary || article.desc) && (
@@ -51,7 +51,7 @@ function ArticleCard({ article }) {
         </div>
 
         {/* 3. شريط التذييل السفلي */}
-        <div className="flex justify-between items-center text-sm pt-4 border-t border-[var(--border-color)] mt-auto">
+        <div className="flex justify-between items-center text-sm pt-4 mt-5 border-t border-[var(--border-color)]">
           <span className="text-[var(--primary-accent)] font-bold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
             {t('article.read_more', 'اقرأ المزيد')} 
             {isEn ? (
