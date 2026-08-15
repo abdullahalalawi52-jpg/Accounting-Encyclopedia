@@ -45,26 +45,23 @@ function CategoryCard({ category, IconComponent }) {
         </div>
       </div>
       
-      {/* 2. القسم السفلي (الشارة وسهم التصفح بتوزيع متوازن) */}
-      <div className="flex items-center justify-between pt-4 border-t border-[var(--border-color)]/60 mt-auto relative z-10">
+      {/* 2. القسم السفلي (الشارة وسهم الانتقال بفاصل 10px) */}
+      <div className="flex items-center justify-end gap-[10px] pt-4 border-t border-[var(--border-color)]/60 mt-auto relative z-10">
         {/* شارة عدد المقالات */}
         <div 
-          className="px-3 py-1.5 rounded-full flex items-center gap-1.5 font-semibold text-xs transition-colors"
+          className="px-3.5 py-1.5 rounded-full flex items-center gap-1.5 font-semibold text-xs transition-colors"
           style={{ backgroundColor: `${color}15`, color: color }}
         >
-          <Layers size={14} strokeWidth={2.5} className="opacity-80" />
           <span className="flex items-center gap-1">
             <span className="font-bold text-sm">{category.count}</span>
             <span>{t('home.article_count', 'مقال')}</span>
           </span>
+          <Layers size={14} strokeWidth={2.5} className="opacity-80" />
         </div>
 
         {/* سهم الانتقال */}
-        <div className={`text-[var(--text-muted)] group-hover:text-[var(--primary-accent)] transition-all duration-300 flex items-center gap-1 text-sm font-medium ${isEn ? 'group-hover:translate-x-1' : 'group-hover:-translate-x-1'}`}>
-          <span className="text-xs opacity-0 group-hover:opacity-100 transition-opacity">
-            {isEn ? 'Explore' : 'تصفح'}
-          </span>
-          {isEn ? <ChevronRight size={18} strokeWidth={2.5} /> : <ChevronLeft size={18} strokeWidth={2.5} />}
+        <div className={`text-[var(--text-muted)] group-hover:text-[var(--primary-accent)] transition-all duration-300 flex items-center justify-center ${isEn ? 'group-hover:translate-x-1' : 'group-hover:-translate-x-1'}`}>
+          {isEn ? <ChevronRight size={20} strokeWidth={2.5} /> : <ChevronLeft size={20} strokeWidth={2.5} />}
         </div>
       </div>
     </Link>
