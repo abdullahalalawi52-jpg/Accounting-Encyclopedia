@@ -22,8 +22,8 @@ function CategoryCard({ category, IconComponent }) {
         style={{ backgroundColor: color }}
       ></div>
 
-      {/* 1. القسم العلوي (الأيقونة والنصوص) */}
-      <div className="flex items-start gap-4 mb-6 relative z-10">
+      {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 10px) */}
+      <div className="flex items-start gap-[10px] mb-6 relative z-10">
         {/* الأيقونة المضيئة */}
         <div className="relative shrink-0">
           <div 
