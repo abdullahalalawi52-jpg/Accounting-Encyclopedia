@@ -14,7 +14,7 @@ function CategoryCard({ category, IconComponent }) {
   return (
     <Link 
       to={`/category/${category.id}`} 
-      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-[22px] border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 py-4 ps-5 pe-4 overflow-hidden"
+      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-[22px] border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 p-4 overflow-hidden"
     >
       {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 10px) */}
       <div className="flex items-start gap-[10px] relative z-10">
