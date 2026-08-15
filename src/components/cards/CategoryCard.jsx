@@ -14,8 +14,7 @@ function CategoryCard({ category, IconComponent }) {
   return (
     <Link 
       to={`/category/${category.id}`} 
-      className="group flex flex-col justify-between bg-white dark:bg-[var(--bg-card)] rounded-[24px] border border-slate-200 dark:border-[var(--border-color)] hover:border-[var(--primary-accent)]/50 transition-all duration-300 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-none hover:-translate-y-1 relative overflow-hidden"
-      style={{ padding: '10px' }}
+      className="group flex flex-col justify-between bg-[var(--bg-card)] rounded-[24px] border border-[var(--border-color)] hover:border-[var(--primary-accent)] transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden p-4"
     >
       {/* 1. القسم العلوي (الأيقونة والنصوص) */}
       <div className="flex items-start w-full min-h-[58px]">
@@ -36,10 +35,10 @@ function CategoryCard({ category, IconComponent }) {
         
         {/* النصوص */}
         <div className="flex-1 min-w-0 mt-1 ms-4">
-          <h3 className="font-bold text-slate-800 dark:text-[var(--text-primary)] text-xl mb-1 truncate group-hover:text-[var(--primary-accent)] transition-colors">
+          <h3 className="font-bold text-[var(--text-primary)] text-xl mb-1 truncate group-hover:text-[var(--primary-accent)] transition-colors">
             {title}
           </h3>
-          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium truncate">
+          <p className="text-[var(--text-secondary)] text-sm font-medium truncate">
             {desc}
           </p>
         </div>

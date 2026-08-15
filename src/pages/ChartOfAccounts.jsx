@@ -114,8 +114,12 @@ function ChartOfAccounts() {
               <div className="flex flex-col items-start gap-2">
                 <div className="flex items-center gap-3">
                   <h2 className="text-2xl font-bold m-0">{account.name}</h2>
-                  <span className={`px-3 py-1 rounded-full text-sm font-semibold ${account.type === 'مدين' ? 'bg-blue-100 text-blue-800' : 'bg-red-100 text-red-800'}`}>
-                    طبيعة الحساب: {account.type}
+                  <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${
+                    account.type === 'مدين' 
+                      ? 'bg-blue-500/15 text-blue-500 border-blue-500/30' 
+                      : 'bg-red-500/15 text-red-500 border-red-500/30'
+                  }`}>
+                    {isEn ? `Account Nature: ${account.type === 'مدين' ? 'Debit' : 'Credit'}` : `طبيعة الحساب: ${account.type}`}
                   </span>
                 </div>
                 <p className="text-[var(--text-secondary)] m-0">{account.description}</p>

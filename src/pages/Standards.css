@@ -40,13 +40,13 @@
 /* Timeline */
 .timeline {
   position: relative;
-  padding-right: 1rem;
+  padding-inline-start: 1rem;
 }
 
 .timeline::before {
   content: '';
   position: absolute;
-  right: 0;
+  inset-inline-start: 0;
   top: 0;
   bottom: 0;
   width: 2px;
@@ -64,19 +64,18 @@
 
 .timeline-dot {
   position: absolute;
-  right: -1rem;
+  inset-inline-start: -5px;
   top: 0.25rem;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background-color: var(--primary-accent);
-  transform: translateX(50%);
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 2px var(--bg-card);
+  border: 2px solid var(--bg-card);
+  box-shadow: 0 0 0 2px var(--primary-accent);
 }
 
 .timeline-content {
-  padding-right: 1.5rem;
+  padding-inline-start: 1.5rem;
 }
 
 .timeline-year {
@@ -94,6 +93,6 @@ table {
 }
 
 th {
-  text-align: right;
+  text-align: start;
   border-bottom: 2px solid var(--border-color);
 }

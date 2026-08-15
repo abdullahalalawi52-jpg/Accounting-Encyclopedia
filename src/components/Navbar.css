@@ -67,7 +67,9 @@
 
 .nav-search input {
   width: 100%;
-  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  padding-block: 0.6rem;
+  padding-inline-start: 2.5rem;
+  padding-inline-end: 1rem;
   border-radius: 50px;
   border: 1px solid var(--border-color);
   background-color: var(--bg-dark);
@@ -85,10 +87,11 @@
 
 .nav-search .search-icon {
   position: absolute;
-  right: 12px;
+  inset-inline-start: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
+  pointer-events: none;
 }
 
 .navbar-actions {

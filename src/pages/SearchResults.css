@@ -18,7 +18,7 @@
   padding: 1.5rem;
   border-radius: 12px;
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
   transition: all 0.3s ease;
   display: block;
   text-decoration: none;
@@ -27,7 +27,11 @@
 .result-card:hover {
   border-color: var(--primary-accent);
   background: rgba(16, 185, 129, 0.05);
-  transform: translateX(-5px); /* since it's RTL */
+  transform: translateX(-5px);
+}
+
+[dir='ltr'] .result-card:hover {
+  transform: translateX(5px);
 }
 
 .result-card h3 {
@@ -49,7 +53,9 @@
   padding: 0.25rem 0.75rem;
   border-radius: 50px;
   font-size: 0.8rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-muted);
+  font-weight: 600;
+  background: var(--bg-tertiary);
+  color: var(--primary-accent);
+  border: 1px solid var(--border-color);
   margin-bottom: 1rem;
 }

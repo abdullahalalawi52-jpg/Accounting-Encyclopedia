@@ -23,7 +23,9 @@
 }
 
 .calc-tab:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-dark);
+  border-color: var(--primary-accent);
+  color: var(--primary-accent);
 }
 
 .calc-tab.active {

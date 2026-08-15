@@ -18,7 +18,7 @@
   padding: 1rem 1.5rem;
   border-radius: 50px;
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
   color: var(--text-primary);
   font-size: 1.1rem;
   transition: all 0.3s ease;
@@ -40,14 +40,14 @@
   padding: 1.5rem;
   border-radius: 12px;
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .term-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-accent);
 }
 
 .term-card h3 {

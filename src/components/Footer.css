@@ -60,7 +60,12 @@
 .footer-links a:hover,
 .footer-link:hover {
   color: var(--primary-accent);
-  transform: translateX(-5px); /* RTL moves to left */
+  transform: translateX(-5px);
+}
+
+[dir='ltr'] .footer-links a:hover,
+[dir='ltr'] .footer-link:hover {
+  transform: translateX(5px);
 }
 
 .social-icons {
@@ -90,7 +95,7 @@
 
 .footer-bottom {
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--border-color);
   color: var(--text-muted);
   font-size: 0.9rem;
 }

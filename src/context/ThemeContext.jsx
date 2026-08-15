@@ -18,9 +18,13 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     if (isDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.classList.add('dark');
       document.body.setAttribute('data-theme', 'dark');
       localStorage.setItem('app_theme', 'dark');
     } else {
+      document.documentElement.removeAttribute('data-theme');
+      document.documentElement.classList.remove('dark');
       document.body.removeAttribute('data-theme');
       localStorage.setItem('app_theme', 'light');
     }

@@ -83,7 +83,9 @@ function Certifications() {
               </div>
             </div>
             
-            <button className="btn btn-outline w-full text-center mt-auto">كيفية التحضير (قريباً)</button>
+            <button className="btn btn-outline w-full text-center mt-auto">
+              {isEn ? 'How to Prepare (Coming Soon)' : 'كيفية التحضير (قريباً)'}
+            </button>
           </div>
         ))}
       </div>

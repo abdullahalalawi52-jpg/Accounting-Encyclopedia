@@ -36,7 +36,7 @@
 
 .radio-label input[type="radio"] {
   appearance: none;
-  background-color: #fff;
+  background-color: var(--bg-card);
   margin: 0;
   font: inherit;
   color: currentColor;

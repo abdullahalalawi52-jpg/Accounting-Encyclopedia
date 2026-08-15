@@ -56,7 +56,7 @@
 }
 
 .article-body ul {
-  margin-right: 2rem;
+  margin-inline-start: 2rem;
   margin-bottom: 1.5rem;
   color: var(--text-secondary);
 }
@@ -67,9 +67,9 @@
 
 .highlight-box {
   background: rgba(16, 185, 129, 0.1);
-  border-right: 4px solid var(--primary-accent);
+  border-inline-start: 4px solid var(--primary-accent);
   padding: 1.5rem;
-  border-radius: var(--radius-md) 0 0 var(--radius-md);
+  border-radius: var(--radius-md);
   margin: 2rem 0;
   font-size: 1.2rem;
   text-align: center;
@@ -80,7 +80,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
-  background-color: var(--glass-bg);
+  background-color: var(--bg-card);
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--border-color);
@@ -89,7 +89,7 @@
 .article-body th {
   background-color: var(--bg-tertiary);
   color: var(--primary-accent);
-  text-align: right;
+  text-align: start;
   padding: 1rem;
   font-weight: 700;
   border-bottom: 2px solid var(--border-color);
@@ -117,7 +117,7 @@
   content: '';
   position: absolute;
   bottom: 0;
-  right: 0;
+  inset-inline-start: 0;
   width: 50px;
   height: 2px;
   background-color: var(--primary-accent);
@@ -147,6 +147,10 @@
 .related-links a:hover {
   color: var(--primary-accent);
   transform: translateX(-5px);
+}
+
+[dir='ltr'] .related-links a:hover {
+  transform: translateX(5px);
 }
 
 .bg-gradient {
