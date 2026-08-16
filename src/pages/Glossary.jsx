@@ -1,8 +1,9 @@
-import { useState, memo } from 'react';
+import { useState, useMemo, memo } from 'react';
 import PropTypes from 'prop-types';
-import { BookA, Search } from 'lucide-react';
+import { BookA } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useData } from '../hooks/useData.js';
+import SearchInput from '../components/ui/SearchInput.jsx';
 import './Glossary.css';
 
 const TermCard = memo(function TermCard({ item, isEn, t }) {
@@ -41,20 +42,25 @@ TermCard.propTypes = {
 
 function Glossary() {
   const { t, i18n } = useTranslation();
-  const isEn = i18n.language.startsWith('en');
+  const isEn = i18n.language?.startsWith('en');
   const [searchTerm, setSearchTerm] = useState('');
   const { data: glossaryTerms, loading } = useData('/data/glossary.json');
 
-  const filteredTerms = (glossaryTerms || []).filter(item => {
-    const term = isEn && item.term_en ? item.term_en : item.term;
-    const def = isEn && item.definition_en ? item.definition_en : item.definition;
-    return term.toLowerCase().includes(searchTerm.toLowerCase()) || def.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+  const filteredTerms = useMemo(() => {
+    if (!glossaryTerms || !Array.isArray(glossaryTerms)) return [];
+    if (!searchTerm.trim()) return glossaryTerms;
+    const lower = searchTerm.toLowerCase();
+    return glossaryTerms.filter(item => {
+      const term = isEn && item.term_en ? item.term_en : item.term;
+      const def = isEn && item.definition_en ? item.definition_en : item.definition;
+      return term.toLowerCase().includes(lower) || def.toLowerCase().includes(lower);
+    });
+  }, [glossaryTerms, searchTerm, isEn]);
 
   return (
     <div className="glossary-page animate-fade-in">
       <div className="container">
-        <div className="glossary-header text-center mb-12">
+        <div className="glossary-header text-center mb-10">
           <div className="inline-block p-4 rounded-full bg-gradient mb-4">
             <BookA size={32} color="var(--primary-accent)" />
           </div>
@@ -64,19 +70,12 @@ function Glossary() {
           </p>
         </div>
 
-        <div className="glossary-search-container relative">
-          <div className="flex items-center absolute right-4 top-1/2" style={{ transform: 'translateY(-50%)' }}>
-            <Search size={20} color="var(--text-muted)" />
-          </div>
-          <input 
-            type="text" 
-            placeholder={t('glossary.search_ph')} 
-            className="glossary-search-input"
-            style={{ paddingRight: '3rem' }}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </div>
+        <SearchInput 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          placeholder={t('glossary.search_ph')}
+          className="mb-10 max-w-xl mx-auto"
+        />
 
         {loading ? (
           <div className="text-center py-10">

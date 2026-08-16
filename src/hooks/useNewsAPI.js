@@ -1,24 +1,47 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { isSafeUrl } from '../utils/security.js';
 
-// قراءة مفتاح الـ API بشكل آمن من متغيرات البيئة
+// Cache structure: Map<langCode, { data: any, timestamp: number }>
+const newsCache = new Map();
+const NEWS_CACHE_TTL = 10 * 60 * 1000; // 10 minutes cache per language
+
+// Read API key securely if client-side fallback is needed
 const API_KEY = import.meta.env.VITE_GNEWS_API_KEY;
 
 export function useNewsAPI() {
   const { i18n } = useTranslation();
-  const isEn = i18n.language.startsWith('en');
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const isEn = i18n.language?.startsWith('en');
+  const langCode = isEn ? 'en' : 'ar';
+
+  const [data, setData] = useState(() => {
+    const cached = newsCache.get(langCode);
+    if (cached && Date.now() - cached.timestamp < NEWS_CACHE_TTL) {
+      return cached.data;
+    }
+    return null;
+  });
+  const [loading, setLoading] = useState(() => !data);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // Check if we already have valid cached news for this language
+    const cached = newsCache.get(langCode);
+    if (cached && Date.now() - cached.timestamp < NEWS_CACHE_TTL) {
+      setData(cached.data);
+      setLoading(false);
+      return;
+    }
+
     let isMounted = true;
     setLoading(true);
 
     const fallbackUrl = '/data/articles.json';
     const query = isEn ? 'economy OR accounting OR finance' : 'اقتصاد OR محاسبة OR مالية';
-    const langCode = isEn ? 'en' : 'ar';
-    const newsApiUrl = `https://gnews.io/api/v4/search?q=${query}&lang=${langCode}&max=10&apikey=${API_KEY}`;
+    const proxyUrl = `/api/news?lang=${langCode}`;
+    const directNewsApiUrl = API_KEY && API_KEY !== 'YOUR_API_KEY_HERE'
+      ? `https://gnews.io/api/v4/search?q=${encodeURIComponent(query)}&lang=${langCode}&max=10&apikey=${API_KEY}`
+      : null;
 
     const fetchFallback = async () => {
       try {
@@ -26,6 +49,7 @@ export function useNewsAPI() {
         if (!res.ok) throw new Error('Failed to fetch fallback data');
         const json = await res.json();
         if (isMounted) {
+          newsCache.set(langCode, { data: json, timestamp: Date.now() });
           setData(json);
           setLoading(false);
         }
@@ -37,52 +61,78 @@ export function useNewsAPI() {
       }
     };
 
+    const processArticles = (articles) => {
+      return articles.map((article, index) => {
+        const dateObj = new Date(article.publishedAt);
+        const formattedDate = !isNaN(dateObj.getTime())
+          ? dateObj.toLocaleDateString(isEn ? 'en-US' : 'ar-EG', { 
+              year: 'numeric', month: 'long', day: 'numeric' 
+            })
+          : '';
+
+        const safeUrl = isSafeUrl(article.url) ? article.url : '#';
+        const safeImage = isSafeUrl(article.image) ? article.image : null;
+
+        return {
+          id: `news-${index}`,
+          title: article.title || '',
+          categoryName: isEn ? 'News & Updates' : 'أخبار وتحديثات',
+          categoryId: 'news',
+          author: article.source?.name || (isEn ? 'News Source' : 'مصدر إخباري'),
+          date: formattedDate,
+          content: article.content || '',
+          summary: article.description || '',
+          image: safeImage,
+          time: isEn ? 'Quick Read' : 'قراءة سريعة',
+          isFeatured: index < 4,
+          url: safeUrl
+        };
+      });
+    };
+
     const fetchNews = async () => {
-      if (!API_KEY || API_KEY === 'YOUR_API_KEY_HERE') {
-        return fetchFallback();
-      }
-
+      // 1. First try secure serverless proxy endpoint if available
       try {
-        const res = await fetch(newsApiUrl);
-        if (!res.ok) {
-          console.warn('News API limit reached or failed. Falling back to local data.');
-          return fetchFallback();
+        const proxyRes = await fetch(proxyUrl);
+        if (proxyRes.ok) {
+          const proxyJson = await proxyRes.json();
+          if (proxyJson.articles && Array.isArray(proxyJson.articles)) {
+            const mapped = processArticles(proxyJson.articles);
+            if (isMounted) {
+              newsCache.set(langCode, { data: mapped, timestamp: Date.now() });
+              setData(mapped);
+              setLoading(false);
+              return;
+            }
+          }
         }
-        
-        const json = await res.json();
-        
-        // تحويل تنسيق المقالات القادمة من الـ API لتطابق التنسيق المحلي
-        const mappedArticles = json.articles.map((article, index) => {
-          // استخراج التاريخ بشكل منسق
-          const dateObj = new Date(article.publishedAt);
-          const formattedDate = dateObj.toLocaleDateString('ar-EG', { 
-            year: 'numeric', month: 'long', day: 'numeric' 
-          });
-
-          return {
-            id: `news-${index}`,
-            title: article.title,
-            categoryName: isEn ? 'News & Updates' : 'أخبار وتحديثات',
-            categoryId: 'news',
-            author: article.source.name || (isEn ? 'News Source' : 'مصدر إخباري'),
-            date: formattedDate,
-            content: article.content,
-            summary: article.description,
-            image: article.image,
-            time: isEn ? 'Quick Read' : 'قراءة سريعة',
-            isFeatured: index < 4,
-            url: article.url // لحفظ الرابط الأصلي
-          };
-        });
-
-        if (isMounted) {
-          setData(mappedArticles);
-          setLoading(false);
-        }
-      } catch (err) {
-        console.warn('Error fetching from News API. Falling back to local data.', err);
-        fetchFallback();
+      } catch {
+        // Proxy not available in local static dev, continue to direct or fallback
       }
+
+      // 2. Try direct API key if configured
+      if (directNewsApiUrl) {
+        try {
+          const res = await fetch(directNewsApiUrl);
+          if (res.ok) {
+            const json = await res.json();
+            if (json.articles && Array.isArray(json.articles)) {
+              const mapped = processArticles(json.articles);
+              if (isMounted) {
+                newsCache.set(langCode, { data: mapped, timestamp: Date.now() });
+                setData(mapped);
+                setLoading(false);
+                return;
+              }
+            }
+          }
+        } catch (err) {
+          console.warn('Direct News API request failed:', err);
+        }
+      }
+
+      // 3. Fallback to local curated accounting articles
+      fetchFallback();
     };
 
     fetchNews();
@@ -90,7 +140,9 @@ export function useNewsAPI() {
     return () => {
       isMounted = false;
     };
-  }, [isEn]);
+  }, [isEn, langCode]);
 
   return { data, loading, error };
 }
+
+export default useNewsAPI;

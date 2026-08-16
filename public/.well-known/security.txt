@@ -1,0 +1,7 @@
+# Security Disclosure Policy for Accounting Encyclopedia
+Contact: mailto:security@accounting-encyclopedia.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: ar, en
+Canonical: https://accounting-encyclopedia.vercel.app/.well-known/security.txt
+Policy: https://accounting-encyclopedia.vercel.app/terms
+Acknowledgments: https://accounting-encyclopedia.vercel.app/about

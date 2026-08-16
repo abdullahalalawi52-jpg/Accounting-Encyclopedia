@@ -1,3 +1,6 @@
+import { memo } from 'react';
+import PropTypes from 'prop-types';
+
 function PageHero({ title, description, badge, padding = 'py-16 md:py-20', children }) {
   return (
     <section className={`relative bg-gradient-to-b from-[var(--bg-dark)] to-[var(--bg-main)] ${padding} text-center border-b border-[var(--border-color)] overflow-hidden`}>
@@ -31,4 +34,12 @@ function PageHero({ title, description, badge, padding = 'py-16 md:py-20', child
   );
 }
 
-export default PageHero;
+PageHero.propTypes = {
+  title: PropTypes.node.isRequired,
+  description: PropTypes.node,
+  badge: PropTypes.node,
+  padding: PropTypes.string,
+  children: PropTypes.node,
+};
+
+export default memo(PageHero);

@@ -37,6 +37,8 @@ function Templates() {
     const blob = new Blob([bom, content], { type: mimeType });
     const url = URL.createObjectURL(blob);
     
+    const link = document.createElement('a');
+    link.href = url;
     const downloadTitle = (isEn && template.title_en) ? template.title_en : template.title;
     link.download = `${downloadTitle}${extension}`;
     document.body.appendChild(link);

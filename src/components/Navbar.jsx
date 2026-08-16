@@ -109,12 +109,12 @@ function Navbar() {
               placeholder={t('navbar.search_placeholder')} 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-56 pl-9 pr-4 py-2 text-sm bg-[var(--bg-dark)] border border-[var(--border-color)] rounded-full text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--primary-accent)] focus:ring-2 focus:ring-[var(--primary-accent)]/20 transition-all"
+              className="w-56 ps-9 pe-4 py-2 text-sm bg-[var(--bg-dark)] border border-[var(--border-color)] rounded-full text-[var(--text-primary)] placeholder:text-[var(--text-muted)] focus:outline-none focus:border-[var(--primary-accent)] focus:ring-2 focus:ring-[var(--primary-accent)]/20 transition-all"
             />
           </form>
 
           <div className="navbar-actions flex items-center gap-2">
-            <Link to="/bookmarks" onClick={closeMenu} className="nav-action-btn relative" aria-label="المفضلة">
+            <Link to="/bookmarks" onClick={closeMenu} className="nav-action-btn relative" aria-label={i18n.language.startsWith('ar') ? 'المفضلة' : 'Bookmarks'}>
               <Bookmark size={18} className="icon" />
               {bookmarks.length > 0 && (
                 <span className="absolute -top-1 -right-1 bg-[var(--primary-accent)] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
@@ -126,7 +126,7 @@ function Navbar() {
             <button 
               className="nav-action-btn font-bold text-xs px-3"
               onClick={toggleLanguage}
-              aria-label="تغيير اللغة"
+              aria-label={i18n.language.startsWith('ar') ? 'تغيير اللغة' : 'Change language'}
             >
               {i18n.language.startsWith('ar') ? 'English' : 'عربي'}
             </button>
@@ -134,7 +134,7 @@ function Navbar() {
             <button 
               className="nav-action-btn"
               onClick={toggleTheme}
-              aria-label="تبديل المظهر"
+              aria-label={i18n.language.startsWith('ar') ? 'تبديل المظهر' : 'Toggle theme'}
             >
               {isDarkMode ? <Sun size={18} className="icon sun-icon text-amber-400" /> : <Moon size={18} className="icon moon-icon text-slate-700" />}
             </button>

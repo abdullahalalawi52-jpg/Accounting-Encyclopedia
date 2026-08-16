@@ -165,7 +165,7 @@ a {
 .text-gradient {
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-fill-color: transparent;
+  -webkit-text-fill-color: transparent;
   background-image: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
 }
 

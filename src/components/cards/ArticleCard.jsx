@@ -38,7 +38,7 @@ function ArticleCard({ article }) {
       </div>
 
       {/* 2. محتوى المقال */}
-      <div className="flex flex-col flex-1 justify-between" style={{ padding: '22px' }}>
+      <div className="flex flex-col flex-1 justify-between p-5 sm:p-6">
         <div className="space-y-2.5">
           <h3 className="font-bold text-lg text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug">
             {title}

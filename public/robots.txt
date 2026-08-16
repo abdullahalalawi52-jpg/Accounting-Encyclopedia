@@ -1,0 +1,7 @@
+# Robots.txt for Accounting Encyclopedia
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /*.json$
+
+Sitemap: https://accounting-encyclopedia.vercel.app/sitemap.xml

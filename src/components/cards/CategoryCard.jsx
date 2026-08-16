@@ -14,8 +14,7 @@ function CategoryCard({ category, IconComponent }) {
   return (
     <Link 
       to={`/category/${category.id}`} 
-      style={{ padding: '22px' }}
-      className="group card-shimmer relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
+      className="group card-shimmer relative flex flex-col justify-between h-full p-5 sm:p-6 bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)]/60 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
     >
       {/* Ambient background glow on hover */}
       <div 
@@ -23,16 +22,16 @@ function CategoryCard({ category, IconComponent }) {
         style={{ backgroundColor: color }}
       ></div>
       {/* 1. القسم العلوي (الأيقونة والنصوص بفاصل 12px) */}
-      <div className="flex items-start relative z-10" style={{ gap: '12px' }}>
+      <div className="flex items-start gap-3 relative z-10">
         {/* الأيقونة الدائرية */}
-        <div className="relative shrink-0" style={{ width: '48px', height: '48px' }}>
+        <div className="relative shrink-0 w-12 h-12">
           <div 
             className="absolute inset-0 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-300"
             style={{ backgroundColor: color }}
           ></div>
           <div 
-            className="relative rounded-full flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105"
-            style={{ background: `linear-gradient(135deg, ${color}, ${color}dd)`, width: '48px', height: '48px' }}
+            className="relative w-12 h-12 rounded-full flex items-center justify-center text-white shadow-sm transition-transform duration-300 group-hover:scale-105"
+            style={{ background: `linear-gradient(135deg, ${color}, ${color}dd)` }}
           >
             {IconComponent && <IconComponent size={24} strokeWidth={2.2} />}
           </div>

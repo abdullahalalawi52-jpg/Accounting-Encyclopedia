@@ -114,5 +114,13 @@
     "score": "Your Score: {{score}} out of {{total}}",
     "score_perfect": "Excellent! You understood the lesson well 👏",
     "score_good": "You can review the article again for a better attempt."
+  },
+  "error_boundary": {
+    "title": "An Unexpected Error Occurred",
+    "desc": "Sorry, an error occurred while loading this page or component. Please try again.",
+    "page_error_title": "Unable to Load Page Content",
+    "page_error_desc": "An error occurred while loading this page. You can try again or navigate to any other section using the menu.",
+    "retry": "Try Again",
+    "back_home": "Back to Home"
   }
 }

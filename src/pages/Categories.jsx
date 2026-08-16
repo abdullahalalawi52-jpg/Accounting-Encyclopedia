@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useNewsAPI } from '../hooks/useNewsAPI.js';
@@ -19,7 +19,7 @@ const ALL_CATEGORIES = [
 
 function Categories() {
   const { t, i18n } = useTranslation();
-  const isEn = i18n.language.startsWith('en');
+  const isEn = i18n.language?.startsWith('en');
   const [activeCategory, setActiveCategory] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
@@ -31,12 +31,19 @@ function Categories() {
     setCurrentPage(1);
   };
 
-  const filteredArticles = loading ? [] : (activeCategory === 'all' 
-    ? (articles || []) 
-    : (articles || []).filter(article => article.categoryId === activeCategory));
+  const filteredArticles = useMemo(() => {
+    if (loading || !articles) return [];
+    if (activeCategory === 'all') return articles;
+    return articles.filter(article => article.categoryId === activeCategory);
+  }, [loading, articles, activeCategory]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredArticles.length / itemsPerPage));
-  const paginatedArticles = filteredArticles.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const totalPages = useMemo(() => {
+    return Math.max(1, Math.ceil(filteredArticles.length / itemsPerPage));
+  }, [filteredArticles.length, itemsPerPage]);
+
+  const paginatedArticles = useMemo(() => {
+    return filteredArticles.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  }, [filteredArticles, currentPage, itemsPerPage]);
 
   const changePage = (newPage) => {
     setCurrentPage(newPage);

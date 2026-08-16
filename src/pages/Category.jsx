@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Book } from 'lucide-react';
 import { useData } from '../hooks/useData.js';
@@ -8,7 +8,7 @@ import SearchInput from '../components/ui/SearchInput.jsx';
 
 function Category() {
   const { i18n } = useTranslation();
-  const isEn = i18n.language.startsWith('en');
+  const isEn = i18n.language?.startsWith('en');
 
   const { id } = useParams();
   const { data: categoriesData, loading: loadingCategories } = useData('/data/categories.json');
@@ -21,14 +21,20 @@ function Category() {
   const categoryTitle = isEn && rawInfo.title_en ? rawInfo.title_en : rawInfo.title;
   const categoryDesc = isEn && rawInfo.desc_en ? rawInfo.desc_en : rawInfo.desc;
   
-  const articles = articlesData ? articlesData.filter(a => a.categoryId === id) : [];
-  
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredArticles = articles.filter(article => 
-    article.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    (article.summary && article.summary.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  const articles = useMemo(() => {
+    return articlesData ? articlesData.filter(a => a.categoryId === id) : [];
+  }, [articlesData, id]);
+
+  const filteredArticles = useMemo(() => {
+    if (!searchTerm.trim()) return articles;
+    const lower = searchTerm.toLowerCase();
+    return articles.filter(article => 
+      article.title.toLowerCase().includes(lower) || 
+      (article.summary && article.summary.toLowerCase().includes(lower))
+    );
+  }, [articles, searchTerm]);
 
   if (loadingCategories || loadingArticles) {
     return (

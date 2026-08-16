@@ -1,0 +1,76 @@
+{
+  "timeline": [
+    {
+      "year": "2024",
+      "text": "تحديث معيار IFRS 16 (عقود الإيجار) والتعديلات المتعلقة بالبيع والاستئجار.",
+      "text_en": "IFRS 16 (Leases) update and amendments relating to sale and leaseback transactions."
+    },
+    {
+      "year": "2023",
+      "text": "الإلزام بتطبيق IFRS 17 (عقود التأمين) للشركات المدرجة.",
+      "text_en": "Mandatory adoption of IFRS 17 (Insurance Contracts) for listed companies."
+    },
+    {
+      "year": "2017",
+      "text": "التحول الكامل لمعايير IFRS في المملكة العربية السعودية (SOCPA).",
+      "text_en": "Full transition to IFRS in Saudi Arabia (SOCPA)."
+    }
+  ],
+  "standards": [
+    {
+      "id": "ifrs9",
+      "title": "IFRS 9 - الأدوات المالية",
+      "title_en": "IFRS 9 - Financial Instruments",
+      "desc": "يحدد متطلبات الاعتراف والقياس للأصول والالتزامات المالية.",
+      "desc_en": "Specifies recognition and measurement requirements for financial assets and liabilities."
+    },
+    {
+      "id": "ifrs15",
+      "title": "IFRS 15 - الإيرادات من العقود",
+      "title_en": "IFRS 15 - Revenue from Contracts",
+      "desc": "نموذج من 5 خطوات لتحديد متى وكيف يتم الاعتراف بالإيرادات.",
+      "desc_en": "A 5-step model to determine when and how much revenue to recognize."
+    },
+    {
+      "id": "ias1",
+      "title": "IAS 1 - عرض القوائم المالية",
+      "title_en": "IAS 1 - Presentation of Financial Statements",
+      "desc": "الأساس لعرض القوائم المالية ذات الغرض العام لضمان قابلية المقارنة.",
+      "desc_en": "Basis for presenting general purpose financial statements to ensure comparability."
+    }
+  ],
+  "comparison": [
+    {
+      "item": "المنهجية",
+      "item_en": "Methodology",
+      "ifrs": "يعتمد على المبادئ (Principles-based)",
+      "ifrs_en": "Principles-based",
+      "gaap": "يعتمد على القواعد (Rules-based)",
+      "gaap_en": "Rules-based"
+    },
+    {
+      "item": "تقييم المخزون (LIFO)",
+      "item_en": "Inventory Valuation (LIFO)",
+      "ifrs": "غير مسموح",
+      "ifrs_en": "Not Allowed",
+      "gaap": "مسموح",
+      "gaap_en": "Allowed"
+    },
+    {
+      "item": "إعادة تقييم الأصول",
+      "item_en": "Asset Revaluation",
+      "ifrs": "مسموح ببعض الشروط (نموذج إعادة التقييم)",
+      "ifrs_en": "Allowed with conditions (Revaluation model)",
+      "gaap": "غير مسموح، يستخدم التكلفة التاريخية فقط",
+      "gaap_en": "Not Allowed, uses historical cost only"
+    },
+    {
+      "item": "تكاليف التطوير",
+      "item_en": "Development Costs",
+      "ifrs": "تُرسمل إذا استوفت شروطاً معينة",
+      "ifrs_en": "Capitalized if certain conditions are met",
+      "gaap": "تُعتبر مصروفاً في قائمة الدخل غالباً",
+      "gaap_en": "Usually expensed in the income statement"
+    }
+  ]
+}

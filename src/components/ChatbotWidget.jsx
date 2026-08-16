@@ -1,10 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
+import { MessageSquare, X, Send, Bot } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { MessageSquare, X, Send, Sparkles, Bot, User, CornerDownLeft } from 'lucide-react';
+import { sanitizeInput } from '../utils/security.js';
 
 function ChatbotWidget() {
   const { i18n } = useTranslation();
-  const isEn = i18n.language.startsWith('en');
+  const isEn = i18n.language?.startsWith('en');
 
   const [isOpen, setIsOpen] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
@@ -41,10 +42,10 @@ function ChatbotWidget() {
   }, [messages, isOpen, isTyping]);
 
   const sendQuery = (queryText) => {
-    if (!queryText.trim()) return;
+    const cleanQuery = sanitizeInput(queryText, 250);
+    if (!cleanQuery) return;
     
-    const userText = queryText.trim();
-    setMessages(prev => [...prev, { id: Date.now(), text: userText, sender: 'user' }]);
+    setMessages(prev => [...prev, { id: Date.now(), text: cleanQuery, sender: 'user' }]);
     setInput('');
     setIsTyping(true);
 
@@ -131,11 +132,13 @@ function ChatbotWidget() {
           </div>
 
           {/* Quick Suggestions */}
-          <div className="px-3 py-2 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex gap-1.5 overflow-x-auto no-scrollbar">
+          <div className="px-3 py-2 bg-[var(--bg-card)] border-t border-[var(--border-color)] flex gap-1.5 overflow-x-auto no-scrollbar" role="group" aria-label={isEn ? "Quick question suggestions" : "اقتراحات أسئلة سريعة"}>
             {quickQuestions.map((q, idx) => (
               <button
                 key={idx}
+                type="button"
                 onClick={() => sendQuery(q)}
+                aria-label={q}
                 className="whitespace-nowrap text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-[var(--bg-main)] hover:bg-[var(--primary-accent)]/10 text-[var(--text-secondary)] hover:text-[var(--primary-accent)] border border-[var(--border-color)] transition-all shrink-0"
               >
                 {q}
@@ -176,4 +179,4 @@ function ChatbotWidget() {
   );
 }
 
-export default ChatbotWidget;
+export default memo(ChatbotWidget);

@@ -11,8 +11,7 @@ function TemplateCard({ template, onDownload }) {
 
   return (
     <div 
-      style={{ padding: '24px' }}
-      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--primary-accent)] rounded-2xl flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
+      className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--primary-accent)] rounded-2xl flex flex-col h-full p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
     >
       <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
       
