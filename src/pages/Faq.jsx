@@ -69,7 +69,7 @@ function Faq() {
             <div className="contact-form glass-panel">
               <h2 style={{ marginBottom: '1.5rem', color: 'var(--text-primary)', fontSize: '1.5rem' }}>{t('faq.contact_title')}</h2>
               {submitted ? (
-                <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-center animate-fade-in">
+                <div className="p-4 rounded-xl bg-[var(--primary-accent)]/10 border border-[var(--primary-accent)]/30 text-[var(--primary-accent)] text-center animate-fade-in">
                   <p className="font-bold text-base m-0">
                     {isEn ? 'Thank you! Your message has been safely received.' : 'شكراً لك! تم استلام رسالتك بأمان وسنتواصل معك قريباً.'}
                   </p>

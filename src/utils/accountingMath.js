@@ -302,3 +302,132 @@ export function calculateLoanAmortization(principal, annualRatePercent, termMont
     schedule,
   };
 }
+
+/**
+ * Calculate Individual Islamic Zakat (زكاة المال والأصول للأفراد)
+ * @param {Object} params
+ * @param {number|string} params.cash - Cash in hand and bank
+ * @param {number|string} params.goldSilver - Value of gold/silver investments
+ * @param {number|string} params.stocks - Tradeable stocks and funds
+ * @param {number|string} params.inventory - Business merchandise/goods for resale
+ * @param {number|string} params.goodDebts - Debts receivable expected to be recovered
+ * @param {number|string} params.immediateDebts - Immediate liabilities due this year
+ * @param {number|string} params.goldPricePerGram - 24k gold price per gram (Nisab = 85g)
+ * @param {'hijri'|'gregorian'} params.calendar - Calendar year basis
+ */
+export function calculateIndividualZakat({
+  cash = 0,
+  goldSilver = 0,
+  stocks = 0,
+  inventory = 0,
+  goodDebts = 0,
+  immediateDebts = 0,
+  goldPricePerGram = 300,
+  calendar = 'hijri',
+} = {}) {
+  const numCash = Math.max(0, parseFloat(cash) || 0);
+  const numGoldSilver = Math.max(0, parseFloat(goldSilver) || 0);
+  const numStocks = Math.max(0, parseFloat(stocks) || 0);
+  const numInventory = Math.max(0, parseFloat(inventory) || 0);
+  const numGoodDebts = Math.max(0, parseFloat(goodDebts) || 0);
+  const numImmediateDebts = Math.max(0, parseFloat(immediateDebts) || 0);
+  const numGoldPrice = Math.max(1, parseFloat(goldPricePerGram) || 300);
+
+  const totalAssets = numCash + numGoldSilver + numStocks + numInventory + numGoodDebts;
+  const netZakatBase = Math.max(0, totalAssets - numImmediateDebts);
+  
+  // Nisab based on 85g of pure 24k gold
+  const nisabThreshold = parseFloat((85 * numGoldPrice).toFixed(2));
+  const isNisabReached = netZakatBase >= nisabThreshold;
+  
+  // Hijri: 2.5%, Gregorian (Solar 365.25 days): 2.577%
+  const ratePercentage = calendar === 'gregorian' ? 2.577 : 2.5;
+  const zakatDue = isNisabReached ? parseFloat(((netZakatBase * ratePercentage) / 100).toFixed(2)) : 0;
+
+  return {
+    totalAssets: parseFloat(totalAssets.toFixed(2)),
+    totalDeductions: parseFloat(numImmediateDebts.toFixed(2)),
+    netZakatBase: parseFloat(netZakatBase.toFixed(2)),
+    nisabThreshold,
+    isNisabReached,
+    ratePercentage,
+    calendar,
+    zakatDue,
+    breakdown: {
+      cash: numCash,
+      goldSilver: numGoldSilver,
+      stocks: numStocks,
+      inventory: numInventory,
+      goodDebts: numGoodDebts,
+      immediateDebts: numImmediateDebts,
+    },
+  };
+}
+
+/**
+ * Calculate Corporate Zakat (وعاء زكاة الشركات وفق طريقة مصادر الأموال المعتمدة - ZATCA Standard)
+ * @param {Object} params
+ * @param {number|string} params.capital - Paid-up capital (رأس المال المدفوع)
+ * @param {number|string} params.retainedEarnings - Retained earnings & reserves (الأرباح المدورة والاحتياطيات)
+ * @param {number|string} params.provisions - Long-term provisions (المخصصات طويلة الأجل)
+ * @param {number|string} params.longTermDebt - Long-term debt & loans (الديون والتمويلات طويلة الأجل)
+ * @param {number|string} params.netFixedAssets - Net fixed assets / PPE (صافي الأصول الثابتة)
+ * @param {number|string} params.investments - Long-term non-trading investments (استثمارات طويلة الأجل)
+ * @param {number|string} params.otherDeductions - Other statutory deductions / Intangibles (خصومات نظامية أخرى)
+ * @param {number|string} params.adjustedProfit - Adjusted net profit for the year (صافي الربح المعدل للعام)
+ * @param {'hijri'|'gregorian'} params.calendar - Calendar year basis
+ */
+export function calculateCorporateZakat({
+  capital = 0,
+  retainedEarnings = 0,
+  provisions = 0,
+  longTermDebt = 0,
+  netFixedAssets = 0,
+  investments = 0,
+  otherDeductions = 0,
+  adjustedProfit = 0,
+  calendar = 'hijri',
+} = {}) {
+  const numCapital = Math.max(0, parseFloat(capital) || 0);
+  const numRetained = Math.max(0, parseFloat(retainedEarnings) || 0);
+  const numProvisions = Math.max(0, parseFloat(provisions) || 0);
+  const numLongTermDebt = Math.max(0, parseFloat(longTermDebt) || 0);
+
+  const numFixedAssets = Math.max(0, parseFloat(netFixedAssets) || 0);
+  const numInvestments = Math.max(0, parseFloat(investments) || 0);
+  const numOtherDeductions = Math.max(0, parseFloat(otherDeductions) || 0);
+  const numAdjustedProfit = Math.max(0, parseFloat(adjustedProfit) || 0);
+
+  const totalSources = numCapital + numRetained + numProvisions + numLongTermDebt;
+  const totalDeductions = numFixedAssets + numInvestments + numOtherDeductions;
+  
+  // Zakat Base = (Total Sources - Total Deductions) + Adjusted Net Profit
+  const baseBeforeProfit = Math.max(0, totalSources - totalDeductions);
+  const zakatBase = baseBeforeProfit + numAdjustedProfit;
+
+  // Rate: 2.5% for Hijri year, 2.577% for Gregorian fiscal year
+  const ratePercentage = calendar === 'gregorian' ? 2.577 : 2.5;
+  const zakatDue = parseFloat(((zakatBase * ratePercentage) / 100).toFixed(2));
+
+  return {
+    totalSources: parseFloat(totalSources.toFixed(2)),
+    totalDeductions: parseFloat(totalDeductions.toFixed(2)),
+    baseBeforeProfit: parseFloat(baseBeforeProfit.toFixed(2)),
+    adjustedProfit: parseFloat(numAdjustedProfit.toFixed(2)),
+    zakatBase: parseFloat(zakatBase.toFixed(2)),
+    ratePercentage,
+    calendar,
+    zakatDue,
+    breakdown: {
+      capital: numCapital,
+      retainedEarnings: numRetained,
+      provisions: numProvisions,
+      longTermDebt: numLongTermDebt,
+      netFixedAssets: numFixedAssets,
+      investments: numInvestments,
+      otherDeductions: numOtherDeductions,
+      adjustedProfit: numAdjustedProfit,
+    },
+  };
+}
+

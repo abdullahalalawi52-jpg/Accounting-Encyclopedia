@@ -9,7 +9,9 @@ import {
   calculatePresentValue,
   calculateNPV,
   calculateIRR,
-  calculateLoanAmortization
+  calculateLoanAmortization,
+  calculateIndividualZakat,
+  calculateCorporateZakat
 } from '../utils/accountingMath.js';
 import './Calculators.css';
 
@@ -75,6 +77,374 @@ function VATCalculator({ isEn }) {
     </div>
   );
 }
+
+function ZakatCalculator({ isEn }) {
+  const [mode, setMode] = useState('individual'); // 'individual' | 'corporate'
+  const [calendar, setCalendar] = useState('hijri'); // 'hijri' (2.5%) | 'gregorian' (2.577%)
+
+  // Individual states
+  const [cash, setCash] = useState('');
+  const [goldSilver, setGoldSilver] = useState('');
+  const [stocks, setStocks] = useState('');
+  const [inventory, setInventory] = useState('');
+  const [goodDebts, setGoodDebts] = useState('');
+  const [immediateDebts, setImmediateDebts] = useState('');
+  const [goldPrice, setGoldPrice] = useState('320'); // SAR / 24k gram
+
+  // Corporate states
+  const [capital, setCapital] = useState('');
+  const [retainedEarnings, setRetainedEarnings] = useState('');
+  const [provisions, setProvisions] = useState('');
+  const [longTermDebt, setLongTermDebt] = useState('');
+  const [netFixedAssets, setNetFixedAssets] = useState('');
+  const [investments, setInvestments] = useState('');
+  const [otherDeductions, setOtherDeductions] = useState('');
+  const [adjustedProfit, setAdjustedProfit] = useState('');
+
+  const indResult = useMemo(() => {
+    return calculateIndividualZakat({
+      cash,
+      goldSilver,
+      stocks,
+      inventory,
+      goodDebts,
+      immediateDebts,
+      goldPricePerGram: goldPrice,
+      calendar,
+    });
+  }, [cash, goldSilver, stocks, inventory, goodDebts, immediateDebts, goldPrice, calendar]);
+
+  const corpResult = useMemo(() => {
+    return calculateCorporateZakat({
+      capital,
+      retainedEarnings,
+      provisions,
+      longTermDebt,
+      netFixedAssets,
+      investments,
+      otherDeductions,
+      adjustedProfit,
+      calendar,
+    });
+  }, [capital, retainedEarnings, provisions, longTermDebt, netFixedAssets, investments, otherDeductions, adjustedProfit, calendar]);
+
+  return (
+    <div className="calc-container calc-container-wide animate-fade-in">
+      <h2>{isEn ? 'Islamic Zakat Calculator (Individuals & Companies)' : 'حاسبة الزكاة الشرعية (للأفراد والشركات)'}</h2>
+      
+      {/* Mode & Calendar Selection */}
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 pb-4 border-b border-[var(--border-color)]">
+        <div className="flex items-center gap-2">
+          <button 
+            type="button" 
+            className={`calc-toggle-btn ${mode === 'individual' ? 'active' : ''}`}
+            onClick={() => setMode('individual')}
+          >
+            {isEn ? 'Individual Wealth & Assets' : 'زكاة الأفراد والأموال'}
+          </button>
+          <button 
+            type="button" 
+            className={`calc-toggle-btn ${mode === 'corporate' ? 'active' : ''}`}
+            onClick={() => setMode('corporate')}
+          >
+            {isEn ? 'Corporate Zakat (ZATCA)' : 'زكاة الشركات (المصادر والحسميات)'}
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2 text-sm">
+          <span className="text-[var(--text-secondary)] font-medium">{isEn ? 'Basis Year:' : 'سنة الحول:'}</span>
+          <button
+            type="button"
+            className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
+              calendar === 'hijri'
+                ? 'bg-[var(--primary-accent)]/20 border-[var(--primary-accent)] text-[var(--primary-accent)] font-bold'
+                : 'bg-[var(--bg-dark)] border-[var(--border-color)] text-[var(--text-secondary)]'
+            }`}
+            onClick={() => setCalendar('hijri')}
+          >
+            {isEn ? 'Hijri (2.5%)' : 'هجري (2.5%)'}
+          </button>
+          <button
+            type="button"
+            className={`px-3 py-1.5 rounded-lg border text-xs font-semibold transition-all ${
+              calendar === 'gregorian'
+                ? 'bg-[var(--primary-accent)]/20 border-[var(--primary-accent)] text-[var(--primary-accent)] font-bold'
+                : 'bg-[var(--bg-dark)] border-[var(--border-color)] text-[var(--text-secondary)]'
+            }`}
+            onClick={() => setCalendar('gregorian')}
+          >
+            {isEn ? 'Gregorian (2.577%)' : 'ميلادي (2.577%)'}
+          </button>
+        </div>
+      </div>
+
+      {mode === 'individual' ? (
+        <div>
+          <p className="text-xs text-[var(--text-muted)] mb-4">
+            {isEn 
+              ? 'Calculate Zakat on cash, gold, stocks, trade inventory, minus short-term debts with gold Nisab check (85g 24k).' 
+              : 'احسب زكاة السيولة، الذهب، الأسهم، عروض التجارة، مخصوماً منها الديون العاجلة مع التحقق التلقائي من النصاب (85 جرام ذهب عيار 24).'}
+          </p>
+
+          <div className="calc-grid-2">
+            <div className="calc-input-group">
+              <label htmlFor="ind-cash">{isEn ? 'Cash on Hand & Banks' : 'السيولة النقدية والودائع البنكية'}</label>
+              <input 
+                id="ind-cash"
+                type="number" 
+                className="calc-input" 
+                value={cash} 
+                onChange={e => setCash(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="ind-gold">{isEn ? 'Gold & Silver for Investment' : 'قيمة الذهب والفضة للادخار والاستثمار'}</label>
+              <input 
+                id="ind-gold"
+                type="number" 
+                className="calc-input" 
+                value={goldSilver} 
+                onChange={e => setGoldSilver(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="ind-stocks">{isEn ? 'Stocks & Investment Funds' : 'الأسهم والصناديق (للمضاربة/التجارة)'}</label>
+              <input 
+                id="ind-stocks"
+                type="number" 
+                className="calc-input" 
+                value={stocks} 
+                onChange={e => setStocks(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="ind-inventory">{isEn ? 'Business Inventory / Resale Goods' : 'قيمة عروض التجارة والبضائع المعدة للبيع'}</label>
+              <input 
+                id="ind-inventory"
+                type="number" 
+                className="calc-input" 
+                value={inventory} 
+                onChange={e => setInventory(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="ind-debts-rec">{isEn ? 'Collectible Debts (Good Receivables)' : 'الديون المرجوة التحصيل لدى الآخرين'}</label>
+              <input 
+                id="ind-debts-rec"
+                type="number" 
+                className="calc-input" 
+                value={goodDebts} 
+                onChange={e => setGoodDebts(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="ind-debts-due">{isEn ? 'Immediate Liabilities Due This Year (-)' : 'الديون والالتزامات العاجلة المستحقة عليك (-)'}</label>
+              <input 
+                id="ind-debts-due"
+                type="number" 
+                className="calc-input" 
+                value={immediateDebts} 
+                onChange={e => setImmediateDebts(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="ind-gold-price">{isEn ? '24k Gold Price / Gram (Nisab Basis)' : 'سعر جرام الذهب عيار 24 (لحساب النصاب)'}</label>
+              <input 
+                id="ind-gold-price"
+                type="number" 
+                className="calc-input" 
+                value={goldPrice} 
+                onChange={e => setGoldPrice(e.target.value)} 
+                placeholder="320"
+              />
+            </div>
+          </div>
+
+          {/* Individual Result Card */}
+          <div className="calc-result mt-6">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                indResult.isNisabReached 
+                  ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' 
+                  : 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
+              }`}>
+                {indResult.isNisabReached 
+                  ? (isEn ? `✓ Reached Nisab (>= ${indResult.nisabThreshold.toLocaleString()})` : `✓ بلغ النصاب الشرعي (>= ${indResult.nisabThreshold.toLocaleString()} ريال)`)
+                  : (isEn ? `✕ Below Nisab (< ${indResult.nisabThreshold.toLocaleString()})` : `✕ لم يبلغ النصاب الشرعي (< ${indResult.nisabThreshold.toLocaleString()} ريال)`)}
+              </span>
+            </div>
+
+            <h3>{isEn ? 'Zakat Due' : 'مقدار الزكاة الشرعية الواجبة'}</h3>
+            <div className="amount text-emerald-400">
+              {indResult.zakatDue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4 pt-4 border-t border-emerald-500/20 text-xs text-[var(--text-secondary)]">
+              <div>
+                <span className="block opacity-75">{isEn ? 'Total Assets' : 'إجمالي الأصول'}</span>
+                <span className="font-bold text-[var(--text-primary)] text-sm">{indResult.totalAssets.toLocaleString()}</span>
+              </div>
+              <div>
+                <span className="block opacity-75">{isEn ? 'Deducted Debts' : 'الديون المخصومة'}</span>
+                <span className="font-bold text-rose-400 text-sm">-{indResult.totalDeductions.toLocaleString()}</span>
+              </div>
+              <div>
+                <span className="block opacity-75">{isEn ? 'Net Zakat Base' : 'صافي الوعاء الزكوي'}</span>
+                <span className="font-bold text-emerald-400 text-sm">{indResult.netZakatBase.toLocaleString()}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <p className="text-xs text-[var(--text-muted)] mb-4">
+            {isEn 
+              ? 'Corporate Zakat calculation based on ZATCA Sources of Funds Method: (Capital + Reserves + Provisions + Long-term Debt) - (Fixed Assets + Investments) + Adjusted Net Profit.' 
+              : 'طريقة مصادر الأموال المعتمدة لدى هيئة الزكاة والضريبة والجمارك (ZATCA): (رأس المال + الاحتياطيات + المخصصات + القروض طويلة الأجل) - (الأصول الثابتة + الاستثمارات) + صافي الربح المعدل.'}
+          </p>
+
+          <div className="calc-grid-2">
+            <div className="calc-input-group">
+              <label htmlFor="corp-capital">{isEn ? 'Paid-up Capital (+)' : 'رأس المال المدفوع (+)'}</label>
+              <input 
+                id="corp-capital"
+                type="number" 
+                className="calc-input" 
+                value={capital} 
+                onChange={e => setCapital(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-retained">{isEn ? 'Retained Earnings & Reserves (+)' : 'الأرباح المدورة والاحتياطيات (+)'}</label>
+              <input 
+                id="corp-retained"
+                type="number" 
+                className="calc-input" 
+                value={retainedEarnings} 
+                onChange={e => setRetainedEarnings(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-provisions">{isEn ? 'End-of-Service & Long Provisions (+)' : 'مخصصات نهاية الخدمة والمخصصات طويلة الأجل (+)'}</label>
+              <input 
+                id="corp-provisions"
+                type="number" 
+                className="calc-input" 
+                value={provisions} 
+                onChange={e => setProvisions(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-debt">{isEn ? 'Long-term Debt & Financing (+)' : 'الديون والقروض التمويلية طويلة الأجل (+)'}</label>
+              <input 
+                id="corp-debt"
+                type="number" 
+                className="calc-input" 
+                value={longTermDebt} 
+                onChange={e => setLongTermDebt(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-assets">{isEn ? 'Net Fixed Assets (PPE) (-)' : 'صافي الأصول الثابتة (بعد مجمع الإهلاك) (-)'}</label>
+              <input 
+                id="corp-assets"
+                type="number" 
+                className="calc-input" 
+                value={netFixedAssets} 
+                onChange={e => setNetFixedAssets(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-investments">{isEn ? 'Long-term Investments (-)' : 'استثمارات طويلة الأجل في شركات تابعة (-)'}</label>
+              <input 
+                id="corp-investments"
+                type="number" 
+                className="calc-input" 
+                value={investments} 
+                onChange={e => setInvestments(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-other-ded">{isEn ? 'Other Deductions / Intangibles (-)' : 'حسميات نظامية أخرى / أصول غير ملموسة (-)'}</label>
+              <input 
+                id="corp-other-ded"
+                type="number" 
+                className="calc-input" 
+                value={otherDeductions} 
+                onChange={e => setOtherDeductions(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+
+            <div className="calc-input-group">
+              <label htmlFor="corp-profit">{isEn ? 'Adjusted Net Profit for the Year (+)' : 'صافي الربح المعدل للعام (+)'}</label>
+              <input 
+                id="corp-profit"
+                type="number" 
+                className="calc-input" 
+                value={adjustedProfit} 
+                onChange={e => setAdjustedProfit(e.target.value)} 
+                placeholder="0"
+              />
+            </div>
+          </div>
+
+          {/* Corporate Result Card */}
+          <div className="calc-result mt-6">
+            <h3>{isEn ? 'Corporate Zakat Due' : 'الزكاة المستحقة على الشركة'}</h3>
+            <div className="amount text-emerald-400">
+              {corpResult.zakatDue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4 pt-4 border-t border-emerald-500/20 text-xs text-[var(--text-secondary)]">
+              <div>
+                <span className="block opacity-75">{isEn ? 'Total Sources' : 'إجمالي المصادر'}</span>
+                <span className="font-bold text-[var(--text-primary)] text-sm">{corpResult.totalSources.toLocaleString()}</span>
+              </div>
+              <div>
+                <span className="block opacity-75">{isEn ? 'Total Deductions' : 'إجمالي الحسميات'}</span>
+                <span className="font-bold text-rose-400 text-sm">-{corpResult.totalDeductions.toLocaleString()}</span>
+              </div>
+              <div>
+                <span className="block opacity-75">{isEn ? 'Adjusted Profit' : 'الربح المعدل'}</span>
+                <span className="font-bold text-[var(--text-primary)] text-sm">+{corpResult.adjustedProfit.toLocaleString()}</span>
+              </div>
+              <div>
+                <span className="block opacity-75">{isEn ? 'Zakat Base' : 'وعاء الزكاة'}</span>
+                <span className="font-bold text-emerald-400 text-sm">{corpResult.zakatBase.toLocaleString()}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 
 function DepreciationCalculator({ isEn }) {
   const [cost, setCost] = useState('');
@@ -611,6 +981,9 @@ function Calculators() {
           <button className={`calc-tab ${activeTab === 'vat' ? 'active' : ''}`} onClick={() => setActiveTab('vat')}>
             {isEn ? 'VAT Calculator' : 'ضريبة القيمة المضافة'}
           </button>
+          <button className={`calc-tab ${activeTab === 'zakat' ? 'active' : ''}`} onClick={() => setActiveTab('zakat')}>
+            {isEn ? 'Zakat Calculator' : 'الزكاة الشرعية'}
+          </button>
           <button className={`calc-tab ${activeTab === 'depreciation' ? 'active' : ''}`} onClick={() => setActiveTab('depreciation')}>
             {isEn ? 'Asset Depreciation' : 'إهلاك الأصول'}
           </button>
@@ -632,6 +1005,7 @@ function Calculators() {
         </div>
 
         {activeTab === 'vat' && <VATCalculator isEn={isEn} />}
+        {activeTab === 'zakat' && <ZakatCalculator isEn={isEn} />}
         {activeTab === 'depreciation' && <DepreciationCalculator isEn={isEn} />}
         {activeTab === 'breakeven' && <BreakEvenCalculator isEn={isEn} />}
         {activeTab === 'endofservice' && <EndOfServiceCalculator isEn={isEn} />}

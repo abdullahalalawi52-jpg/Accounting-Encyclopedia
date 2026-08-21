@@ -50,13 +50,17 @@ function Courses() {
         <div className="inline-block p-4 rounded-full bg-gradient mb-4">
           <PlayCircle size={32} color="var(--primary-accent)" />
         </div>
-        <h1 className="text-4xl font-bold mb-4 text-gradient">المسارات التعليمية والدورات</h1>
-        <p className="text-xl text-[var(--text-secondary)]">طور مهاراتك المحاسبية عبر دورات تطبيقية وعملية (نسخة تجريبية)</p>
+        <h1 className="text-4xl font-bold mb-4 text-gradient">
+          {isEn ? 'Educational Paths & Courses' : 'المسارات التعليمية والدورات'}
+        </h1>
+        <p className="text-xl text-[var(--text-secondary)]">
+          {isEn ? 'Develop your accounting skills with practical applied courses (Preview)' : 'طور مهاراتك المحاسبية عبر دورات تطبيقية وعملية (نسخة تجريبية)'}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {coursesDB.map(course => (
-          <div key={course.id} className="glass-panel card-shimmer rounded-2xl overflow-hidden flex flex-col group border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all hover:shadow-xl hover:-translate-y-1.5 shadow-sm">
+          <div key={course.id} className="glass-panel rounded-2xl overflow-hidden flex flex-col group border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all hover:shadow-xl hover:-translate-y-1.5 shadow-sm">
             <div className="relative h-48 overflow-hidden bg-[var(--bg-main)]">
               <img 
                 src={course.image} 

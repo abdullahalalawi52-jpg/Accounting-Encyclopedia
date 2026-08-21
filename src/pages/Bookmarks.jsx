@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Bookmark, Trash2, ArrowRight } from 'lucide-react';
 import { useData } from '../hooks/useData.js';
-import { useBookmarks } from '../context/BookmarkContext.jsx';
+import { useBookmarks } from '../context/AppContext.jsx';
 import './Bookmarks.css';
 
 function Bookmarks() {

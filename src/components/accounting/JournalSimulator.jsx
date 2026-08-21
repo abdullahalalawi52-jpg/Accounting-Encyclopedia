@@ -1,6 +1,19 @@
 import { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Plus, Trash2, CheckCircle2, AlertTriangle, Sparkles, Copy, RefreshCw, Layers } from 'lucide-react';
+import { 
+  Plus, 
+  Trash2, 
+  CheckCircle2, 
+  AlertTriangle, 
+  Sparkles, 
+  Copy, 
+  RefreshCw, 
+  Layers, 
+  Trophy, 
+  HelpCircle,
+  ArrowRight,
+  BookOpen
+} from 'lucide-react';
 import { useToast } from '../../context/ToastContext.jsx';
 import Button from '../ui/Button.jsx';
 
@@ -31,6 +44,30 @@ const SCENARIOS = [
     ]
   },
   {
+    id: 'discount_purchase',
+    title_ar: 'شراء بضاعة مع خصم نقدي تعجيل دفع وضريبة',
+    title_en: 'Purchase with Cash Discount (2/10, n/30) & VAT',
+    desc_ar: 'شراء بضاعة بـ 50,000 ريال + 7,500 ضريبة، وسداد المستحق خلال فترة الخصم النقدي (5% خصم = 2,500 ريال).',
+    desc_en: 'Purchases of $50k + $7.5k VAT, settled within discount period with 5% cash discount ($2.5k).',
+    lines: [
+      { id: 1, type: 'debit', account_ar: 'حـ/ المشتريات (أو المخزون)', account_en: 'Purchases / Inventory', amount: 50000, category: 'expenses' },
+      { id: 2, type: 'debit', account_ar: 'حـ/ ضريبة القيمة المضافة المدخلات (أصول متداولة)', account_en: 'VAT Input Tax', amount: 7500, category: 'assets' },
+      { id: 3, type: 'credit', account_ar: 'حـ/ الخصم المكتسب (إيراد)', account_en: 'Discount Received (Revenue)', amount: 2500, category: 'revenue' },
+      { id: 4, type: 'credit', account_ar: 'حـ/ البنك (الصافي المسدد)', account_en: 'Bank Account', amount: 55000, category: 'assets' },
+    ]
+  },
+  {
+    id: 'prepaid_rent',
+    title_ar: 'تسوية جردية - إثبات إيجار مدفوع مقدماً واستهلاكه',
+    title_en: 'Prepaid Rent Adjusting Entry',
+    desc_ar: 'سداد إيجار سنوي 120,000 ريال مقدماً، وفي نهاية الشهر تم إثبات استهلاك شهر واحد (10,000 ريال).',
+    desc_en: 'Annual prepaid rent $120k, recognizing one month rent expense adjustment of $10k.',
+    lines: [
+      { id: 1, type: 'debit', account_ar: 'حـ/ مصروف الإيجار (قائمة الدخل)', account_en: 'Rent Expense', amount: 10000, category: 'expenses' },
+      { id: 2, type: 'credit', account_ar: 'حـ/ الإيجار المدفوع مقدماً (أصل متداول)', account_en: 'Prepaid Rent', amount: 10000, category: 'assets' },
+    ]
+  },
+  {
     id: 'payroll',
     title_ar: 'إثبات وصرف الرواتب مع استقطاع التأمينات',
     title_en: 'Payroll Settlement with Deductions',
@@ -44,27 +81,67 @@ const SCENARIOS = [
   }
 ];
 
+const CHALLENGES = [
+  {
+    id: 'ch_1',
+    title_ar: 'تحدي: بيع أصل ثابت بربح رأسمالي',
+    title_en: 'Challenge: Gain on Disposal of Fixed Asset',
+    question_ar: 'باعت المنشأة شاحنة نقل تكلفتها 80,000 ريال ومجمع إهلاكها 50,000 ريال بمبلغ 40,000 ريال نقداً. قم بتركيب القيد المحاسبي المتوازن لإثبات عملية البيع وإقفال مجمع الإهلاك والربح الرأسمالي.',
+    question_en: 'Company sold a truck (Cost: $80k, Acc. Dep: $50k) for $40k cash. Formulate the journal entry recognizing cash, closing accumulated depreciation, removing asset cost, and recording gain on disposal.',
+    correctDebit: 90000,
+    correctCredit: 90000,
+    solution_lines: [
+      { type: 'debit', account_ar: 'حـ/ الصندوق أو البنك (ثمن البيع)', amount: 40000 },
+      { type: 'debit', account_ar: 'حـ/ مجمع إهلاك الشاحنة (إقفال)', amount: 50000 },
+      { type: 'credit', account_ar: 'حـ/ الشاحنات - أصول ثابتة (إقفال التكلفة)', amount: 80000 },
+      { type: 'credit', account_ar: 'حـ/ أرباح رأسمالية من بيع أصول (قائمة الدخل)', amount: 10000 },
+    ]
+  },
+  {
+    id: 'ch_2',
+    title_ar: 'تحدي: زيادة رأس المال بإصدار أسهم بعلاوة إصدار',
+    title_en: 'Challenge: Stock Issuance with Share Premium',
+    question_ar: 'أصدرت شركة مساهمة 10,000 سهم بقيمة اسمية 10 ريالات للسهم وسعر إصدار 15 ريالاً نقدياً تم إيداعها في الحساب البنكي. قم بتسجيل قيد زيادة رأس المال وعلاوة الإصدار.',
+    question_en: 'Issued 10,000 shares (Par: $10, Issue Price: $15) deposited in bank. Record the entry for cash, common stock, and additional paid-in capital.',
+    correctDebit: 150000,
+    correctCredit: 150000,
+    solution_lines: [
+      { type: 'debit', account_ar: 'حـ/ البنك', amount: 150000 },
+      { type: 'credit', account_ar: 'حـ/ رأس مال الأسهم العادية', amount: 100000 },
+      { type: 'credit', account_ar: 'حـ/ علاوة إصدار الأسهم (احتياطي نظامي)', amount: 50000 },
+    ]
+  }
+];
+
 const COMMON_ACCOUNTS = [
-  { ar: 'حـ/ النقدية بالصندوق', en: 'Cash on Hand', category: 'assets' },
-  { ar: 'حـ/ البنك', en: 'Bank Account', category: 'assets' },
-  { ar: 'حـ/ العملاء (المدينون)', en: 'Accounts Receivable', category: 'assets' },
-  { ar: 'حـ/ المخزون السلعي', en: 'Merchandise Inventory', category: 'assets' },
-  { ar: 'حـ/ الأصول الثابتة', en: 'Fixed Assets', category: 'assets' },
-  { ar: 'حـ/ الموردين (الدائنون)', en: 'Accounts Payable', category: 'liabilities' },
-  { ar: 'حـ/ قروض بنكية', en: 'Bank Loans Payable', category: 'liabilities' },
-  { ar: 'حـ/ ضريبة القيمة المضافة', en: 'VAT Payable / Receivable', category: 'liabilities' },
-  { ar: 'حـ/ رأس المال', en: 'Owner Capital', category: 'equity' },
-  { ar: 'حـ/ إيراد المبيعات', en: 'Sales Revenue', category: 'revenue' },
-  { ar: 'حـ/ إيرادات أخرى', en: 'Other Revenues', category: 'revenue' },
-  { ar: 'حـ/ المشتريات', en: 'Purchases', category: 'expenses' },
-  { ar: 'حـ/ مصروف الرواتب والأجور', en: 'Salaries & Wages Expense', category: 'expenses' },
-  { ar: 'حـ/ مصروف الإيجار', en: 'Rent Expense', category: 'expenses' },
-  { ar: 'حـ/ مصروف الاستهلاك', en: 'Depreciation Expense', category: 'expenses' },
+  { ar: 'حـ/ النقدية بالصندوق', en: 'Cash on Hand', category: 'assets', nature: 'debit' },
+  { ar: 'حـ/ البنك', en: 'Bank Account', category: 'assets', nature: 'debit' },
+  { ar: 'حـ/ العملاء (المدينون)', en: 'Accounts Receivable', category: 'assets', nature: 'debit' },
+  { ar: 'حـ/ المخزون السلعي', en: 'Merchandise Inventory', category: 'assets', nature: 'debit' },
+  { ar: 'حـ/ الأصول الثابتة', en: 'Fixed Assets', category: 'assets', nature: 'debit' },
+  { ar: 'حـ/ مجمع الإهلاك (أصل مقابل)', en: 'Accumulated Depreciation', category: 'assets', nature: 'credit' },
+  { ar: 'حـ/ الإيجار المدفوع مقدماً', en: 'Prepaid Rent', category: 'assets', nature: 'debit' },
+  { ar: 'حـ/ الموردين (الدائنون)', en: 'Accounts Payable', category: 'liabilities', nature: 'credit' },
+  { ar: 'حـ/ قروض بنكية', en: 'Bank Loans Payable', category: 'liabilities', nature: 'credit' },
+  { ar: 'حـ/ ضريبة القيمة المضافة', en: 'VAT Payable / Receivable', category: 'liabilities', nature: 'credit' },
+  { ar: 'حـ/ رأس المال', en: 'Owner Capital', category: 'equity', nature: 'credit' },
+  { ar: 'حـ/ علاوة الإصدار', en: 'Share Premium', category: 'equity', nature: 'credit' },
+  { ar: 'حـ/ إيراد المبيعات', en: 'Sales Revenue', category: 'revenue', nature: 'credit' },
+  { ar: 'حـ/ أرباح بيع أصول', en: 'Gain on Sale of Assets', category: 'revenue', nature: 'credit' },
+  { ar: 'حـ/ الخصم المكتسب', en: 'Discount Received', category: 'revenue', nature: 'credit' },
+  { ar: 'حـ/ المشتريات', en: 'Purchases', category: 'expenses', nature: 'debit' },
+  { ar: 'حـ/ مصروف الرواتب والأجور', en: 'Salaries & Wages Expense', category: 'expenses', nature: 'debit' },
+  { ar: 'حـ/ مصروف الإيجار', en: 'Rent Expense', category: 'expenses', nature: 'debit' },
+  { ar: 'حـ/ مصروف الاستهلاك', en: 'Depreciation Expense', category: 'expenses', nature: 'debit' },
 ];
 
 export function JournalSimulator({ isEn = false }) {
   const { addToast } = useToast();
   
+  const [activeMode, setActiveMode] = useState('free'); // 'free' | 'challenge'
+  const [currentChallenge, setCurrentChallenge] = useState(CHALLENGES[0]);
+  const [showChallengeSolution, setShowChallengeSolution] = useState(false);
+
   const [lines, setLines] = useState([
     { id: 1, type: 'debit', account_ar: 'حـ/ النقدية بالصندوق', account_en: 'Cash on Hand', amount: 10000, category: 'assets' },
     { id: 2, type: 'credit', account_ar: 'حـ/ رأس المال', account_en: 'Owner Capital', amount: 10000, category: 'equity' },
@@ -95,7 +172,7 @@ export function JournalSimulator({ isEn = false }) {
   }, [lines]);
 
   const addLine = (type = 'debit') => {
-    const defaultAcc = type === 'debit' ? COMMON_ACCOUNTS[0] : COMMON_ACCOUNTS[5];
+    const defaultAcc = type === 'debit' ? COMMON_ACCOUNTS[0] : COMMON_ACCOUNTS[7];
     setLines(prev => [
       ...prev,
       {
@@ -148,8 +225,21 @@ export function JournalSimulator({ isEn = false }) {
     addToast(isEn ? 'Journal entry copied to clipboard!' : 'تم نسخ القيد المحاسبي بنجاح!');
   };
 
+  const handleVerifyChallenge = () => {
+    if (!isBalanced) {
+      addToast(isEn ? 'Entry is not balanced yet!' : 'القيد غير متوازن حالياً!', 'error');
+      return;
+    }
+
+    if (totalDebit === currentChallenge.correctDebit) {
+      addToast(isEn ? '🎉 Excellent! Correct balanced entry!' : '🎉 إجابة ممتازة وصحيحة 100%!', 'success');
+    } else {
+      addToast(isEn ? 'Entry is balanced but totals do not match scenario amount.' : 'القيد متوازن لكن المبالغ لا تطابق شروط المسألة تماماً.', 'warning');
+    }
+  };
+
   return (
-    <div className="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] p-6 md:p-8 shadow-xl mb-12">
+    <div className="bg-[var(--bg-card)] rounded-3xl border border-[var(--border-color)] p-6 md:p-8 shadow-xl mb-12 animate-fade-in">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[var(--border-color)]">
         <div>
@@ -158,20 +248,44 @@ export function JournalSimulator({ isEn = false }) {
               <Layers size={22} />
             </span>
             <h2 className="text-xl sm:text-2xl font-black text-[var(--text-primary)]">
-              {isEn ? 'Interactive Journal Entry Simulator' : 'محاكي القيود المحاسبية التفاعلي'}
+              {isEn ? 'Interactive Journal Entry Simulator' : 'محاكي القيود المحاسبية التفاعلي المتقدم'}
             </h2>
           </div>
           <p className="text-sm text-[var(--text-secondary)]">
             {isEn 
-              ? 'Build multi-leg journal entries, verify debits and credits balance in real-time, and analyze financial statement impacts.' 
-              : 'قم بتركيب قيود مركبة متعددة الأطراف، وتحقق فورياً من توازن القيد مع فهم الأثر المالي على القوائم.'}
+              ? 'Build multi-leg compound journal entries, test accounting challenges, and analyze financial impacts in real-time.' 
+              : 'قم بتركيب قيود مركبة متعددة الأطراف، خوض تحديات عملية، وتحقق فورياً من توازن القيد وطبيعة الحسابات.'}
           </p>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-2">
+        {/* Mode Switch & Actions */}
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+              activeMode === 'free'
+                ? 'bg-emerald-500 text-white border-emerald-500'
+                : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border-[var(--border-color)]'
+            }`}
+            onClick={() => setActiveMode('free')}
+          >
+            {isEn ? 'Free Simulator' : 'المحاكي الحر'}
+          </button>
+          <button
+            type="button"
+            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all border flex items-center gap-1.5 ${
+              activeMode === 'challenge'
+                ? 'bg-amber-500 text-white border-amber-500'
+                : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border-[var(--border-color)]'
+            }`}
+            onClick={() => setActiveMode('challenge')}
+          >
+            <Trophy size={14} />
+            {isEn ? 'Practice Challenges' : 'وضع التحديات'}
+          </button>
+
           <Button variant="outline" size="sm" icon={Copy} onClick={copyEntry} disabled={!isBalanced}>
-            {isEn ? 'Copy Entry' : 'نسخ القيد'}
+            {isEn ? 'Copy' : 'نسخ'}
           </Button>
           <Button 
             variant="ghost" 
@@ -183,6 +297,7 @@ export function JournalSimulator({ isEn = false }) {
                 { id: 2, type: 'credit', account_ar: 'حـ/ رأس المال', account_en: 'Owner Capital', amount: '', category: 'equity' },
               ]);
               setTransactionDesc('');
+              setShowChallengeSolution(false);
             }}
           >
             {isEn ? 'Reset' : 'إعادة ضبط'}
@@ -190,38 +305,104 @@ export function JournalSimulator({ isEn = false }) {
         </div>
       </div>
 
-      {/* Pre-built scenarios */}
-      <div className="py-5">
-        <label className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-3">
-          {isEn ? '⚡ Load Ready-Made Real-World Scenarios:' : '⚡ تحميل سيناريوهات محاسبية واقعية جاهزة:'}
-        </label>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {SCENARIOS.map(sc => (
-            <button
-              key={sc.id}
-              onClick={() => loadScenario(sc)}
-              className="text-start p-3.5 rounded-xl border border-[var(--border-color)] hover:border-emerald-500/60 bg-[var(--bg-main)]/60 hover:bg-emerald-500/5 transition-all text-xs group"
+      {/* Mode Content: Challenge Banner or Ready Scenarios */}
+      {activeMode === 'challenge' ? (
+        <div className="my-6 p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3">
+            <div className="flex items-center gap-2">
+              <span className="p-2 rounded-xl bg-amber-500/20 text-amber-400">
+                <Trophy size={18} />
+              </span>
+              <h3 className="font-bold text-base text-amber-300 m-0">
+                {isEn ? currentChallenge.title_en : currentChallenge.title_ar}
+              </h3>
+            </div>
+            
+            <div className="flex items-center gap-2">
+              {CHALLENGES.map((ch, idx) => (
+                <button
+                  key={ch.id}
+                  onClick={() => {
+                    setCurrentChallenge(ch);
+                    setShowChallengeSolution(false);
+                  }}
+                  className={`px-3 py-1 rounded-lg text-xs font-bold border transition-all ${
+                    currentChallenge.id === ch.id
+                      ? 'bg-amber-500 text-white border-amber-500'
+                      : 'bg-[var(--bg-main)] text-[var(--text-secondary)] border-[var(--border-color)]'
+                  }`}
+                >
+                  {isEn ? `Challenge #${idx + 1}` : `تحدي #${idx + 1}`}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-sm text-[var(--text-primary)] leading-relaxed mb-4">
+            {isEn ? currentChallenge.question_en : currentChallenge.question_ar}
+          </p>
+
+          <div className="flex flex-wrap items-center gap-3">
+            <Button variant="primary" size="sm" onClick={handleVerifyChallenge}>
+              {isEn ? '✓ Verify My Entry' : '✓ تحقق من صحة القيد'}
+            </Button>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              icon={HelpCircle} 
+              onClick={() => setShowChallengeSolution(!showChallengeSolution)}
             >
-              <div className="font-bold text-[var(--text-primary)] group-hover:text-emerald-400 mb-1 flex items-center justify-between">
-                <span>{isEn ? sc.title_en : sc.title_ar}</span>
-                <Sparkles size={13} className="text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              {showChallengeSolution ? (isEn ? 'Hide Model Answer' : 'إخفاء الإجابة النموذجية') : (isEn ? 'Show Model Answer' : 'عرض الإجابة النموذجية')}
+            </Button>
+          </div>
+
+          {showChallengeSolution && (
+            <div className="mt-4 p-4 rounded-xl bg-[var(--bg-main)] border border-amber-500/20 text-xs">
+              <h4 className="font-bold text-amber-400 mb-2">{isEn ? 'Model Journal Entry:' : 'القيد النموذجي الصحيح:'}</h4>
+              <div className="space-y-1 font-mono">
+                {currentChallenge.solution_lines.map((sl, i) => (
+                  <div key={i} className={sl.type === 'debit' ? 'text-emerald-400' : 'text-sky-400 ps-4'}>
+                    {sl.type === 'debit' ? (isEn ? 'Dr. ' : 'من حـ/ ') : (isEn ? 'Cr. ' : 'إلى حـ/ ')}
+                    {sl.account_ar} — <strong>{sl.amount.toLocaleString()}</strong>
+                  </div>
+                ))}
               </div>
-              <p className="text-[var(--text-muted)] line-clamp-1 m-0">{isEn ? sc.desc_en : sc.desc_ar}</p>
-            </button>
-          ))}
+            </div>
+          )}
         </div>
-      </div>
+      ) : (
+        <div className="py-5">
+          <label className="text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider block mb-3">
+            {isEn ? '⚡ Load Ready-Made Real-World Scenarios:' : '⚡ تحميل سيناريوهات محاسبية واقعية جاهزة:'}
+          </label>
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            {SCENARIOS.map(sc => (
+              <button
+                key={sc.id}
+                onClick={() => loadScenario(sc)}
+                className="text-start p-3.5 rounded-xl border border-[var(--border-color)] hover:border-emerald-500/60 bg-[var(--bg-main)]/60 hover:bg-emerald-500/5 transition-all text-xs group"
+              >
+                <div className="font-bold text-[var(--text-primary)] group-hover:text-emerald-400 mb-1 flex items-center justify-between">
+                  <span>{isEn ? sc.title_en : sc.title_ar}</span>
+                  <Sparkles size={13} className="text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <p className="text-[var(--text-muted)] line-clamp-1 m-0">{isEn ? sc.desc_en : sc.desc_ar}</p>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Description Field */}
       <div className="mb-6">
         <label className="text-xs font-bold text-[var(--text-secondary)] block mb-2">
-          {isEn ? 'Transaction Description / Memo:' : 'شرح المعاملة / البيان:'}
+          {isEn ? 'Transaction Description / Memo:' : 'شرح المعاملة / البيان المحاسبي:'}
         </label>
         <input
           type="text"
           value={transactionDesc}
           onChange={(e) => setTransactionDesc(e.target.value)}
-          placeholder={isEn ? 'e.g. Recording sale of goods to Al-Amal Trading Est.' : 'مثال: إثبات بيع بضاعة لمؤسسة الأمل التجارية'}
+          placeholder={isEn ? 'e.g. Recording sale of goods to Al-Amal Trading Est.' : 'مثال: إثبات بيع بضاعة نقداً وآجلاً وسداد الضريبة'}
           className="w-full bg-[var(--bg-main)] border border-[var(--border-color)] rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-emerald-500 text-[var(--text-primary)] transition-all"
         />
       </div>
@@ -230,7 +411,7 @@ export function JournalSimulator({ isEn = false }) {
       <div className="space-y-3 mb-6">
         <div className="hidden md:grid grid-cols-12 gap-3 px-3 text-xs font-bold text-[var(--text-muted)]">
           <div className="col-span-2">{isEn ? 'Side' : 'الطرف'}</div>
-          <div className="col-span-6">{isEn ? 'Account Title' : 'اسم الحساب'}</div>
+          <div className="col-span-6">{isEn ? 'Account Title' : 'اسم الحساب المحاسبي'}</div>
           <div className="col-span-3">{isEn ? 'Amount (SAR / $)' : 'المبلغ'}</div>
           <div className="col-span-1 text-center">{isEn ? 'Action' : 'حذف'}</div>
         </div>
@@ -313,10 +494,10 @@ export function JournalSimulator({ isEn = false }) {
       {/* Add Row Buttons */}
       <div className="flex flex-wrap items-center gap-3 mb-8">
         <Button variant="secondary" size="sm" icon={Plus} onClick={() => addLine('debit')}>
-          {isEn ? '+ Add Debit Leg (Dr.)' : '+ إضافة طرف مدين'}
+          {isEn ? '+ Add Debit Leg (Dr.)' : '+ إضافة طرف مدين (من حـ/)'}
         </Button>
         <Button variant="secondary" size="sm" icon={Plus} onClick={() => addLine('credit')}>
-          {isEn ? '+ Add Credit Leg (Cr.)' : '+ إضافة طرف دائن'}
+          {isEn ? '+ Add Credit Leg (Cr.)' : '+ إضافة طرف دائن (إلى حـ/)'}
         </Button>
       </div>
 
@@ -337,7 +518,7 @@ export function JournalSimulator({ isEn = false }) {
               <h3 className={`font-bold text-base sm:text-lg ${isBalanced ? 'text-emerald-300' : 'text-rose-300'}`}>
                 {isBalanced 
                   ? (isEn ? 'Entry is Perfectly Balanced (Debits = Credits)' : 'القيد متوازن تماماً ومطابق لمعادلة الميزانية!') 
-                  : (isEn ? `Entry is Imbalanced (Difference: ${difference})` : `القيد غير متوازن (الفرق: ${difference})`)}
+                  : (isEn ? `Entry is Imbalanced (Difference: ${difference.toLocaleString()})` : `القيد غير متوازن (الفرق: ${difference.toLocaleString()})`)}
               </h3>
               <p className="text-xs text-[var(--text-secondary)] m-0">
                 {isBalanced
@@ -351,11 +532,11 @@ export function JournalSimulator({ isEn = false }) {
           <div className="flex items-center gap-6 font-mono text-sm">
             <div className="text-center">
               <span className="text-xs text-[var(--text-muted)] block">{isEn ? 'Total Debit' : 'مجموع المدين'}</span>
-              <span className="text-lg font-bold text-emerald-400">{totalDebit.toFixed(2)}</span>
+              <span className="text-lg font-bold text-emerald-400">{totalDebit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
             </div>
             <div className="text-center">
               <span className="text-xs text-[var(--text-muted)] block">{isEn ? 'Total Credit' : 'مجموع الدائن'}</span>
-              <span className="text-lg font-bold text-sky-400">{totalCredit.toFixed(2)}</span>
+              <span className="text-lg font-bold text-sky-400">{totalCredit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
             </div>
           </div>
         </div>
@@ -364,25 +545,25 @@ export function JournalSimulator({ isEn = false }) {
       {/* Educational Accounting Guidance Card */}
       <div className="p-5 rounded-2xl bg-[var(--bg-main)] border border-[var(--border-color)] text-xs leading-relaxed">
         <h4 className="font-bold text-sm text-[var(--text-primary)] mb-2 flex items-center gap-2">
-          <Sparkles size={16} className="text-amber-400" />
-          {isEn ? 'Accounting Logic & Impact Analysis:' : 'التوجيه المحاسبي والأثر على القوائم المالية:'}
+          <BookOpen size={16} className="text-emerald-400" />
+          {isEn ? 'Accounting Rules & Nature of Accounts:' : 'قواعد القيد المزدوج وطبيعة الحسابات:'}
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-[var(--text-secondary)]">
           <div>
             <span className="font-bold text-emerald-400 block mb-1">
-              {isEn ? '1. Double-Entry Principle (قيد مزدوج):' : '1. مبدأ القيد المزدوج:'}
+              {isEn ? '1. Fundamental Accounting Equation:' : '1. معادلة الميزانية الأساسية:'}
             </span>
             {isEn 
-              ? 'Every transaction has two equal and opposite effects: Assets = Liabilities + Equity.' 
-              : 'كل حركة مالية تؤثر على طرفين على الأقل بقيم متساوية للحفاظ على توازن معادلة الميزانية (الأصول = الخصوم + حقوق الملكية).'}
+              ? 'Assets = Liabilities + Equity + (Revenues - Expenses). Every debit must have a matching credit.' 
+              : 'الأصول = الخصوم + حقوق الملكية + (الإيرادات - المصروفات). كل حركة مدينة يجب أن يقابلها حركة دائنة مساوية لها.'}
           </div>
           <div>
             <span className="font-bold text-sky-400 block mb-1">
-              {isEn ? '2. Nature of Accounts (طبيعة الحسابات):' : '2. طبيعة الحسابات:'}
+              {isEn ? '2. Nature & Movements (مدين ودائن):' : '2. طبيعة وحركات الحسابات:'}
             </span>
             {isEn 
-              ? 'Assets and Expenses increase in Debit, decrease in Credit. Liabilities, Equity, and Revenues increase in Credit, decrease in Debit.' 
-              : 'الأصول والمصروفات ذات طبيعة مدينة (تزيد بالمدين وتنقص بالدائن). الخصوم وحقوق الملكية والإيرادات ذات طبيعة دائنة (تزيد بالدائن وتنقص بالمدين).'}
+              ? 'Assets & Expenses: Debit increases (+), Credit decreases (-). Liabilities, Equity & Revenues: Credit increases (+), Debit decreases (-).' 
+              : 'الأصول والمصروفات: طبيعتها مدينة (تزيد بالمدين وتنقص بالدائن). الخصوم وحقوق الملكية والإيرادات: طبيعتها دائنة (تزيد بالدائن وتنقص بالمدين).'}
           </div>
         </div>
       </div>
@@ -395,3 +576,4 @@ JournalSimulator.propTypes = {
 };
 
 export default JournalSimulator;
+

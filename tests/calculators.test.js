@@ -7,7 +7,9 @@ import {
   calculatePresentValue,
   calculateNPV,
   calculateIRR,
-  calculateLoanAmortization
+  calculateLoanAmortization,
+  calculateIndividualZakat,
+  calculateCorporateZakat
 } from '../src/utils/accountingMath.js';
 
 describe('Accounting Calculators - VAT (ضريبة القيمة المضافة)', () => {
@@ -120,5 +122,73 @@ describe('Accounting Calculators - Loan Amortization (جدول إطفاء الق
     expect(result.totalInterest).toBeCloseTo(3935.66, 0);
   });
 });
+
+describe('Accounting Calculators - Islamic Zakat (حاسبة الزكاة الشرعية للأفراد والشركات)', () => {
+  it('should correctly calculate individual zakat above Nisab on Hijri year (2.5%)', () => {
+    // Cash: 50,000, Stocks: 30,000, Immediate debts: 10,000 -> Net Base = 70,000 SAR
+    // Nisab: 85g * 300 = 25,500 SAR. (70,000 >= 25,500) -> Zakat Due = 70,000 * 2.5% = 1,750 SAR
+    const result = calculateIndividualZakat({
+      cash: 50000,
+      stocks: 30000,
+      immediateDebts: 10000,
+      goldPricePerGram: 300,
+      calendar: 'hijri',
+    });
+
+    expect(result.totalAssets).toBe(80000);
+    expect(result.netZakatBase).toBe(70000);
+    expect(result.nisabThreshold).toBe(25500);
+    expect(result.isNisabReached).toBe(true);
+    expect(result.ratePercentage).toBe(2.5);
+    expect(result.zakatDue).toBe(1750);
+  });
+
+  it('should calculate individual zakat on Gregorian year basis (2.577%)', () => {
+    const result = calculateIndividualZakat({
+      cash: 100000,
+      calendar: 'gregorian',
+    });
+
+    expect(result.netZakatBase).toBe(100000);
+    expect(result.ratePercentage).toBe(2.577);
+    expect(result.zakatDue).toBe(2577);
+  });
+
+  it('should return zero zakat due when assets are below Nisab threshold', () => {
+    const result = calculateIndividualZakat({
+      cash: 10000,
+      goldPricePerGram: 300, // Nisab = 25,500
+    });
+
+    expect(result.isNisabReached).toBe(false);
+    expect(result.zakatDue).toBe(0);
+  });
+
+  it('should calculate corporate zakat using ZATCA sources of funds method accurately', () => {
+    // Capital: 1,000,000, Retained: 200,000, Provisions: 50,000, Long Debt: 150,000 -> Sources: 1,400,000
+    // Fixed Assets: 400,000, Investments: 100,000 -> Deductions: 500,000
+    // Base before profit: 1,400,000 - 500,000 = 900,000
+    // Adjusted Profit: 100,000 -> Total Zakat Base = 1,000,000 SAR
+    // Zakat Due (Hijri 2.5%) = 25,000 SAR
+    const result = calculateCorporateZakat({
+      capital: 1000000,
+      retainedEarnings: 200000,
+      provisions: 50000,
+      longTermDebt: 150000,
+      netFixedAssets: 400000,
+      investments: 100000,
+      adjustedProfit: 100000,
+      calendar: 'hijri',
+    });
+
+    expect(result.totalSources).toBe(1400000);
+    expect(result.totalDeductions).toBe(500000);
+    expect(result.baseBeforeProfit).toBe(900000);
+    expect(result.adjustedProfit).toBe(100000);
+    expect(result.zakatBase).toBe(1000000);
+    expect(result.zakatDue).toBe(25000);
+  });
+});
+
 
 

@@ -13,14 +13,14 @@ function TemplateCard({ template, onDownload }) {
     <div 
       className="group relative bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--primary-accent)] rounded-2xl flex flex-col h-full p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 overflow-hidden"
     >
-      <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--primary-accent)]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
       
       {/* 1. Header with Badge and Rating */}
       <div className="flex justify-between items-center mb-4 relative z-10">
         <span className={`text-xs px-3 py-1 rounded-lg font-bold shadow-sm ${
-          template.type === 'Excel' ? 'bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20' :
+          template.type === 'Excel' ? 'bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/20' :
           template.type === 'Word' ? 'bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/20' :
-          'bg-red-500/15 text-red-600 dark:text-red-400 border border-red-500/20'
+          'bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/20'
         }`}>
           {template.type}
         </span>

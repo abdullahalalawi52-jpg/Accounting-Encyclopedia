@@ -14,57 +14,57 @@ function ArticleCard({ article }) {
   return (
     <Link 
       to={`/article/${article.id}`} 
-      className="group card-shimmer relative flex flex-col h-full bg-[var(--bg-card)] rounded-2xl overflow-hidden border border-[var(--border-color)] hover:border-[var(--primary-accent)]/80 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+      className="group relative flex flex-col justify-between h-full bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] hover:border-[var(--primary-accent)] transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 p-4"
     >
       {/* 1. صورة المقال مع شارة التصنيف */}
-      <div className="h-48 sm:h-52 w-full relative overflow-hidden bg-[var(--bg-main)] flex items-center justify-center">
-        <img 
-          src={article.image || '/images/placeholder.svg'} 
-          alt={title} 
-          loading="lazy" 
-          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
-        />
-        
-        {/* شارة التصنيف العائمة */}
-        {categoryName && (
-          <div 
-            style={{ insetInlineStart: '1rem' }}
-            className="absolute top-3.5 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-900/90 text-white border border-white/20 shadow-lg"
-          >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
-            <span className="leading-none">{categoryName}</span>
-          </div>
-        )}
-      </div>
+      <div>
+        <div className="h-48 w-full relative overflow-hidden bg-slate-100 dark:bg-slate-900/60 rounded-xl border border-[var(--border-color)]/60 flex items-center justify-center mb-4">
+          <img 
+            src={article.image || '/images/placeholder.svg'} 
+            alt={title} 
+            loading="lazy" 
+            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" 
+          />
+          
+          {/* شارة التصنيف العائمة */}
+          {categoryName && (
+            <div 
+              style={{ insetInlineStart: '0.75rem' }}
+              className="absolute top-2.5 z-10 flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold bg-slate-900/90 text-white border border-white/20 shadow-md backdrop-blur-md"
+            >
+              <span className="w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_#38bdf8]"></span>
+              <span className="leading-none">{categoryName}</span>
+            </div>
+          )}
+        </div>
 
-      {/* 2. محتوى المقال */}
-      <div className="flex flex-col flex-1 justify-between p-5 sm:p-6">
-        <div className="space-y-2.5">
-          <h3 className="font-bold text-lg text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug">
+        {/* 2. محتوى المقال */}
+        <div className="space-y-1.5">
+          <h3 className="font-bold text-base md:text-lg text-[var(--text-primary)] group-hover:text-[var(--primary-accent)] transition-colors line-clamp-2 leading-snug m-0">
             {title}
           </h3>
           {(article.summary || article.desc) && (
-            <p className="text-[var(--text-secondary)] text-sm line-clamp-2 leading-relaxed">
+            <p className="text-[var(--text-secondary)] text-xs md:text-sm line-clamp-2 leading-relaxed m-0 mt-1">
               {isEn && article.summary_en ? article.summary_en : (article.summary || article.desc)}
             </p>
           )}
         </div>
+      </div>
 
-        {/* 3. شريط التذييل السفلي */}
-        <div className="flex justify-between items-center text-sm pt-4 mt-5 border-t border-[var(--border-color)]">
-          <span className="text-[var(--primary-accent)] font-bold text-sm flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
-            {t('article.read_more', 'اقرأ المزيد')} 
-            {isEn ? (
-              <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
-            ) : (
-              <ArrowLeft size={15} className="transition-transform group-hover:-translate-x-1" />
-            )}
-          </span>
+      {/* 3. شريط التذييل السفلي */}
+      <div className="flex justify-between items-center text-xs sm:text-sm pt-4 mt-5 border-t border-[var(--border-color)]/60">
+        <span className="text-[var(--primary-accent)] font-bold flex items-center gap-1.5 group-hover:gap-2 transition-all">
+          {t('article.read_more', 'اقرأ المزيد')} 
+          {isEn ? (
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+          ) : (
+            <ArrowLeft size={14} className="transition-transform group-hover:-translate-x-1" />
+          )}
+        </span>
 
-          <div className="flex items-center gap-1.5 text-[var(--text-secondary)] bg-[var(--bg-main)] px-3 py-1 rounded-full text-xs font-medium border border-[var(--border-color)]">
-            <Clock size={13} className="text-[var(--primary-accent)] opacity-80" />
-            <span>{time}</span>
-          </div>
+        <div className="flex items-center gap-1 text-[var(--text-muted)] bg-[var(--bg-main)] px-2.5 py-1 rounded-lg text-xs font-semibold border border-[var(--border-color)]/60">
+          <Clock size={12} className="text-[var(--primary-accent)]" />
+          <span>{time}</span>
         </div>
       </div>
     </Link>

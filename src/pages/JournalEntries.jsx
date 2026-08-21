@@ -195,14 +195,14 @@ function JournalEntries() {
                         </h3>
                         <button
                           onClick={() => copyEntryText(entry)}
-                          className="p-2 text-slate-400 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-xl transition-all"
+                          className="p-2 text-slate-400 hover:text-[var(--primary-accent)] hover:bg-[var(--primary-accent)]/10 rounded-xl transition-all"
                           title={isEn ? 'Copy entry' : 'نسخ القيد'}
                         >
                           <Copy size={16} />
                         </button>
                       </div>
-                      <div className="bg-[#090D16] border border-white/10 rounded-xl p-4 mb-4 shadow-inner" dir={isEn ? 'ltr' : 'rtl'}>
-                        <pre className="text-emerald-400 font-mono text-xs sm:text-sm font-bold whitespace-pre-wrap text-start m-0 leading-relaxed" dir={isEn ? 'ltr' : 'rtl'}>
+                      <div className="bg-[#0A1128] border border-blue-500/20 rounded-xl p-4 mb-4 shadow-inner" dir={isEn ? 'ltr' : 'rtl'}>
+                        <pre className="text-sky-400 font-mono text-xs sm:text-sm font-bold whitespace-pre-wrap text-start m-0 leading-relaxed" dir={isEn ? 'ltr' : 'rtl'}>
                           {isEn && entry.entry_en ? entry.entry_en : entry.entry}
                         </pre>
                       </div>

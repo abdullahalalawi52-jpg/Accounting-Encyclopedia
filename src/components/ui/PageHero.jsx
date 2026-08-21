@@ -5,9 +5,9 @@ function PageHero({ title, description, badge, padding = 'py-16 md:py-20', child
   return (
     <section className={`relative bg-gradient-to-b from-[var(--bg-dark)] to-[var(--bg-main)] ${padding} text-center border-b border-[var(--border-color)] overflow-hidden`}>
       {/* Ambient background glows */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--primary-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-15 animate-blob pointer-events-none"></div>
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[var(--primary-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-20 animate-blob pointer-events-none"></div>
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-[var(--secondary-accent)] rounded-full mix-blend-screen filter blur-[100px] opacity-15 animate-blob animation-delay-2000 pointer-events-none"></div>
-      <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-emerald-500 rounded-full mix-blend-screen filter blur-[90px] opacity-10 animate-blob animation-delay-4000 pointer-events-none"></div>
+      <div className="absolute -bottom-24 left-1/2 -translate-x-1/2 w-80 h-80 bg-blue-600 rounded-full mix-blend-screen filter blur-[90px] opacity-15 animate-blob animation-delay-4000 pointer-events-none"></div>
       
       <div className="container relative z-10 text-[var(--text-primary)]">
         {badge && (

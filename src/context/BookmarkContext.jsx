@@ -1,57 +1,39 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext } from 'react';
+import { useAppStore } from './AppContext.jsx';
 
-const BookmarkContext = createContext();
+const BookmarkContext = createContext({
+  bookmarks: [],
+  bookmarksCount: 0,
+  addBookmark: () => {},
+  removeBookmark: () => {},
+  isBookmarked: () => false,
+  toggleBookmark: () => {},
+  clearBookmarks: () => {}
+});
 
-export function BookmarkProvider({ children }) {
-  const [bookmarks, setBookmarks] = useState(() => {
-    try {
-      const saved = localStorage.getItem('bookmarks');
-      return saved ? JSON.parse(saved) : [];
-    } catch (e) {
-      console.error('Failed to parse bookmarks from localStorage', e);
-      return [];
+export const useBookmarks = () => {
+  try {
+    const store = useAppStore();
+    if (store && typeof store.bookmarks !== 'undefined') {
+      return {
+        bookmarks: store.bookmarks,
+        bookmarksCount: store.bookmarksCount,
+        addBookmark: store.addBookmark,
+        removeBookmark: store.removeBookmark,
+        isBookmarked: store.isBookmarked,
+        toggleBookmark: store.toggleBookmark,
+        clearBookmarks: store.clearBookmarks,
+      };
     }
-  });
-
-  useEffect(() => {
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  }, [bookmarks]);
-
-  const addBookmark = (articleId) => {
-    if (!bookmarks.includes(articleId)) {
-      setBookmarks([...bookmarks, articleId]);
-    }
-  };
-
-  const removeBookmark = (articleId) => {
-    setBookmarks(bookmarks.filter(id => id !== articleId));
-  };
-
-  const isBookmarked = (articleId) => {
-    return bookmarks.includes(articleId);
-  };
-
-  const toggleBookmark = (articleId) => {
-    if (isBookmarked(articleId)) {
-      removeBookmark(articleId);
-    } else {
-      addBookmark(articleId);
-    }
-  };
-
-  return (
-    <BookmarkContext.Provider value={{
-      bookmarks,
-      addBookmark,
-      removeBookmark,
-      isBookmarked,
-      toggleBookmark,
-    }}>
-      {children}
-    </BookmarkContext.Provider>
-  );
-}
-
-export function useBookmarks() {
+  } catch (e) {
+    // Fallback if rendered outside AppProvider
+  }
   return useContext(BookmarkContext);
-}
+};
+
+export const BookmarkProvider = ({ children }) => {
+  return children;
+};
+
+export default BookmarkContext;
+

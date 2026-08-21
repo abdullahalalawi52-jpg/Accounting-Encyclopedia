@@ -13,13 +13,13 @@ function SearchInput({
 }) {
   const innerContent = (
     <div className="relative flex items-center shadow-lg rounded-2xl overflow-hidden bg-[var(--bg-card)] border border-[var(--border-color)] focus-within:border-[var(--primary-accent)] focus-within:ring-4 focus-within:ring-[var(--primary-accent)]/15 transition-all w-full">
-      <div className="ps-4 pe-2 text-[var(--text-muted)] pointer-events-none">
+      <div className="ps-4 pe-2 text-[var(--text-muted)] pointer-events-none shrink-0">
         <Search size={20} />
       </div>
       <input 
         type="text" 
         placeholder={placeholder} 
-        className="w-full py-3.5 px-2 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm md:text-base outline-none font-medium"
+        className="flex-1 min-w-0 py-3.5 px-2 bg-transparent text-[var(--text-primary)] placeholder:text-[var(--text-muted)] text-sm md:text-base outline-none font-medium border-0 focus:ring-0"
         value={value}
         onChange={onChange}
       />

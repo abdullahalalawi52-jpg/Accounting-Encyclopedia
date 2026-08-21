@@ -1,42 +1,31 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
+import { useAppStore } from './AppContext.jsx';
 
-const ThemeContext = createContext();
+const ThemeContext = createContext({
+  isDarkMode: false,
+  toggleTheme: () => {},
+  setTheme: () => {}
+});
 
 export const useTheme = () => {
+  try {
+    const store = useAppStore();
+    if (store && typeof store.isDarkMode !== 'undefined') {
+      return {
+        isDarkMode: store.isDarkMode,
+        toggleTheme: store.toggleTheme,
+        setTheme: store.setTheme,
+      };
+    }
+  } catch (e) {
+    // Fallback if rendered outside AppProvider
+  }
   return useContext(ThemeContext);
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('app_theme');
-    if (savedTheme) {
-      return savedTheme === 'dark';
-    }
-    // Check system preference
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      document.documentElement.classList.add('dark');
-      document.body.setAttribute('data-theme', 'dark');
-      localStorage.setItem('app_theme', 'dark');
-    } else {
-      document.documentElement.removeAttribute('data-theme');
-      document.documentElement.classList.remove('dark');
-      document.body.removeAttribute('data-theme');
-      localStorage.setItem('app_theme', 'light');
-    }
-  }, [isDarkMode]);
-
-  const toggleTheme = () => {
-    setIsDarkMode((prev) => !prev);
-  };
-
-  return (
-    <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return children;
 };
+
+export default ThemeContext;
+

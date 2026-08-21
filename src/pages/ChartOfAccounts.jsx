@@ -190,7 +190,7 @@ function TreeItem({ item, isEn, onCopy }) {
     <div className="border border-[var(--border-color)]/60 rounded-xl bg-[var(--bg-main)]/50 p-3 transition-all hover:border-[var(--primary-accent)]/50">
       <div className="flex items-center justify-between gap-3 cursor-pointer" onClick={() => setOpen(!open)}>
         <div className="flex items-center gap-2 min-w-0">
-          <FileText size={15} className="text-emerald-400 shrink-0" />
+          <FileText size={15} className="text-[var(--primary-accent)] shrink-0" />
           <span className="font-bold text-sm text-[var(--text-primary)] truncate">{item.displayName}</span>
           <span className="font-mono text-xs px-2 py-0.5 rounded bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-muted)] shrink-0">
             {item.code}
@@ -203,7 +203,7 @@ function TreeItem({ item, isEn, onCopy }) {
               e.stopPropagation();
               onCopy(item.displayExample);
             }}
-            className="p-1.5 text-slate-400 hover:text-emerald-400 hover:bg-emerald-500/10 rounded-lg transition-colors"
+            className="p-1.5 text-slate-400 hover:text-[var(--primary-accent)] hover:bg-[var(--primary-accent)]/10 rounded-lg transition-colors"
             title={isEn ? 'Copy entry example' : 'نسخ القيد المحاسبي'}
           >
             <Copy size={13} />
@@ -216,8 +216,8 @@ function TreeItem({ item, isEn, onCopy }) {
 
       {open && (
         <div className="mt-3 pt-3 border-t border-[var(--border-color)]/60 animate-fade-in">
-          <div className="bg-[#090D16] border border-white/10 rounded-xl p-3 shadow-inner" dir={isEn ? 'ltr' : 'rtl'}>
-            <pre className="text-emerald-400 font-mono text-xs font-semibold whitespace-pre-wrap m-0 leading-relaxed" dir={isEn ? 'ltr' : 'rtl'}>
+          <div className="bg-[#0A1128] border border-blue-500/20 rounded-xl p-3 shadow-inner" dir={isEn ? 'ltr' : 'rtl'}>
+            <pre className="text-sky-400 font-mono text-xs font-semibold whitespace-pre-wrap m-0 leading-relaxed" dir={isEn ? 'ltr' : 'rtl'}>
               {item.displayExample}
             </pre>
           </div>
@@ -234,7 +234,7 @@ function TreeNode({ node, isEn, onCopy }) {
     <div className="ms-3 sm:ms-6 ps-3 border-s-2 border-[var(--border-color)]/60 my-2">
       <div 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 py-1.5 cursor-pointer text-sm font-bold text-[var(--primary-accent)] hover:text-emerald-300 transition-colors"
+        className="flex items-center gap-2 py-1.5 cursor-pointer text-sm font-bold text-[var(--primary-accent)] hover:text-sky-300 transition-colors"
       >
         {isOpen ? <FolderOpen size={16} /> : <Folder size={16} />}
         <span>{node.displayName}</span>

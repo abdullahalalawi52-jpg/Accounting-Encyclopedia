@@ -27,7 +27,7 @@
 .glossary-search-input:focus {
   outline: none;
   border-color: var(--primary-accent);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
 .glossary-grid {

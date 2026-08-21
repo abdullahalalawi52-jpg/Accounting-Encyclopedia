@@ -51,12 +51,14 @@ function Certifications() {
           <Award size={32} color="var(--primary-accent)" />
         </div>
         <h1 className="text-4xl font-bold mb-4 text-gradient">{isEn ? 'Accounting Professional Certifications' : 'الشهادات المهنية المحاسبية'}</h1>
-        <p className="text-xl text-[var(--text-secondary)]">دليلك الشامل لأهم الشهادات المهنية في عالم المحاسبة والمالية</p>
+        <p className="text-xl text-[var(--text-secondary)]">
+          {isEn ? 'Your comprehensive guide to major professional accounting and finance certifications' : 'دليلك الشامل لأهم الشهادات المهنية في عالم المحاسبة والمالية'}
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
         {certificationsDB.map(cert => (
-          <div key={cert.id} style={{ padding: '26px' }} className="glass-panel card-shimmer rounded-2xl border border-[var(--border-color)] hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden shadow-sm">
+          <div key={cert.id} style={{ padding: '26px' }} className="glass-panel rounded-2xl border border-[var(--border-color)] hover:shadow-xl transition-all flex flex-col justify-between shadow-sm">
             <div>
               <h2 className="text-2xl font-bold mb-2 text-[var(--primary-accent)]">{cert.title}</h2>
               <p className="text-xs md:text-sm font-semibold text-[var(--text-muted)] mb-4">{cert.organization}</p>
@@ -66,7 +68,9 @@ function Certifications() {
                 <div className="flex items-start gap-3">
                   <BookOpen size={18} className="text-[var(--secondary-accent)] shrink-0 mt-1" />
                   <div>
-                    <strong className="block mb-1 text-sm text-[var(--text-primary)]">المواد / الأجزاء:</strong>
+                    <strong className="block mb-1 text-sm text-[var(--text-primary)]">
+                      {isEn ? 'Exam Modules / Subjects:' : 'المواد / الأجزاء:'}
+                    </strong>
                     <ul className="list-disc list-inside text-xs md:text-sm text-[var(--text-secondary)] space-y-1">
                       {cert.subjects.map((sub, i) => <li key={i}>{sub}</li>)}
                     </ul>
@@ -75,12 +79,12 @@ function Certifications() {
                 
                 <div className="flex items-center gap-3 text-xs md:text-sm text-[var(--text-secondary)]">
                   <Clock size={18} className="text-[var(--secondary-accent)] shrink-0" />
-                  <span><strong className="ml-2 text-[var(--text-primary)]">المدة المتوقعة:</strong> {cert.time}</span>
+                  <span><strong className="ms-2 text-[var(--text-primary)]">{isEn ? 'Expected Duration:' : 'المدة المتوقعة:'}</strong> {cert.time}</span>
                 </div>
                 
                 <div className="flex items-center gap-3 text-xs md:text-sm text-[var(--text-secondary)]">
                   <Target size={18} className="text-[var(--secondary-accent)] shrink-0" />
-                  <span><strong className="ml-2 text-[var(--text-primary)]">مستوى الصعوبة:</strong> {cert.difficulty}</span>
+                  <span><strong className="ms-2 text-[var(--text-primary)]">{isEn ? 'Difficulty Level:' : 'مستوى الصعوبة:'}</strong> {cert.difficulty}</span>
                 </div>
               </div>
             </div>

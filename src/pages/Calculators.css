@@ -97,3 +97,33 @@
   font-weight: 800;
   color: var(--text-primary);
 }
+
+.calc-container-wide {
+  max-width: 860px;
+}
+
+.calc-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.calc-toggle-btn {
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-dark);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calc-toggle-btn.active {
+  background: var(--primary-accent);
+  color: #fff;
+  border-color: var(--primary-accent);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+}
+

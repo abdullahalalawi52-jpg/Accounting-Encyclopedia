@@ -20,10 +20,10 @@ function Standards() {
       <div className="standards-hero">
         <div className="standards-hero-overlay">
           <div className="container text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[var(--text-primary)] mb-4 text-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-4 text-shadow-lg">
               {isEn ? 'Standards and Regulations' : 'القوانين والمعايير المهنية'}
             </h1>
-            <p className="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed font-medium">
               {isEn 
                 ? 'The comprehensive reference for IFRS and local regulations organizing the accounting profession.' 
                 : 'المرجع الشامل للمعايير الدولية للتقارير المالية (IFRS) والأنظمة المحلية لتنظيم مهنة المحاسبة.'}
@@ -87,7 +87,7 @@ function Standards() {
           {/* IFRS Section */}
           <section id="ifrs" className="mb-12">
             <div className="flex items-center gap-2 mb-6">
-              <BookOpen className="text-[var(--text-primary)]" size={26} />
+              <BookOpen className="text-[var(--primary-accent)]" size={26} />
               <h2 className="text-2xl font-bold text-[var(--text-primary)]">
                 {isEn ? 'International Standards (IAS / IFRS)' : 'المعايير الدولية (IAS / IFRS)'}
               </h2>
@@ -100,7 +100,7 @@ function Standards() {
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {ifrsList.map(std => (
-                  <div key={std.id} className="card card-shimmer bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl border-t-[var(--primary-accent)] border-t-4 p-6 hover-lift flex flex-col justify-between overflow-hidden shadow-sm">
+                  <div key={std.id} className="card bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl border-t-[var(--primary-accent)] border-t-4 p-6 hover-lift flex flex-col justify-between shadow-sm">
                     <div>
                       <h3 className="font-bold text-[var(--text-primary)] text-lg mb-2">
                         {isEn && std.title_en ? std.title_en : std.title}
@@ -109,7 +109,7 @@ function Standards() {
                         {isEn && std.desc_en ? std.desc_en : std.desc}
                       </p>
                     </div>
-                    <button className="bg-transparent border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--primary-accent)] hover:text-[var(--primary-accent)] px-4 py-2 rounded-xl transition-all duration-300 text-sm font-bold shadow-sm w-fit">
+                    <button className="bg-transparent border border-[var(--border-color)] text-[var(--text-primary)] hover:border-[var(--primary-accent)] hover:text-[var(--primary-accent)] hover:bg-[var(--primary-accent)]/5 px-4 py-2 rounded-xl transition-all duration-300 text-sm font-bold shadow-sm w-fit">
                       {isEn ? 'Show Details' : 'عرض التفاصيل'}
                     </button>
                   </div>

@@ -94,7 +94,7 @@ function Article() {
         aria-hidden="true"
       >
         <div 
-          className="h-full bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-400 transition-all duration-150"
+          className="h-full bg-gradient-to-r from-[var(--primary-accent)] via-sky-400 to-cyan-400 transition-all duration-150 shadow-[0_0_8px_rgba(56,189,248,0.5)]"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -120,9 +120,9 @@ function Article() {
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsFocusMode(!isFocusMode)}
-              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 isFocusMode 
-                  ? 'bg-emerald-500 text-white shadow-md' 
+                  ? 'bg-[var(--primary-accent)] text-white shadow-md' 
                   : 'bg-[var(--bg-main)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] border border-[var(--border-color)]'
               }`}
               title={isFocusMode ? (isEn ? 'Exit Focus Mode' : 'الخروج من وضع التركيز') : (isEn ? 'Focus Mode' : 'وضع القراءة المركز')}
@@ -154,7 +154,7 @@ function Article() {
 
             <button
               onClick={handleShare}
-              className="p-1.5 rounded-lg bg-[var(--bg-main)] hover:text-emerald-400 hover:bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-color)] transition-colors ms-1"
+              className="p-1.5 rounded-lg bg-[var(--bg-main)] hover:text-[var(--primary-accent)] hover:bg-[var(--bg-tertiary)] text-[var(--text-secondary)] border border-[var(--border-color)] transition-colors ms-1"
               title={isEn ? 'Share Article' : 'مشاركة المقال'}
             >
               <Share2 size={15} />
